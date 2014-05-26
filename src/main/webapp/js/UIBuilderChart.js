@@ -443,6 +443,7 @@ if (!window.UIBuilderChart) {
                 }
                 chart_payload.series = series;
 
+
                 // TODO: make it better, quick fix for GHG Timeserie
                 if ( years.length > 30 ) {
                     chart_payload.xaxis.style = {};

@@ -1,21 +1,23 @@
 {
-	"datasource" :              "faostatproddiss",
-    "baseurl" :                 "fenixapps.fao.org",
+	"datasource" :              "faostat2",
+    "baseurl" :                 "faostat3.fao.org",
 	"baseurl_r" :               "faostat3.fao.org",
 	"baseurl_maps" :            "fenix.fao.org",
-	"baseurl_bletchley" :       "fenixapps.fao.org",
-    "baseurl_images" :          "http://168.202.28.214:8085/faostat-browse-js/images/",
-    "baseurl_notes" :           "http://168.202.28.214:8085/faostat-browse-js/notes",
+	"baseurl_bletchley" :       "168.202.28.214:8090",
+    "baseurl_images" :          "http://168.202.28.214:8080/faostat-browse-js/images/",
+    "baseurl_notes" :           "http://168.202.28.214:8080/faostat-browse-js/notes",
 	"width_browse_by_domain" :  "755",
 	"width_browse_by_country" : "960",
 
-    "baseurl_dbms" :            "http://fenixapps.fao.org",
+    "baseurl_dbms" :            "http://faostat3.fao.org",
     "FAOSTAT_DBMS_SERVICENAME" : "/faostat-browse-dbms",
     "FAOSTAT_DBMS_DATASOURCE" : "faostat-test",
     "FAOSTAT_DBMS_REST_GETVIEW" : "/rest/parametric/nosql/get/view/",
 
-    "FAOSTAT_DBMS_BROWSE_STRUCTURE" : "browse_by_domain_structure"
+    "FAOSTAT_DBMS_BROWSE_STRUCTURE" : "browse_by_domain_structure",
 
+    "I18N_URL" :  "http://168.202.28.214:8080/faostat-gateway/static/faostat/I18N/",
+    "I18N_SKIP": false
 
 
 }

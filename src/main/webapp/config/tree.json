@@ -1,4 +1,4 @@
 {
-	"datasource":   "faostatproddiss",
-	"baseurl":      "fenixapps.fao.org"
+	"datasource":   "faostat2",
+	"baseurl":      "faostat3.fao.org"
 }

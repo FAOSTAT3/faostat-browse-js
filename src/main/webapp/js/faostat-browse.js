@@ -7,7 +7,7 @@ if (!window.FAOSTATBrowse) {
          It can't be stored in the JSON configuration file because it is
          used to locate the JSON configuration file.
          */
-        prefix : 'http://168.202.28.214:8085/faostat-browse-js/',
+        prefix : 'http://168.202.28.214:8080/faostat-browse-js/',
 
         lang : 'E',
 
@@ -75,6 +75,8 @@ if (!window.FAOSTATBrowse) {
                 FAOSTATBrowse.FAOSTAT_DBMS_DATASOURCE = data.FAOSTAT_DBMS_DATASOURCE;
                 FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW =  data.FAOSTAT_DBMS_REST_GETVIEW;
                 FAOSTATBrowse.FAOSTAT_DBMS_BROWSE_STRUCTURE = data.FAOSTAT_DBMS_BROWSE_STRUCTURE;
+                FAOSTATBrowse.I18N_URL = data.I18N_URL;
+                FAOSTATBrowse.I18N_SKIP = data.I18N_SKIP;
 
                 // Load view's JSON
                 var data = {};
@@ -94,27 +96,46 @@ if (!window.FAOSTATBrowse) {
                             /**
                              * Initiate multi-language
                              */
+                            if ( FAOSTATBrowse.I18N_SKIP ) {
+                                alert('HERe');
+                                // modify languages
+                                document.getElementById('pageTitle').innerHTML = $.i18n.prop('_browse');
+                                document.getElementById('by_domain_label').innerHTML = $.i18n.prop('_by_domain');
+                                document.getElementById('area_label').innerHTML = $.i18n.prop('_by_area');
+                                document.getElementById('rankings_label').innerHTML = $.i18n.prop('_rankings');
+                                FAOSTATBrowse.loadUI(FAOSTATBrowse.groupCode, FAOSTATBrowse.domainCode)
 
-                                    var I18NLang = '';
-                                    switch (FAOSTATBrowse.lang) {
-                                        case 'F' : I18NLang = 'fr'; break;
-                                        case 'S' : I18NLang = 'es'; break;
-                                        default: I18NLang = 'en'; break;
-                                    }
-                                    $.i18n.properties({
-                                        name: 'I18N',
-                                        path: FAOSTATBrowse.prefix + 'I18N/',
-                                        mode: 'both',
-                                        language: I18NLang,
-                                        callback: function() {
-                                            // modify languages
-                                            document.getElementById('pageTitle').innerHTML = $.i18n.prop('_browse');
-                                            document.getElementById('by_domain_label').innerHTML = $.i18n.prop('_by_domain');
-                                            document.getElementById('area_label').innerHTML = $.i18n.prop('_by_area');
-                                            document.getElementById('rankings_label').innerHTML = $.i18n.prop('_rankings');
-                                            FAOSTATBrowse.loadUI(FAOSTATBrowse.groupCode, FAOSTATBrowse.domainCode)
+                            }
+                            else {
+                                var I18NLang = '';
+                                switch (FAOSTATBrowse.lang) {
+                                    case 'F' :
+                                        I18NLang = 'fr';
+                                        break;
+                                    case 'S' :
+                                        I18NLang = 'es';
+                                        break;
+                                    default:
+                                        I18NLang = 'en';
+                                        break;
                                 }
-                            });
+
+
+                                $.i18n.properties({
+                                    name: 'I18N',
+                                    path: FAOSTATBrowse.I18N_URL,
+                                    mode: 'both',
+                                    language: I18NLang,
+                                    callback: function () {
+                                        // modify languages
+                                        document.getElementById('pageTitle').innerHTML = $.i18n.prop('_browse');
+                                        document.getElementById('by_domain_label').innerHTML = $.i18n.prop('_by_domain');
+                                        document.getElementById('area_label').innerHTML = $.i18n.prop('_by_area');
+                                        document.getElementById('rankings_label').innerHTML = $.i18n.prop('_rankings');
+                                        FAOSTATBrowse.loadUI(FAOSTATBrowse.groupCode, FAOSTATBrowse.domainCode)
+                                    }
+                                });
+                            }
                         });
                     },
                     error : function(err, b, c) {
