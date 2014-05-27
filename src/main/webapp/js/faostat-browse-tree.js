@@ -72,15 +72,22 @@ if (!window.FAOSTATBrowseTree) {
                         $('#metadata_tree').on('select',function (event) {
                             var args = event.args;
                             var item = $('#metadata_tree').jqxTree('getItem', args.element);
+                            var label = ""
                             if (item.parentId == 0) {
                                 FAOSTATBrowse.groupCode = item.id;
                                 FAOSTATBrowse.domainCode = 'null';
                             } else {
                                 FAOSTATBrowse.groupCode = item.parentId;
                                 FAOSTATBrowse.domainCode = item.id;
+                                var parentElement = event.args.element.parentElement.parentElement;
+                                var parent = $('#metadata_tree').jqxTree('getItem', parentElement);
+                                if (parent) {
+                                    label += parent.label + " / ";
+                                };
                             }
+                            label += item.label
 
-                            FAOSTATBrowse.loadView(FAOSTATBrowse.groupCode, FAOSTATBrowse.domainCode, item.label);
+                            FAOSTATBrowse.loadView(FAOSTATBrowse.groupCode, FAOSTATBrowse.domainCode, label);
                         });
 
                         // load view

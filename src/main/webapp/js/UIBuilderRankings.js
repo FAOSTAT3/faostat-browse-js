@@ -81,7 +81,23 @@ if (!window.UIBuilderRankings) {
                     $('#metadata_tree').bind('select', function (event) {
                         var args = event.args;
                         var item = $('#metadata_tree').jqxTree('getItem', args.element);
-                        var label =  CORE.replaceAll(item.label, '<br>', '');
+                        var label = ""
+                        if (item.parentId == 0) {
+                            FAOSTATBrowse.groupCode = item.id;
+                            FAOSTATBrowse.domainCode = 'null';
+                        } else {
+                            FAOSTATBrowse.groupCode = item.parentId;
+                            FAOSTATBrowse.domainCode = item.id;
+                            var parentElement = event.args.element.parentElement.parentElement;
+                            var parent = $('#metadata_tree').jqxTree('getItem', parentElement);
+                            if (parent) {
+                                label += parent.label + " / ";
+                            };
+                        }
+                        label += item.label
+
+                        var label =  CORE.replaceAll(label, '<br>', '');
+
                         FAOSTATBrowse.loadView('rankings', item.id, label);
                     });
 
