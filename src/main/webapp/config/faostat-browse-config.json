@@ -1,9 +1,9 @@
 {
-	"datasource" :              "faostat2",
+	"datasource" :              "faostat",
     "baseurl" :                 "faostat3.fao.org",
 	"baseurl_r" :               "faostat3.fao.org",
 	"baseurl_maps" :            "fenix.fao.org",
-	"baseurl_bletchley" :       "168.202.28.214:8090",
+	"baseurl_bletchley" :       "faostat3.fao.org",
     "baseurl_images" :          "http://168.202.28.214:8080/faostat-browse-js/images/",
     "baseurl_notes" :           "http://168.202.28.214:8080/faostat-browse-js/notes",
 	"width_browse_by_domain" :  "755",
