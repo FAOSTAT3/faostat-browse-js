@@ -47,9 +47,6 @@ if (!window.FAOSTATBrowse) {
             if (lang != null && lang.length > 0) {
                 FAOSTATBrowse.lang = lang;
             }
-            var tmp = $.url().param('lang');
-            if (tmp != null && tmp.length > 0)
-                FAOSTATBrowse.lang = tmp;
 
             /**
              * Group and Domain for the tree
@@ -174,13 +171,13 @@ if (!window.FAOSTATBrowse) {
 
         },
 
-        loadUI_ByDomain : function(groupCode, domainCode) {
+        loadUI_ByDomain : function(groupCode, domainCode, up) {
             FAOSTATBrowse.groupCode = groupCode;
             FAOSTATBrowse.domainCode = domainCode;
             FAOSTATBrowse.upgradeURL(groupCode, domainCode);
             $('#main-content-leftsidebar').empty();
             $('#main-content-leftsidebar').load(FAOSTATBrowse.prefix + 'browse_by_domain.html', function() {
-                $("#selectorsHead").sticky({topSpacing:0});
+//                $("#selectorsHead").sticky({topSpacing:0});
                 FAOSTATBrowseTree.populateTree();
             });
         },
@@ -205,8 +202,6 @@ if (!window.FAOSTATBrowse) {
             var data = {};
             data.viewID = (FAOSTATBrowse.domainCode != 'null' && FAOSTATBrowse.domainCode != '*') ? FAOSTATBrowse.domainCode : FAOSTATBrowse.groupCode;
             data.schema = FAOSTATBrowse.FAOSTAT_DBMS_DATASOURCE;
-
-
 
             /** Workaround for GHG presentation (if contains '-' for the tabs) **/
             var url = FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW;

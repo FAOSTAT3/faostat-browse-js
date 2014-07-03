@@ -87,11 +87,7 @@ if (!window.UIBuilderChart) {
                     }
 
                 },
-
-                error : function(err, b, c) {
-
-                }
-
+                error : function(err, b, c) {}
             });
 
         },
@@ -130,7 +126,10 @@ if (!window.UIBuilderChart) {
             payload.renderTo = chart.object_parameters.renderTo;
             payload.categories = categories;
             payload.title = chart.object_parameters.title;
-            payload.credits = $.i18n.prop('_millionthousand');
+            if ( !chart.object_parameters.showcredits )
+                payload.credits ="";
+            else
+                payload.credits = $.i18n.prop('_millionthousand');
             payload.series = series;
             payload.yaxis = {};
             payload.yaxis.min = null;
@@ -180,7 +179,10 @@ if (!window.UIBuilderChart) {
                 payload.renderTo = chart.object_parameters.renderTo;
                 payload.categories = categories;
                 payload.title = chart.object_parameters.title;
-                payload.credits = $.i18n.prop('_millionthousand');
+                 if ( chart.object_parameters.showcredits !=null && !chart.object_parameters.showcredits )
+                     payload.credits ="";
+                else
+                     payload.credits = $.i18n.prop('_millionthousand');
                 payload.series = series;
                 payload.yaxis = {};
                 payload.yaxis.min = null;
@@ -291,7 +293,10 @@ if (!window.UIBuilderChart) {
                 chart_payload.renderTo = chart.object_parameters.renderTo;
                 chart_payload.categories = categories;
                 chart_payload.title = '';
-                chart_payload.credits = $.i18n.prop('_millionthousand');
+                 if ( chart.object_parameters.showcredits !=null && !chart.object_parameters.showcredits )
+                    chart_payload.credits ="";
+                else
+                    chart_payload.credits = $.i18n.prop('_millionthousand');
                 chart_payload.yaxis = {};
                 chart_payload.yaxis = yAxis;
                 chart_payload.series = series;
@@ -433,7 +438,10 @@ if (!window.UIBuilderChart) {
                 chart_payload.renderTo = chart.object_parameters.renderTo;
                 chart_payload.categories = years;
                 chart_payload.title = '';
-                chart_payload.credits = $.i18n.prop('_millionthousand');
+                if ( chart.object_parameters.showcredits !=null && !chart.object_parameters.showcredits )
+                    chart_payload.credits ="";
+                else
+                    chart_payload.credits = $.i18n.prop('_millionthousand');
                 chart_payload.yaxis = {};
                 chart_payload.yaxis = yAxis;
                 chart_payload.xaxis = {};
@@ -534,7 +542,10 @@ if (!window.UIBuilderChart) {
                         chart_payload.renderTo = chart.object_parameters.renderTo;
                         chart_payload.categories = categories;
                         chart_payload.title = chart.object_parameters.title;
-                        chart_payload.credits = chart.object_parameters.credits;
+                        if ( chart.object_parameters.showcredits !=null && !chart.object_parameters.showcredits )
+                            chart_payload.credits ="";
+                        else
+                            chart_payload.credits = $.i18n.prop('_millionthousand');
                         chart_payload.yaxis = {};
                         chart_payload.yaxis.min = chart.object_parameters.yaxis.min;
                         chart_payload.yaxis.max = chart.object_parameters.yaxis.max;

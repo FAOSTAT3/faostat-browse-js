@@ -42,7 +42,11 @@ if (!window.UIBuilder) {
                 UIBuilderSelectors.appendSelectors(payload.selectors);
 
             /** Append Footnote*/
-            if ( payload.footnote != null ) $('#footnote').append(payload['footnote'][FAOSTATBrowse.lang + '_footnote']).show();
+            if ( payload.footnote != null ) {
+                console.log(FAOSTATBrowse.lang + '_footnote');
+                console.log(payload['footnote'][FAOSTATBrowse.lang + '_footnote'])
+                $('#footnote').html(payload['footnote'][FAOSTATBrowse.lang + '_footnote']).show();
+            }
 
             /** Build Objects Structure **/
             UIBuilderObjectsStructure.buildObjectStructure(UIBuilder.objects, FAOSTATBrowse.width_browse_by_domain);

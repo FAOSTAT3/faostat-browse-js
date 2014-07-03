@@ -3,6 +3,7 @@ if (!window.UIBuilderSelectors) {
     window.UIBuilderSelectors = {
 
         appendSelectors : function(selectors) {
+            $('html,body').scrollTop(0);
             var s = '<table width="100%">';
             s += '<tr>';
             var width = 100 / selectors.length;
@@ -33,6 +34,11 @@ if (!window.UIBuilderSelectors) {
             for (var i = 0 ; i < selectors.length ; i++) {
                 UIBuilderSelectors.populateSelector(selectors[i]);
             }
+
+
+
+            $("#selectorsHead").unstick();
+            $("#selectorsHead").sticky({topSpacing:33});
         },
 
         populateSelector : function(selector) {
