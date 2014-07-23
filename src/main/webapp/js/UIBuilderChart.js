@@ -4,21 +4,21 @@ if (!window.UIBuilderChart) {
 
         objStructure :
             '<div id="obj_box_REPLACE" class="obj-box">' +
-                ' <div id="obj_header_REPLACE" class="obj-box-header">' +
+            ' <div id="obj_header_REPLACE" class="obj-box-header">' +
 
-                '<div class="obj-box-header-text">' +
-                '<div id="obj_title_REPLACE" class="obj-box-title"></div>' +
-                '<div id="obj_subtitle_REPLACE" class="obj-box-subtitle"></div>' +
-                '</div>' +
+            '<div class="obj-box-header-text">' +
+            '<div id="obj_title_REPLACE" class="obj-box-title"></div>' +
+            '<div id="obj_subtitle_REPLACE" class="obj-box-subtitle"></div>' +
+            '</div>' +
 
-                '<div class="obj-box-icons">' +
-                '<div class="obj-box-icon export-icon" id="obj_export_REPLACE"></div>' +
-                '</div>' +
+            '<div class="obj-box-icons">' +
+            '<div class="obj-box-icon export-icon" id="obj_export_REPLACE"></div>' +
+            '</div>' +
 
-                '</div>' +
-                '<div id="REPLACE" style="width:$_WIDTH; height:$_HEIGHT"></div> ' +
-                '<div id="obj_footer_REPLACE" class="obj-box-footer" style="display:none"></div> ' +
-                '</div>',
+            '</div>' +
+            '<div id="REPLACE" style="width:$_WIDTH; height:$_HEIGHT"></div> ' +
+            '<div id="obj_footer_REPLACE" class="obj-box-footer" style="display:none"></div> ' +
+            '</div>',
 
         appendChart : function(chart) {
 
@@ -73,9 +73,6 @@ if (!window.UIBuilderChart) {
                 success : function(response) {
 
                     $('#' + chart.object_parameters.renderTo).empty();
-                    console.log(response);
-                    console.log(chart);
-                    console.log(chart.object_parameters.keyword);
 
                     switch(chart.object_parameters.keyword) {
                         case 'FAOSTAT_DEFAULT_LINE': UIBuilderChart.queryDBAndCreateChart_Line(chart, response); break;
@@ -183,10 +180,10 @@ if (!window.UIBuilderChart) {
                 payload.renderTo = chart.object_parameters.renderTo;
                 payload.categories = categories;
                 payload.title = chart.object_parameters.title;
-                 if ( chart.object_parameters.showcredits !=null && !chart.object_parameters.showcredits )
-                     payload.credits ="";
+                if ( chart.object_parameters.showcredits !=null && !chart.object_parameters.showcredits )
+                    payload.credits ="";
                 else
-                     payload.credits = $.i18n.prop('_millionthousand');
+                    payload.credits = $.i18n.prop('_millionthousand');
                 payload.series = series;
                 payload.yaxis = {};
                 payload.yaxis.min = null;
@@ -297,7 +294,7 @@ if (!window.UIBuilderChart) {
                 chart_payload.renderTo = chart.object_parameters.renderTo;
                 chart_payload.categories = categories;
                 chart_payload.title = '';
-                 if ( chart.object_parameters.showcredits !=null && !chart.object_parameters.showcredits )
+                if ( chart.object_parameters.showcredits !=null && !chart.object_parameters.showcredits )
                     chart_payload.credits ="";
                 else
                     chart_payload.credits = $.i18n.prop('_millionthousand');
@@ -316,8 +313,6 @@ if (!window.UIBuilderChart) {
          * @param response Data fetch through WDS
          */
         queryDBAndCreateChart_MultipleAxes_Timeseries : function(chart, type, response) {
-            console.log("TIMESERIE");
-
             var data = response;
             if (typeof data == 'string')
                 data = $.parseJSON(response);
