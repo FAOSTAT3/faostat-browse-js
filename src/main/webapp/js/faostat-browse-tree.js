@@ -146,6 +146,8 @@ if (!window.FAOSTATBrowseTree) {
                 domaincode == 'GT' ||
                 domaincode == 'GL' ||
 
+                domaincode == 'HS' ||
+
                 // prices
                 domaincode == 'PA' ||
                 domaincode == 'PM' ||
@@ -153,7 +155,7 @@ if (!window.FAOSTATBrowseTree) {
 
                 // fertilizers
                 domaincode == 'RA' ||
-                domaincode == 'RT' ||
+//                domaincode == 'RT' ||
 
                 domaincode == 'GT' ||
                 domaincode == 'RY' ||
