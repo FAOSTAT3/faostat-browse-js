@@ -145,6 +145,7 @@ if (!window.FAOSTATBrowseTree) {
                 domaincode == 'TI' ||
                 domaincode == 'GT' ||
                 domaincode == 'GL' ||
+                domaincode == 'CP' ||
 
                 domaincode == 'HS' ||
 
