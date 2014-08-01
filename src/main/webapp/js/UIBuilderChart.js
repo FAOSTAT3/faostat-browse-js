@@ -31,8 +31,8 @@ if (!window.UIBuilderChart) {
             // Loading image
             document.getElementById(chart.object_parameters.renderTo).innerHTML = "<div style='height:"+ this.height+"'><img src='"+ FAOSTATBrowse.prefix +'images/loading.gif' +"'></div>";
 
-
             $('#obj_title_' + chart.object_parameters.renderTo).append(chart[FAOSTATBrowse.lang + '_title']);
+           // $('#obj_title_' + chart.object_parameters.renderTo).append(chart.title);
             $('#obj_subtitle_' + chart.object_parameters.renderTo).append(chart.subtitle);
 
             if (chart[FAOSTATBrowse.lang + '_footnote'] != null && chart[FAOSTATBrowse.lang + '_footnote'] != '' ) {
@@ -77,6 +77,7 @@ if (!window.UIBuilderChart) {
                     switch(chart.object_parameters.keyword) {
                         case 'FAOSTAT_DEFAULT_LINE': UIBuilderChart.queryDBAndCreateChart_Line(chart, response); break;
                         case 'FAOSTAT_DEFAULT_BAR': UIBuilderChart.queryDBAndCreateChart_Bar(chart, response); break;
+                        case 'FAOSTAT_DEFAULT_BAR_PESTICIDES_TRADE': UIBuilderChart.queryDBAndCreateChart_Bar_pesticides(chart, response); break;
                         case 'FAOSTAT_DEFAULT_BAR_STACKED': UIBuilderChart.queryDBAndCreateChart_Bar_Stacked(chart, response); break;
                         case 'FAOSTAT_DEFAULT_DOUBLE_AXES_BAR': UIBuilderChart.queryDBAndCreateChart_MultipleAxes(chart, 'column', response); break;
                         case 'FAOSTAT_DEFAULT_DOUBLE_AXES_LINE': UIBuilderChart.queryDBAndCreateChart_MultipleAxes(chart, 'line', response); break;
@@ -119,6 +120,64 @@ if (!window.UIBuilderChart) {
             for (var i = 0 ; i < data.length ; i++) {
                 series[i % seriesNumber].name = data[i][1];
                 series[i % seriesNumber].data.push(parseFloat(data[i][2]));
+            }
+
+            var payload = {};
+            payload.engine = 'highcharts';
+            payload.keyword = 'FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_BAR';
+            payload.renderTo = chart.object_parameters.renderTo;
+            payload.categories = categories;
+            payload.title = chart.object_parameters.title;
+            if ( !chart.object_parameters.showcredits )
+                payload.credits ="";
+            else
+                payload.credits = $.i18n.prop('_millionthousand');
+            payload.series = series;
+            payload.yaxis = {};
+            payload.yaxis.min = null;
+            payload.yaxis.max = null;
+            payload.yaxis.step = null;
+            payload.yaxis.title = data[0][3];
+
+            FENIXCharts.plot(payload);
+        },
+
+
+        queryDBAndCreateChart_Bar_pesticides : function(chart, response) {
+
+            var data = response;
+            if (typeof data == 'string')
+                data = $.parseJSON(response);
+
+            var categories = [];
+            for (var i = 0 ; i < data.length ; i++) {
+                if ($.inArray(data[i][0], categories) < 0) {
+                    categories.push(data[i][0]);
+                }
+            }
+
+            var seriesNames = [];
+            for (var i = 0 ; i < data.length ; i++) {
+                if ($.inArray(data[i][1], seriesNames) < 0) {
+                    seriesNames.push(data[i][1]);
+                }
+            }
+
+            var series = [];
+            for (var i = 0 ; i < seriesNames.length ; i++) {
+                var serie = {}
+                serie.name = seriesNames[i];
+                serie.data = []
+                series.push(serie)
+            }
+
+            for (var i = 0; i < data.length ; i++) {
+                for(var j = 0; j < series.length; j++ ) {
+                    if (data[i][1] == series[j].name) {
+                        series[j].data.push(parseFloat(data[i][2]))
+                        break;
+                    }
+                }
             }
 
             var payload = {};
