@@ -5,7 +5,7 @@
 	"baseurl_maps" :            "fenix.fao.org",
 	"baseurl_bletchley" :       "faostat3.fao.org",
     "baseurl_images" :          "http://168.202.28.214:8080/faostat-browse-js/images/",
-    "baseurl_notes" :           "http://168.202.28.214:8080/faostat-browse-js/notes",
+    "baseurl_notes" :           "http://faostat3.fao.org/faostat-download-js/PDF",
 	"width_browse_by_domain" :  "755",
 	"width_browse_by_country" : "960",
 
