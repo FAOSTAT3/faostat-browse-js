@@ -6,8 +6,8 @@ var UIBuilderMap = function() {
         iframeURL: '',
 
         // default values
-        baselayers: 'osm,mapquest,mapquest_nasa',
-        layers: 'gaul0_faostat_3857,gaul0_line_3857',
+        baselayers: 'osm',
+        layers: 'gaul0_faostat3_3857,gaul0_line_3857',
         styles: 'join,gaul0_line',
         joinboundary: 'FAOSTAT',
         enablejoingfi: true,
@@ -153,7 +153,7 @@ var UIBuilderMap = function() {
             }
         },
         createIframeURL: function(obj) {
-            this.iframeURL = "http://" + FAOSTATBrowse.baseurl_maps + "/maps/api?" +
+            this.iframeURL = FAOSTATBrowse.baseurl_maps + "?" +
                 "baselayers=" + this.baselayers +
                 "&layers=" + this.layers +
                 "&styles=" + this.styles +

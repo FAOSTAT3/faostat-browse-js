@@ -1,8 +1,8 @@
 {
-	"datasource" :              "faostat",
+	"datasource" :              "faostat2",
     "baseurl" :                 "faostat3.fao.org",
 	"baseurl_r" :               "faostat3.fao.org",
-	"baseurl_maps" :            "fenix.fao.org",
+	"baseurl_maps" :            "//fenixapps2.fao.org/faostat-maps/api",
 	"baseurl_bletchley" :       "faostat3.fao.org",
     "baseurl_images" :          "http://168.202.28.214:8080/faostat-browse-js/images/",
     "baseurl_notes" :           "http://faostat3.fao.org/faostat-download-js/PDF",
@@ -17,7 +17,9 @@
     "FAOSTAT_DBMS_BROWSE_STRUCTURE" : "browse_by_domain_structure",
 
     "I18N_URL" :  "http://168.202.28.214:8080/faostat-gateway/static/faostat/I18N/",
-    "I18N_SKIP": false
+    "I18N_SKIP": false,
+
+    "FAOSTAT_JSON_SERVICE" : "http://168.202.28.214:8080/faostat-browse-js/json/prod/"
 
 
 }

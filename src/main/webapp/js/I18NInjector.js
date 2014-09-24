@@ -30,6 +30,16 @@ if (!window.I18NInjector) {
             return json;
         },
 
+        injectLanguage_title: function(json, obj) {
+            for (var i = 0 ; i < json.objects.length ; i++) {
+                var str = JSON.stringify(json.objects[i][FAOSTATBrowse.lang + '_title'])
+                if ( obj.area )
+                    str = CORE.replaceAll(str, '{{AREA}}', obj.area);
+                json.objects[i].title = jQuery.parseJSON(str);
+            }
+            return json;
+        },
+
         injectLanguage_Subtitles : function(json) {
             var agg_label;
             if ( json.selectors != null ) {
@@ -63,8 +73,10 @@ if (!window.I18NInjector) {
         },
 
         injectLanguage_Subtitles_cachedObjects : function(object, aggregation_code, date) {
+            // object.subtitle = builds the actual subtitle
 
-            object.subtitle = object[FAOSTATBrowse.lang + '_subtitle'];
+
+           object.subtitle = object[FAOSTATBrowse.lang + '_subtitle'];
 
             // Aggregation
             var cachedAggregationLabel = object.aggregation_label;
@@ -89,6 +101,26 @@ if (!window.I18NInjector) {
                 object.subtitle = object.subtitle.replace('$_DATE', object.date_default_label);
             }
 
+
+            /*var str = JSON.stringify(object)
+            console.log(str);
+            if ( aggregation_code) {
+                var aggr_label = $.i18n.prop('_' + aggregation_code.toLowerCase())
+                console.log(aggr_label)
+                str = CORE.replaceAll(str, '$_AGG', aggr_label);
+            }
+            if ( date) {
+                console.log(date)
+                str = CORE.replaceAll(str, '$_DATE', date);
+            }
+
+            console.log(str);
+
+            object = jQuery.parseJSON(str);
+
+            console.log(object);
+
+            return object;*/
         },
 
         injectLanguage_Selectors : function(json) {

@@ -40,6 +40,9 @@ if (!window.FAOSTATBrowse) {
         section : null,
 
         init : function(groupCode, domainCode, lang) {
+           console.log(groupCode);
+
+            console.log(lang);
 
             /**
              * Language: as parameter or from the URL
@@ -74,14 +77,18 @@ if (!window.FAOSTATBrowse) {
                 FAOSTATBrowse.FAOSTAT_DBMS_BROWSE_STRUCTURE = data.FAOSTAT_DBMS_BROWSE_STRUCTURE;
                 FAOSTATBrowse.I18N_URL = data.I18N_URL;
                 FAOSTATBrowse.I18N_SKIP = data.I18N_SKIP;
+                FAOSTATBrowse.FAOSTAT_JSON_SERVICE = data.FAOSTAT_JSON_SERVICE;
 
                 // Load view's JSON
                 var data = {};
                 data.viewID = FAOSTATBrowse.FAOSTAT_DBMS_BROWSE_STRUCTURE;
                 data.schema = FAOSTATBrowse.FAOSTAT_DBMS_DATASOURCE;
+                var url = FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW
+                //var url = FAOSTATBrowse.FAOSTAT_JSON_SERVICE + data.viewID +".json";
+
                 $.ajax({
                     type : 'POST',
-                    url : FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW,
+                    url : url,
                     data : data,
                     success : function(response) {
                         if (typeof response == 'string')
@@ -90,11 +97,12 @@ if (!window.FAOSTATBrowse) {
                         $('#container').load(FAOSTATBrowse.prefix + 'browse.html', function() {
                             //FAOSTATBrowse.loadUI_ByDomain();
 
+
+
                             /**
                              * Initiate multi-language
                              */
                             if ( FAOSTATBrowse.I18N_SKIP ) {
-                                alert('HERe');
                                 // modify languages
                                 document.getElementById('pageTitle').innerHTML = $.i18n.prop('_browse');
                                 document.getElementById('by_domain_label').innerHTML = $.i18n.prop('_by_domain');
@@ -116,7 +124,6 @@ if (!window.FAOSTATBrowse) {
                                         I18NLang = 'en';
                                         break;
                                 }
-
 
                                 $.i18n.properties({
                                     name: 'I18N',
@@ -172,12 +179,17 @@ if (!window.FAOSTATBrowse) {
         },
 
         loadUI_ByDomain : function(groupCode, domainCode, up) {
+            console.log("loadUI_ByDomain");
             FAOSTATBrowse.groupCode = groupCode;
             FAOSTATBrowse.domainCode = domainCode;
+            console.log(FAOSTATBrowse.prefix + 'browse_by_domain.html');
             FAOSTATBrowse.upgradeURL(groupCode, domainCode);
+            console.log(FAOSTATBrowse.prefix + 'browse_by_domain.html');
             $('#main-content-leftsidebar').empty();
+            console.log(FAOSTATBrowse.prefix + 'browse_by_domain.html');
+
             $('#main-content-leftsidebar').load(FAOSTATBrowse.prefix + 'browse_by_domain.html', function() {
-//                $("#selectorsHead").sticky({topSpacing:0});
+                console.log("FAOSTATBrowse");
                 FAOSTATBrowseTree.populateTree();
             });
         },
@@ -205,11 +217,13 @@ if (!window.FAOSTATBrowse) {
 
             /** Workaround for GHG presentation (if contains '-' for the tabs) **/
             var url = FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW;
+            //var url = FAOSTATBrowse.FAOSTAT_JSON_SERVICE + data.viewID +".json";
+
 
             // Load view's JSON
             $.ajax({
                 type : 'POST',
-                url : FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW,
+                url : url,
                 data : data,
                 success : function(response) {
 
@@ -235,6 +249,7 @@ if (!window.FAOSTATBrowse) {
         },
 
         upgradeURL: function(section, subsection) {
+
             // Upgrade the URL
             if (CORE != null) {
                 var subsection = (subsection == 'null') ? '*' : subsection;
