@@ -179,7 +179,6 @@ if (!window.FAOSTATBrowse) {
         },
 
         loadUI_ByDomain : function(groupCode, domainCode, up) {
-            console.log("loadUI_ByDomain");
             FAOSTATBrowse.groupCode = groupCode;
             FAOSTATBrowse.domainCode = domainCode;
             console.log(FAOSTATBrowse.prefix + 'browse_by_domain.html');
@@ -189,7 +188,7 @@ if (!window.FAOSTATBrowse) {
             console.log(FAOSTATBrowse.prefix + 'browse_by_domain.html');
 
             $('#main-content-leftsidebar').load(FAOSTATBrowse.prefix + 'browse_by_domain.html', function() {
-                console.log("FAOSTATBrowse");
+                document.getElementById('tree-title').innerHTML = $.i18n.prop('_faostatDomains');
                 FAOSTATBrowseTree.populateTree();
             });
         },

@@ -11,6 +11,7 @@ if (!window.UIBuilderRankings) {
             $('#main-content-leftsidebar').empty();
             $('#main-content-leftsidebar').load(FAOSTATBrowse.prefix + 'browse_rankings.html', function() {
                 $("#selectorsHead").sticky({topSpacing:0});
+                document.getElementById('tree-title').innerHTML = $.i18n.prop('_rankingSector');
                 UIBuilderRankings.buildTree(subsection);
             });
         },
