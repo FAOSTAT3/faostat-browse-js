@@ -154,9 +154,11 @@ if (!window.UIBuilderByCountry) {
             $('#main-content-leftsidebar').empty();
             $('#main-content-leftsidebar').load(FAOSTATBrowse.prefix + 'browse_by_country.html', function() {
                 $.ajax({
-                    type : 'POST',
-                    url : FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW,
-                    data : data,
+                    //type : 'POST',
+                    //url : FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW,
+                    //data : data,
+                    type : 'GET',
+                    url :  FAOSTATBrowse.FAOSTAT_JSON_SERVICE + data.viewID +".json",
                     success : function(response) {
                         UIBuilderByCountry.buildUICountryView(response, code, label);
                     },
