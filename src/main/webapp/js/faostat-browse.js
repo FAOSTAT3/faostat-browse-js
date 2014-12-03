@@ -7,7 +7,7 @@ if (!window.FAOSTATBrowse) {
          It can't be stored in the JSON configuration file because it is
          used to locate the JSON configuration file.
          */
-        prefix : 'http://168.202.28.214:8080/faostat-browse-js/',
+        prefix : 'http://faostat3.fao.org/modules/faostat-browse-js/',
 
         lang : 'E',
 
@@ -40,10 +40,6 @@ if (!window.FAOSTATBrowse) {
         section : null,
 
         init : function(groupCode, domainCode, lang) {
-           console.log(groupCode);
-
-            console.log(lang);
-
             /**
              * Language: as parameter or from the URL
              */
@@ -84,19 +80,19 @@ if (!window.FAOSTATBrowse) {
                 data.viewID = FAOSTATBrowse.FAOSTAT_DBMS_BROWSE_STRUCTURE;
                 data.schema = FAOSTATBrowse.FAOSTAT_DBMS_DATASOURCE;
                 var url = FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW
-                //var url = FAOSTATBrowse.FAOSTAT_JSON_SERVICE + data.viewID +".json";
+                var url = FAOSTATBrowse.FAOSTAT_JSON_SERVICE + data.viewID +".json";
 
+                // Load view's JSON
                 $.ajax({
-                    type : 'POST',
+                    type : 'GET',
                     url : url,
-                    data : data,
+                    //data : data,
                     success : function(response) {
                         if (typeof response == 'string')
                             response = $.parseJSON(response);
                         FAOSTATBrowse.FAOSTAT_DBMS_BROWSE_STRUCTURE = response;
                         $('#container').load(FAOSTATBrowse.prefix + 'browse.html', function() {
                             //FAOSTATBrowse.loadUI_ByDomain();
-
 
 
                             /**
@@ -181,11 +177,8 @@ if (!window.FAOSTATBrowse) {
         loadUI_ByDomain : function(groupCode, domainCode, up) {
             FAOSTATBrowse.groupCode = groupCode;
             FAOSTATBrowse.domainCode = domainCode;
-            console.log(FAOSTATBrowse.prefix + 'browse_by_domain.html');
             FAOSTATBrowse.upgradeURL(groupCode, domainCode);
-            console.log(FAOSTATBrowse.prefix + 'browse_by_domain.html');
             $('#main-content-leftsidebar').empty();
-            console.log(FAOSTATBrowse.prefix + 'browse_by_domain.html');
 
             $('#main-content-leftsidebar').load(FAOSTATBrowse.prefix + 'browse_by_domain.html', function() {
                 document.getElementById('tree-title').innerHTML = $.i18n.prop('_faostatDomains');
@@ -215,15 +208,14 @@ if (!window.FAOSTATBrowse) {
             data.schema = FAOSTATBrowse.FAOSTAT_DBMS_DATASOURCE;
 
             /** Workaround for GHG presentation (if contains '-' for the tabs) **/
-            var url = FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW;
-            //var url = FAOSTATBrowse.FAOSTAT_JSON_SERVICE + data.viewID +".json";
-
+            //var url = FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW;
+            var url = FAOSTATBrowse.FAOSTAT_JSON_SERVICE + data.viewID +".json";
 
             // Load view's JSON
             $.ajax({
-                type : 'POST',
+                type : 'GET',
                 url : url,
-                data : data,
+                //data : data,
                 success : function(response) {
 
                     // Build the UI
@@ -257,5 +249,4 @@ if (!window.FAOSTATBrowse) {
         }
 
     };
-
 }
