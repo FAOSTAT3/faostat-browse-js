@@ -23,9 +23,11 @@ if (!window.UIBuilderRankings) {
             data.schema = FAOSTATBrowse.FAOSTAT_DBMS_DATASOURCE;
 
             $.ajax({
-                type : 'POST',
-                url : FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW,
-                data : data,
+                //type : 'POST',
+                //url : FAOSTATBrowse.baseurl_dbms + FAOSTATBrowse.FAOSTAT_DBMS_SERVICENAME + FAOSTATBrowse.FAOSTAT_DBMS_REST_GETVIEW,
+                //data : data,
+                type : 'GET',
+                url :  FAOSTATBrowse.FAOSTAT_JSON_SERVICE + data.viewID +".json",
                 success : function(response) {
 
                     // Fetch JSON
