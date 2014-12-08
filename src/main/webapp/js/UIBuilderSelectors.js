@@ -52,48 +52,49 @@ if (!window.UIBuilderSelectors) {
         },
 
         populateNoSQLSelector : function(selector) {
-            $.ajax({
-                type : 'POST',
-                url :  FAOSTATBrowse.baseurl_dbms + selector.rest,
-                success : function(response) {
-                    var tmp = response;
-                    if (typeof tmp == 'string')
-                        tmp = $.parseJSON(response);
-                    var data = [];
-                    var selectedIndex = 0;
-                    for (var i = 0 ; i < tmp.length ; i++) {
-                        var parse = $.parseJSON(tmp[i]);
-                        var row = {};
-                        row.code = parse.code;
-                        row.label = parse[FAOSTATBrowse.lang + '_label'];
-                        data.push(row);
-                        if (row.code == selector.default_code)
-                            selectedIndex = i;
+            try {
+                $.ajax({
+                    type: 'POST',
+                    url: FAOSTATBrowse.baseurl_dbms + selector.rest,
+                    success: function (response) {
+                        var tmp = response;
+                        if (typeof tmp == 'string')
+                            tmp = $.parseJSON(response);
+                        var data = [];
+                        var selectedIndex = 0;
+                        for (var i = 0; i < tmp.length; i++) {
+                            var parse = $.parseJSON(tmp[i]);
+                            var row = {};
+                            row.code = parse.code;
+                            row.label = parse[FAOSTATBrowse.lang + '_label'];
+                            data.push(row);
+                            if (row.code == selector.default_code)
+                                selectedIndex = i;
+                        }
+
+                        $('#selector_' + selector.keyword).jqxComboBox({
+                            // id: selector.keyword,
+                            source: data,
+                            selectedIndex: selectedIndex,
+                            width: selector.width,
+                            height: '25px',
+                            theme: FAOSTATBrowse.theme
+                        });
+
+                        $('#selector_' + selector.keyword).on('change', function (event) {
+                            var args = event.args;
+                            if (args) {
+                                var item = args.item;
+                                UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain);
+                            }
+                        });
+
+                    }, error: function (err, b, c) {
+
                     }
 
-                    $('#selector_' + selector.keyword).jqxComboBox({
-                        // id: selector.keyword,
-                        source: data,
-                        selectedIndex: selectedIndex,
-                        width: selector.width,
-                        height: '25px',
-                        theme: FAOSTATBrowse.theme
-                    });
-
-                    $('#selector_' + selector.keyword).on('change', function (event)  {
-                        var args = event.args;
-                        if (args) {
-                            var item = args.item;
-                            UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain);
-                        }
-                    });
-
-                }, error : function(err, b, c) {
-
-                }
-
-            });
-
+                });
+            }catch (e) {}
         },
 
         populateFixedValues : function(selector) {
