@@ -163,7 +163,7 @@
       "S_label":"Hasta el ao",
       "E_help":"n.a.",
       "keyword":"toyear",
-      "default_code":2010,
+      "default_code":2012,
       "blacklist":[
 
       ],
@@ -236,7 +236,7 @@
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2010",
+      "date_default_label":"1990 - 2012",
       "E_footnote":"<div style='color:#666'><i>The designations employed and the presentation of material in the maps do not imply the expression of any opinion whatsoever on the part of FAO concerning the legal or constitutional status of any country, territory or sea area, or concerning the delimitation of frontiers.<br>South Sudan declared its independence on July 9, 2011. Due to data availability, the assessment presented in the map for Sudan and South Sudan reflects the situation up to 2011 for the former Sudan.</i></div>",
       "F_footnote":"<div style='color:#666'><i>Les appellations employes et la prsentation des donnes sur la carte n'impliquent de la part de la FAO aucune prise de position quant au statut juridique ou constitutionnel des pays, territoires ou zones maritimes, ni quant au trac de leurs frontires ou limites.<br>Le Soudan du Sud a dclar son indpendance le 9 Juillet 2011. Pour des raisons de disponibilit des donnes, lvaluation montre sur  la carte  la fois pour le Soudan et le Soudan du Sud, reflte la situation comme elle letait jusquen 2011 pour lex Soudan.</i></div>",
       "S_footnote":"<div style='color:#666'><i>Las denominaciones empleadas en los mapas y la forma en que aparecen presentados los datos no implican, por parte de la FAO, juicio alguno sobre la condicin jurdica de pases, territorios o zonas martimas, ni respecto de la delimitacin de sus fronteras.<br>Sudn del Sur declar su independencia el 9 de julio de 2011. Debido a la disponibilidad de datos, la evaluacin presentada en el mapa para Sudn y Sudn del Sur refleja la situacin hasta el ao 2011 para la antigua Sudn.</i></div",
@@ -311,6 +311,8 @@
             "operator":"IN",
             "value":null,
             "ins":[
+              2012,
+              2011,
               2010,
               2009,
               2008,
@@ -430,7 +432,7 @@
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"1990 - 2010",
+      "date_default_label":"1990 - 2012",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -555,7 +557,9 @@
               2007,
               2008,
               2009,
-              2010
+              2010,
+              2011,
+              2012
             ]
           },
           {
@@ -620,7 +624,7 @@
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"1990 - 2010",
+      "date_default_label":"1990 - 2012",
       "E_footnote":"<div style='color:#666'><i>Growth rate calculated based on the Least-Squares method</i></div>",
       "F_footnote":"<div style='color:#666'><i>Taux de croissance calcul avec  la mthode des moindres carrs</i></div>",
       "S_footnote":"<div style='color:#666'><i>Tasa de crecimiento calculada basndose en el mtodo de mnimos cuadrados</i></div>",
@@ -723,7 +727,9 @@
               2007,
               2008,
               2009,
-              2010
+              2010,
+              2011,
+              2012
             ]
           },
           {
@@ -779,7 +785,7 @@
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2010",
+      "date_default_label":"1990 - 2012",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -906,7 +912,9 @@
               2007,
               2008,
               2009,
-              2010
+              2010,
+              2011,
+              2012
             ]
           },
           {
@@ -958,7 +966,7 @@
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2010",
+      "date_default_label":"1990 - 2012",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -1061,7 +1069,9 @@
               2007,
               2008,
               2009,
-              2010
+              2010,
+              2011,
+              2012
             ]
           },
           {
@@ -1125,7 +1135,7 @@
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2010",
+      "date_default_label":"1990 - 2012",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -1233,7 +1243,7 @@
             "operator":"NOTIN",
             "value":null,
             "ins":[
-              41,
+              351,
               228
             ]
           },
@@ -1272,7 +1282,9 @@
               2007,
               2008,
               2009,
-              2010
+              2010,
+              2011,
+              2012
             ]
           }
         ],
