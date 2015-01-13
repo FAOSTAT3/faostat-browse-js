@@ -18,7 +18,7 @@
 	"I18N_URL" :  "http://faostat3.fao.org/static/faostat/I18N/",
 	"I18N_SKIP": false,
 
-	"FAOSTAT_JSON_SERVICE" : "http://168.202.28.214:8080/faostat-browse-js/faostat-browse-views/"
+	"FAOSTAT_JSON_SERVICE" : "http://localhost:8080/faostat-browse-js/faostat-browse-views/"
 }
 
 

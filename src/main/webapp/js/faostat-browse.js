@@ -7,7 +7,7 @@ if (!window.FAOSTATBrowse) {
          It can't be stored in the JSON configuration file because it is
          used to locate the JSON configuration file.
          */
-        prefix : 'http://168.202.28.214:8080/faostat-browse-js/',
+        prefix : 'http://localhost:8080/faostat-browse-js/',
 
         lang : 'E',
 
