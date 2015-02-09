@@ -788,9 +788,9 @@
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
       "date_default_label":"2003 - 2013",
-      "E_footnote":"<div style='color:#666'><i>Growth rate calculated based on the Least-Squares method</i></div>",
-      "F_footnote":"<div style='color:#666'><i>Taux de croissance calcul avec  la mthode des moindres carrs</i></div>",
-      "S_footnote":"<div style='color:#666'><i>Tasa de crecimiento calculada basndose en el mtodo de mnimos cuadrados</i></div>",
+      "E_footnote": "<div style='color:#666'><i>Growth rate calculated based on the Least-Squares method</i></div>",
+      "F_footnote": "<div style='color:#666'><i>Taux de croissance calculé avec  la méthode des moindres carrés</i></div>",
+      "S_footnote": "<div style='color:#666'><i>Tasa de crecimiento calculada basándose en el método de mínimos cuadrados</i></div>",
       "object_parameters":{
         "series_name":"Production",
         "engine":"highcharts",
