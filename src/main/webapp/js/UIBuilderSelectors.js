@@ -43,7 +43,7 @@ if (!window.UIBuilderSelectors) {
 
         populateSelector : function(selector) {
             switch (selector.type) {
-                case 'dropdown_aggregation': UIBuilderSelectors.populateNoSQLSelector(selector); break;
+                case 'dropdown_aggregation': UIBuilderSelectors.populateJSONSelector(selector); break;
                 case 'dropdown_orderby': UIBuilderSelectors.populateFixedValues(selector); break;
                 // TODO: change the name in the JSON configuration files to dropdown_years_fixed
                 case 'dropdown_years_projection': UIBuilderSelectors.populateFixedValues(selector); break;
@@ -51,11 +51,11 @@ if (!window.UIBuilderSelectors) {
             }
         },
 
-        populateNoSQLSelector : function(selector) {
+        populateJSONSelector : function(selector) {
             try {
                 $.ajax({
                     type: 'POST',
-                    url: FAOSTATBrowse.baseurl_dbms + selector.rest,
+                    url: FAOSTATBrowse.FAOSTAT_JSON_SERVICE + selector.keyword + ".json",
                     success: function (response) {
                         var tmp = response;
                         if (typeof tmp == 'string')
@@ -95,6 +95,52 @@ if (!window.UIBuilderSelectors) {
 
                 });
             }catch (e) {}
+        },
+
+        // TODO: Remove not used anymore
+        populateNoSQLSelector : function(selector) {
+            $.ajax({
+                type : 'POST',
+                url :  FAOSTATBrowse.baseurl_dbms + selector.rest,
+                success : function(response) {
+                    var tmp = response;
+                    if (typeof tmp == 'string')
+                        tmp = $.parseJSON(response);
+                    var data = [];
+                    var selectedIndex = 0;
+                    for (var i = 0 ; i < tmp.length ; i++) {
+                        var parse = $.parseJSON(tmp[i]);
+                        var row = {};
+                        row.code = parse.code;
+                        row.label = parse[FAOSTATBrowse.lang + '_label'];
+                        data.push(row);
+                        if (row.code == selector.default_code)
+                            selectedIndex = i;
+                    }
+
+                    $('#selector_' + selector.keyword).jqxComboBox({
+                        // id: selector.keyword,
+                        source: data,
+                        selectedIndex: selectedIndex,
+                        width: selector.width,
+                        height: '25px',
+                        theme: FAOSTATBrowse.theme
+                    });
+
+                    $('#selector_' + selector.keyword).on('change', function (event)  {
+                        var args = event.args;
+                        if (args) {
+                            var item = args.item;
+                            UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain);
+                        }
+                    });
+
+                }, error : function(err, b, c) {
+
+                }
+
+            });
+
         },
 
         populateFixedValues : function(selector) {
