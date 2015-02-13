@@ -237,7 +237,7 @@
       "element_onchange":true,
       "area_onchange":false,
       "year_onchange":true,
-      "aggregation_onchange":true,
+      "aggregation_onchange":false,
       "E_title": "",
       "S_title": "",
       "F_title": "",
@@ -431,7 +431,7 @@
       "element_onchange": true,
       "area_onchange": true,
       "year_onchange": true,
-      "aggregation_onchange": true,
+      "aggregation_onchange": false,
       "E_title": "Emissions (CO2 equivalent)",
       "F_title": "Émission (CO2 équivalent)",
       "S_title": "Emisiones (CO2 equivalente)",
@@ -792,7 +792,7 @@
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
-      "aggregation_onchange":true,
+      "aggregation_onchange":false,
       "E_title": "7264 Sector share by gas (CO2)",
       "F_title": "",
       "S_title": "",
@@ -957,7 +957,6 @@
         "frequency":null
       }
     },
-
     {
       "type":"chart",
       "datasource":"faostat",
@@ -968,7 +967,7 @@
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
-      "aggregation_onchange":true,
+      "aggregation_onchange":false,
       "E_title": "7265 Sector share by gas (CH4)",
       "F_title": "",
       "S_title": "",
@@ -1146,7 +1145,7 @@
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
-      "aggregation_onchange":true,
+      "aggregation_onchange":false,
       "E_title": "7266 Sector share by gas (N2O)",
       "F_title": "",
       "S_title": "",
@@ -1311,9 +1310,6 @@
         "frequency":null
       }
     },
-
-
-
     {
       "type":"chart",
       "datasource":"faostat",
@@ -1324,7 +1320,7 @@
       "element_onchange":true,
       "area_onchange":false,
       "year_onchange":true,
-      "aggregation_onchange":true,
+      "aggregation_onchange":false,
       "E_title": "Top 10 7263 (sector share by gas)",
       "F_title": "",
       "S_title": "",
