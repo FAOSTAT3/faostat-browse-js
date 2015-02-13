@@ -26,7 +26,6 @@ if (!window.FAOSTATBrowseTree) {
                     dataType: 'json',
 
                     success : function(response) {
-                        console.log(response);
 
                         // Fetch JSON
                         var data = response;
