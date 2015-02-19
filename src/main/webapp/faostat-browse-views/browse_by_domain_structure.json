@@ -180,28 +180,5 @@
       "F_tab_title":"Projections",
       "E_tooltip":""
     }
-  ],
-  "EM":[
-    {
-      "view_id":"EM",
-      "E_tab_title":"Agriculture",
-      "S_tab_title":"Agriculture",
-      "F_tab_title":"Agriculture",
-      "E_tooltip":""
-    },
-    {
-      "view_id":"EM-FOLU",
-      "E_tab_title":"FOLU",
-      "S_tab_title":"FOLU",
-      "F_tab_title":"FOLU",
-      "E_tooltip":""
-    },
-    {
-      "view_id":"EM-AFOLU",
-      "E_tab_title":"AFOLU",
-      "S_tab_title":"AFOLU",
-      "F_tab_title":"AFOLU",
-      "E_tooltip":""
-    }
   ]
 }

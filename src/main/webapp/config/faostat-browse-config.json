@@ -1,7 +1,7 @@
 {
 	"datasource" :              "faostat",
 	"baseurl" :                 "faostat3.fao.org",
-    	"baseurl_r" :               "faostat3.fao.org",
+    "baseurl_r" :               "faostat3.fao.org",
 	"baseurl_maps" :            "//fenixapps2.fao.org/faostat-maps/api",
 	"baseurl_bletchley" :       "faostat3.fao.org",
 	"baseurl_images" :          "http://faostat3.fao.org/modules/faostat-browse-js/images/",

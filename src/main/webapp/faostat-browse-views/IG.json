@@ -360,7 +360,8 @@
         "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_BAR",
         "renderTo":"chart_3",
         "title":"",
-        "credits":"M = Million, k = Thousand",
+        "credits":"",
+        "showcredits":false,
         "yaxis":{
           "min":null,
           "max":null,

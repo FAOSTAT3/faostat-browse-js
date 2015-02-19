@@ -79,7 +79,9 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1710
+              1710,
+              6824,
+              6822
             ]
           }
         ],
@@ -238,7 +240,7 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Agriculture share by country",
+      "E_title": "Selected Item share by country",
       "S_title": "",
       "F_title": "",
       "subtitle":"",
@@ -415,7 +417,7 @@
       },
       "object_parameters":{
         "renderTo":"map_0",
-        "colorramp":"YlOrRd"
+        "colorramp":"Greens"
       },
       "export_parameters":{
 
@@ -446,7 +448,8 @@
         "keyword": "FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_LINE",
         "renderTo": "chart_0",
         "title": "",
-        "credits": "M = Million, k = Thousand",
+        "credits":"",
+        "showcredits":false,
         "yaxis": {
           "min": null,
           "max": null,
@@ -481,6 +484,11 @@
             "aggregation": "NONE",
             "column": "E.UnitName_$LANG",
             "alias": "Unit"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "D.ItemCode",
+            "alias": "Itemcode"
           }
         ],
         "froms": [
@@ -514,7 +522,8 @@
             "value": null,
             "ins": [
               1710,
-              6822
+              6822,
+              6824
             ]
           },
           {
@@ -589,11 +598,14 @@
           },
           {
             "column": "E.UnitName_$LANG"
+          },
+          {
+            "column": "D.ItemCode"
           }
         ],
         "orderBys": [
           {
-            "column": "I.ItemName_$LANG",
+            "column": "D.ItemCode",
             "direction": "ASC"
           },
           {
@@ -611,19 +623,19 @@
       "datasource":"faostat",
       "css":"faostat",
       "height":"295px",
-      "width":"$_WIDTH_100",
+      "width":"$_WIDTH_50",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title": "% Sector share by gas (CO2eq)",
+      "E_title": "Sector share by gas (CO2eq)",
       "F_title": "",
       "S_title": "",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1990 - 2010",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -631,7 +643,8 @@
         "keyword":"FAOSTAT_DEFAULT_PIE",
         "renderTo":"chart_1",
         "title":null,
-        "credits":""
+        "credits":"",
+        "showcredits":false
       },
       "export_parameters":{
 
@@ -658,6 +671,7 @@
             "column":"E.UnitName_$LANG",
             "alias":"Unit"
           }
+
         ],
         "froms":[
           {
@@ -667,6 +681,10 @@
           {
             "column":"Item",
             "alias":"I"
+          },
+          {
+            "column":"DomainItem",
+            "alias":"DI"
           },
           {
             "column":"Element",
@@ -741,6 +759,24 @@
           },
           {
             "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"=",
+            "value":"DI.ItemCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"DI.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'EM'"
+            ]
+          },
+          {
+            "datatype":"DATE",
             "column":"D.ElementCode",
             "operator":"=",
             "value":"E.ElementCode",
@@ -755,7 +791,8 @@
             "value":null,
             "ins":[
               6824,
-              6823
+              6823,
+              6826
             ]
           }
         ],
@@ -768,11 +805,14 @@
           },
           {
             "column":"E.UnitName_$LANG"
+          },
+          {
+            "column":"DI.Ord"
           }
         ],
         "orderBys":[
           {
-            "column":"I.ItemName_$LANG",
+            "column":"DI.Ord",
             "direction":"ASC"
           }
         ],
@@ -786,19 +826,19 @@
       "datasource":"faostat",
       "css":"faostat",
       "height":"295px",
-      "width":"$_WIDTH_33",
+      "width":"$_WIDTH_50",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "% Sector share by gas (CO2)",
+      "E_title": "Sector share by gas (CO2)",
       "F_title": "",
       "S_title": "",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1990 - 2010",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -806,7 +846,8 @@
         "keyword":"FAOSTAT_DEFAULT_PIE",
         "renderTo":"chart_1",
         "title":null,
-        "credits":""
+        "credits":"",
+        "showcredits":false
       },
       "export_parameters":{
 
@@ -844,6 +885,10 @@
             "alias":"I"
           },
           {
+            "column":"DomainItem",
+            "alias":"DI"
+          },
+          {
             "column":"Element",
             "alias":"E"
           }
@@ -864,7 +909,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7264
+              7194
             ]
           },
           {
@@ -916,6 +961,24 @@
           },
           {
             "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"=",
+            "value":"DI.ItemCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"DI.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'EM'"
+            ]
+          },
+          {
+            "datatype":"DATE",
             "column":"D.ElementCode",
             "operator":"=",
             "value":"E.ElementCode",
@@ -930,7 +993,8 @@
             "value":null,
             "ins":[
               6824,
-              6823
+              6823,
+              6826
             ]
           }
         ],
@@ -943,11 +1007,14 @@
           },
           {
             "column":"E.UnitName_$LANG"
+          },
+          {
+            "column":"DI.Ord"
           }
         ],
         "orderBys":[
           {
-            "column":"I.ItemName_$LANG",
+            "column":"DI.Ord",
             "direction":"ASC"
           }
         ],
@@ -961,19 +1028,19 @@
       "datasource":"faostat",
       "css":"faostat",
       "height":"295px",
-      "width":"$_WIDTH_33",
+      "width":"$_WIDTH_50",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "% Sector share by gas (CH4)",
+      "E_title": "Sector share by gas (CH4)",
       "F_title": "",
       "S_title": "",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1990 - 2010",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -981,7 +1048,8 @@
         "keyword":"FAOSTAT_DEFAULT_PIE",
         "renderTo":"chart_1",
         "title":null,
-        "credits":""
+        "credits":"",
+        "showcredits":false
       },
       "export_parameters":{
 
@@ -1019,6 +1087,10 @@
             "alias":"I"
           },
           {
+            "column":"DomainItem",
+            "alias":"DI"
+          },
+          {
             "column":"Element",
             "alias":"E"
           }
@@ -1039,7 +1111,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7265
+              7244
             ]
           },
           {
@@ -1091,6 +1163,24 @@
           },
           {
             "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"=",
+            "value":"DI.ItemCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"DI.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'EM'"
+            ]
+          },
+          {
+            "datatype":"DATE",
             "column":"D.ElementCode",
             "operator":"=",
             "value":"E.ElementCode",
@@ -1105,7 +1195,8 @@
             "value":null,
             "ins":[
               6824,
-              6823
+              6823,
+              6826
             ]
           }
         ],
@@ -1118,11 +1209,14 @@
           },
           {
             "column":"E.UnitName_$LANG"
+          },
+          {
+            "column":"DI.Ord"
           }
         ],
         "orderBys":[
           {
-            "column":"I.ItemName_$LANG",
+            "column":"DI.Ord",
             "direction":"ASC"
           }
         ],
@@ -1136,19 +1230,19 @@
       "datasource":"faostat",
       "css":"faostat",
       "height":"295px",
-      "width":"$_WIDTH_33",
+      "width":"$_WIDTH_50",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "% Sector share by gas (N20)",
+      "E_title": "Sector share by gas (N2O)",
       "F_title": "",
       "S_title": "",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1990 - 2010",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -1156,7 +1250,8 @@
         "keyword":"FAOSTAT_DEFAULT_PIE",
         "renderTo":"chart_1",
         "title":null,
-        "credits":""
+        "credits":"",
+        "showcredits":false
       },
       "export_parameters":{
 
@@ -1194,6 +1289,10 @@
             "alias":"I"
           },
           {
+            "column":"DomainItem",
+            "alias":"DI"
+          },
+          {
             "column":"Element",
             "alias":"E"
           }
@@ -1214,7 +1313,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7266
+              7243
             ]
           },
           {
@@ -1266,6 +1365,24 @@
           },
           {
             "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"=",
+            "value":"DI.ItemCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"DI.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'EM'"
+            ]
+          },
+          {
+            "datatype":"DATE",
             "column":"D.ElementCode",
             "operator":"=",
             "value":"E.ElementCode",
@@ -1280,7 +1397,8 @@
             "value":null,
             "ins":[
               6824,
-              6823
+              6823,
+              6826
             ]
           }
         ],
@@ -1293,11 +1411,14 @@
           },
           {
             "column":"E.UnitName_$LANG"
+          },
+          {
+            "column":"DI.Ord"
           }
         ],
         "orderBys":[
           {
-            "column":"I.ItemName_$LANG",
+            "column":"DI.Ord",
             "direction":"ASC"
           }
         ],
@@ -1317,13 +1438,13 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Top 10 agrirculture share",
+      "E_title": "Selected Item Top 10 share",
       "F_title": "",
       "S_title": "",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1990 - 2010",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -1331,7 +1452,8 @@
         "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_BAR",
         "renderTo":"chart_3",
         "title":"",
-        "credits":"M = Million, k = Thousand",
+        "credits":"",
+        "showcredits":false,
         "yaxis":{
           "min":null,
           "max":null,
