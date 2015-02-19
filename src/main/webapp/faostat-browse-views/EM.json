@@ -624,7 +624,7 @@
       "css":"faostat",
       "height":"295px",
       "width":"$_WIDTH_50",
-      "item_onchange":true,
+      "item_onchange":false,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
@@ -787,12 +787,10 @@
           {
             "datatype":"DATE",
             "column":"D.ItemCode",
-            "operator":"NOTIN",
+            "operator":"IN",
             "value":null,
             "ins":[
-              6824,
-              6823,
-              6826
+              1710, 6822, 6825, 6816, 6815, 6814
             ]
           }
         ],
@@ -827,7 +825,7 @@
       "css":"faostat",
       "height":"295px",
       "width":"$_WIDTH_50",
-      "item_onchange":true,
+      "item_onchange":false,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
@@ -989,12 +987,10 @@
           {
             "datatype":"DATE",
             "column":"D.ItemCode",
-            "operator":"NOTIN",
+            "operator":"IN",
             "value":null,
             "ins":[
-              6824,
-              6823,
-              6826
+              1710, 6822, 6825, 6816, 6815, 6814
             ]
           }
         ],
@@ -1029,7 +1025,7 @@
       "css":"faostat",
       "height":"295px",
       "width":"$_WIDTH_50",
-      "item_onchange":true,
+      "item_onchange":false,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
@@ -1191,12 +1187,10 @@
           {
             "datatype":"DATE",
             "column":"D.ItemCode",
-            "operator":"NOTIN",
+            "operator":"IN",
             "value":null,
             "ins":[
-              6824,
-              6823,
-              6826
+              1710, 6822, 6825, 6816, 6815, 6814
             ]
           }
         ],
@@ -1231,7 +1225,7 @@
       "css":"faostat",
       "height":"295px",
       "width":"$_WIDTH_50",
-      "item_onchange":true,
+      "item_onchange":false,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
@@ -1393,12 +1387,10 @@
           {
             "datatype":"DATE",
             "column":"D.ItemCode",
-            "operator":"NOTIN",
+            "operator":"IN",
             "value":null,
             "ins":[
-              6824,
-              6823,
-              6826
+              1710, 6822, 6825, 6816, 6815, 6814
             ]
           }
         ],
