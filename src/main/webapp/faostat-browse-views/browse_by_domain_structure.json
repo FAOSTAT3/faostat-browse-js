@@ -19,6 +19,13 @@
       "S_tab_title":"Proyecciones",
       "F_tab_title":"Projections",
       "E_tooltip":""
+    },
+    {
+      "view_id":"G1-PERCAPITA",
+      "E_tab_title":"Per Capita",
+      "S_tab_title":"Per Capita",
+      "F_tab_title":"Per Capita",
+      "E_tooltip":""
     }
   ],
   "GE":[

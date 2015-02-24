@@ -30,7 +30,6 @@ if (!window.Export) {
             $('#title_WQ').val('');
             $('#subtitle_WQ').val('');
             document.excelFormWithQuotes.submit();
-
 		},
 		
 		// TODO fix for multiple axis and tables with joins... (dynamic "." on the replace of the alias)
@@ -48,7 +47,6 @@ if (!window.Export) {
             $('#title_WQ').val('');
             $('#subtitle_WQ').val('');
             document.excelFormWithQuotes.submit();
-
 		},
 
 		injectParameters : function(json) {
