@@ -53,7 +53,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"GT",
+            "value":"EM",
             "ins":[
 
             ]
@@ -305,8 +305,8 @@
         "frequency":null
       },
       "object_parameters":{
-        "renderTo":"map_0",
-        "decimalValues":"2",
+        "classification":"custom",
+        "ranges":"1,2,3,4,5,6,7",
         "colorramp":"YlOrRd"
       },
       "export_parameters":{
@@ -315,6 +315,48 @@
     }
   ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
