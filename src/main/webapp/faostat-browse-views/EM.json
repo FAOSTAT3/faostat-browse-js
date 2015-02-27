@@ -417,7 +417,7 @@
       },
       "object_parameters":{
         "renderTo":"map_0",
-        "colorramp":"Greens"
+        "colorramp":"Blues"
       },
       "export_parameters":{
 

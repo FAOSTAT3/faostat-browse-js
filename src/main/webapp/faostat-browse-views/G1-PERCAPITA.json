@@ -411,7 +411,7 @@
       "object_parameters":{
         "decimalValues":"2",
         "classification":"custom",
-        "ranges":"2,4,6,8,10,12",
+        "ranges":"5,10,15,20",
         "colorramp":"YlOrRd"
       },
       "export_parameters":{
