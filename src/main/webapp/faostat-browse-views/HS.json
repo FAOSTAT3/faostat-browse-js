@@ -1,1 +1,975 @@
-Error in 'getView' service: Index: 0, Size: 0
+{
+  "version":"1.0",
+  "css":"faostat",
+  "view_id":"G1",
+  "date_last_update":"2013-03-13",
+  "user":"Murzilli",
+  "abstract":{
+    "E_title":null,
+    "E_subtitle": "<a href='$_NOTES_URL/EN/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Emissions of methane and nitrous oxide produced from agricultural activities</div></a>",
+    "S_subtitle": "<a href='$_NOTES_URL/ES/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Emisiones de metano y óxido nitroso producido por las actividades agrícolas</div></a>",
+    "F_subtitle": "<a href='$_NOTES_URL/FR/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Émissions de méthane et d'oxyde nitreux provenant des activités agricoles</div></a>"
+  },
+  "objects":[
+  {
+      "type": "chart",
+      "datasource": "faostat",
+      "css": "faostat",
+      "height": "310px",
+      "width": "$_WIDTH_100",
+      "item_onchange": false,
+      "element_onchange": true,
+      "area_onchange": true,
+      "year_onchange": true,
+      "aggregation_onchange": false,
+      "E_title": "Dietary consumption (kcal/person/day) - Country-level",
+      "F_title": "title",
+      "S_title": "title",
+      "E_subtitle": "",
+      "S_subtitle": "",
+      "F_subtitle": "",
+      "date_default_label": "",
+      "E_footnote": null,
+      "object_parameters": {
+        "series_name": null,
+        "engine": "highcharts",
+        "keyword": "FAOSTAT_DEFAULT_BAR",
+        "renderTo": "chart_0",
+        "chart": {
+          "type": "bar"
+        },
+        "title": "",
+        "credits":"",
+        "showcredits":false,
+        "yaxis": {
+          "min": null,
+          "max": null,
+          "tickInterval": null,
+          "title": null
+        },
+        "xaxis": {
+          "rotation": -45,
+          "fontSize": "9px"
+        }
+      },
+      "export_parameters": {
+      },
+      "sql": {
+
+        "selects": [
+          {
+            "aggregation": "NONE",
+            "column": "dv1.varname_$LANG",
+            "alias": "Surey"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv3.varname_$LANG",
+            "alias": "Indicator"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "D.Value",
+            "alias": "Value"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv5.varname_$LANG",
+            "alias": "Unit"
+          }
+        ],
+        "froms": [
+          {
+            "column": "Data7",
+            "alias": "D"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv1"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv3"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv5"
+          }
+        ],
+        "wheres": [
+          {
+            "datatype": "TEXT",
+            "column": "D.DomainCode",
+            "operator": "=",
+            "value": "HS",
+            "ins": []
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var1code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+
+              13020042005,
+              15820072008,
+              2172006,
+              892006,
+              1662008,
+              522006,
+              1202008,
+              2082007,
+              1152004,
+              32005
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var2code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20008
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var3code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20001,
+              20002
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var4code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6063
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var5code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6076
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.var1code",
+            "operator": "=",
+            "value": "dv1.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv1.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv1.vartype",
+            "operator": "=",
+            "value": "'survey'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var3code",
+            "operator": "=",
+            "value": "dv3.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv3.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv3.vartype",
+            "operator": "=",
+            "value": "'breakdownsex'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var5code",
+            "operator": "=",
+            "value": "dv5.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv5.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv5.vartype",
+            "operator": "=",
+            "value": "'measure'",
+            "ins": [
+            ]
+          }
+        ],
+        "orderBys":[
+          {
+            "column": "dv1.varname_$LANG",
+            "direction":"ASC"
+          },
+          {
+            "column": "dv3.varname_$LANG",
+            "direction":"ASC"
+          }
+        ],
+        "limit": null,
+        "query": null,
+        "frequency": null
+      }
+    },
+    {
+      "type": "chart",
+      "datasource": "faostat",
+      "css": "faostat",
+      "height": "510px",
+      "width": "$_WIDTH_100",
+      "item_onchange": false,
+      "element_onchange": true,
+      "area_onchange": true,
+      "year_onchange": true,
+      "aggregation_onchange": false,
+      "E_title": "Dietary consumption (kcal/person/day) - Household with children <5 (20030)",
+      "F_title": "title",
+      "S_title": "title",
+      "E_subtitle": "",
+      "S_subtitle": "",
+      "F_subtitle": "",
+      "date_default_label": "",
+      "E_footnote": null,
+      "object_parameters": {
+        "series_name": null,
+        "engine": "highcharts",
+        "keyword": "FAOSTAT_DEFAULT_BAR",
+        "renderTo": "chart_0",
+        "chart": {
+          "type": "bar"
+        },
+        "title": "",
+        "credits":"",
+        "showcredits":false,
+        "yaxis": {
+          "min": null,
+          "max": null,
+          "tickInterval": null,
+          "title": null
+        },
+        "xaxis": {
+          "rotation": -45,
+          "fontSize": "9px"
+        }
+      },
+      "export_parameters": {
+      },
+      "sql": {
+
+        "selects": [
+          {
+            "aggregation": "NONE",
+            "column": "dv1.varname_$LANG",
+            "alias": "Surey"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv3.varname_$LANG",
+            "alias": "Indicator"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "D.Value",
+            "alias": "Value"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv5.varname_$LANG",
+            "alias": "Unit"
+          }
+        ],
+        "froms": [
+          {
+            "column": "Data7",
+            "alias": "D"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv1"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv3"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv5"
+          }
+        ],
+        "wheres": [
+          {
+            "datatype": "TEXT",
+            "column": "D.DomainCode",
+            "operator": "=",
+            "value": "HS",
+            "ins": []
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var1code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              392009,
+              11420052006,
+              2062009,
+              22620022003,
+              1382004,
+              1382006,
+              1382008,
+              23620042005,
+              1620002001,
+              162005,
+              16520052006,
+              23719921993,
+              2372006,
+              1032007
+
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var2code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20030
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var3code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20001,
+              20002
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var4code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6063
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var5code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6076
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.var1code",
+            "operator": "=",
+            "value": "dv1.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv1.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv1.vartype",
+            "operator": "=",
+            "value": "'survey'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var3code",
+            "operator": "=",
+            "value": "dv3.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv3.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv3.vartype",
+            "operator": "=",
+            "value": "'breakdownsex'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var5code",
+            "operator": "=",
+            "value": "dv5.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv5.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv5.vartype",
+            "operator": "=",
+            "value": "'measure'",
+            "ins": [
+            ]
+          }
+        ],
+        "orderBys":[
+          {
+            "column": "dv1.varname_$LANG",
+            "direction":"ASC"
+          },
+          {
+            "column": "dv3.varname_$LANG",
+            "direction":"ASC"
+          }
+        ],
+        "limit": null,
+        "query": null,
+        "frequency": null
+      }
+    },
+    {
+      "type": "chart",
+      "datasource": "faostat",
+      "css": "faostat",
+      "height": "310px",
+      "width": "$_WIDTH_100",
+      "item_onchange": false,
+      "element_onchange": true,
+      "area_onchange": true,
+      "year_onchange": true,
+      "aggregation_onchange": false,
+      "E_title": "Dietary consumption (kcal/person/day) - Household size: 2 to 4 people",
+      "F_title": "title",
+      "S_title": "title",
+      "E_subtitle": "",
+      "S_subtitle": "",
+      "F_subtitle": "",
+      "date_default_label": "",
+      "E_footnote": null,
+      "object_parameters": {
+        "series_name": null,
+        "engine": "highcharts",
+        "keyword": "FAOSTAT_DEFAULT_BAR",
+        "renderTo": "chart_0",
+        "chart": {
+          "type": "bar"
+        },
+        "title": "",
+        "credits":"",
+        "showcredits":false,
+        "yaxis": {
+          "min": null,
+          "max": null,
+          "tickInterval": null,
+          "title": null
+        },
+        "xaxis": {
+          "rotation": -45,
+          "fontSize": "9px"
+        }
+      },
+      "export_parameters": {
+      },
+      "sql": {
+
+        "selects": [
+          {
+            "aggregation": "NONE",
+            "column": "dv1.varname_$LANG",
+            "alias": "Surey"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv3.varname_$LANG",
+            "alias": "Indicator"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "D.Value",
+            "alias": "Value"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv5.varname_$LANG",
+            "alias": "Unit"
+          }
+        ],
+        "froms": [
+          {
+            "column": "Data7",
+            "alias": "D"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv1"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv3"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv5"
+          }
+        ],
+        "wheres": [
+          {
+            "datatype": "TEXT",
+            "column": "D.DomainCode",
+            "operator": "=",
+            "value": "HS",
+            "ins": []
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var1code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+
+              13020042005,
+              15820072008,
+              2172006,
+              892006,
+              1662008,
+              522006,
+              1202008,
+              2082007,
+              1152004,
+              32005
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var2code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20024
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var3code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20001,
+              20002
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var4code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6063
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var5code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6076
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.var1code",
+            "operator": "=",
+            "value": "dv1.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv1.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv1.vartype",
+            "operator": "=",
+            "value": "'survey'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var3code",
+            "operator": "=",
+            "value": "dv3.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv3.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv3.vartype",
+            "operator": "=",
+            "value": "'breakdownsex'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var5code",
+            "operator": "=",
+            "value": "dv5.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv5.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv5.vartype",
+            "operator": "=",
+            "value": "'measure'",
+            "ins": [
+            ]
+          }
+        ],
+        "orderBys":[
+          {
+            "column": "dv1.varname_$LANG",
+            "direction":"ASC"
+          },
+          {
+            "column": "dv3.varname_$LANG",
+            "direction":"ASC"
+          }
+        ],
+        "limit": null,
+        "query": null,
+        "frequency": null
+      }
+    },
+    {
+      "type": "chart",
+      "datasource": "faostat",
+      "css": "faostat",
+      "height": "310px",
+      "width": "$_WIDTH_100",
+      "item_onchange": false,
+      "element_onchange": true,
+      "area_onchange": true,
+      "year_onchange": true,
+      "aggregation_onchange": false,
+      "E_title": "Dietary consumption (kcal/person/day) - Household size: 5 or more",
+      "F_title": "title",
+      "S_title": "title",
+      "E_subtitle": "",
+      "S_subtitle": "",
+      "F_subtitle": "",
+      "date_default_label": "",
+      "E_footnote": null,
+      "object_parameters": {
+        "series_name": null,
+        "engine": "highcharts",
+        "keyword": "FAOSTAT_DEFAULT_BAR",
+        "renderTo": "chart_0",
+        "chart": {
+          "type": "bar"
+        },
+        "title": "",
+        "credits":"",
+        "showcredits":false,
+        "yaxis": {
+          "min": null,
+          "max": null,
+          "tickInterval": null,
+          "title": null
+        },
+        "xaxis": {
+          "rotation": -45,
+          "fontSize": "9px"
+        }
+      },
+      "export_parameters": {
+      },
+      "sql": {
+
+        "selects": [
+          {
+            "aggregation": "NONE",
+            "column": "dv1.varname_$LANG",
+            "alias": "Surey"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv3.varname_$LANG",
+            "alias": "Indicator"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "D.Value",
+            "alias": "Value"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv5.varname_$LANG",
+            "alias": "Unit"
+          }
+        ],
+        "froms": [
+          {
+            "column": "Data7",
+            "alias": "D"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv1"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv3"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv5"
+          }
+        ],
+        "wheres": [
+          {
+            "datatype": "TEXT",
+            "column": "D.DomainCode",
+            "operator": "=",
+            "value": "HS",
+            "ins": []
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var1code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+
+              13020042005,
+              15820072008,
+              2172006,
+              892006,
+              1662008,
+              522006,
+              1202008,
+              2082007,
+              1152004,
+              32005
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var2code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20025
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var3code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20001,
+              20002
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var4code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6063
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var5code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6076
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.var1code",
+            "operator": "=",
+            "value": "dv1.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv1.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv1.vartype",
+            "operator": "=",
+            "value": "'survey'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var3code",
+            "operator": "=",
+            "value": "dv3.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv3.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv3.vartype",
+            "operator": "=",
+            "value": "'breakdownsex'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var5code",
+            "operator": "=",
+            "value": "dv5.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv5.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv5.vartype",
+            "operator": "=",
+            "value": "'measure'",
+            "ins": [
+            ]
+          }
+        ],
+        "orderBys":[
+          {
+            "column": "dv1.varname_$LANG",
+            "direction":"ASC"
+          },
+          {
+            "column": "dv3.varname_$LANG",
+            "direction":"ASC"
+          }
+        ],
+        "limit": null,
+        "query": null,
+        "frequency": null
+      }
+    }
+  ]
+}

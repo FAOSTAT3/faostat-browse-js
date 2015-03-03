@@ -128,16 +128,30 @@ if (!window.UIBuilderChart) {
             payload.renderTo = chart.object_parameters.renderTo;
             payload.categories = categories;
             payload.title = chart.object_parameters.title;
+
             if ( !chart.object_parameters.showcredits )
                 payload.credits ="";
             else
                 payload.credits = $.i18n.prop('_millionthousand');
+
+            payload.chart = {}
+            if (chart.object_parameters.chart) {
+                if (chart.object_parameters.chart.type) {
+                    payload.chart.type = chart.object_parameters.chart.type
+                }
+            }
+
+            // TODO: limit with just one measurement unit
             payload.series = series;
-            payload.yaxis = {};
-            payload.yaxis.min = null;
-            payload.yaxis.max = null;
-            payload.yaxis.step = null;
-            payload.yaxis.title = data[0][3];
+            payload.type = {};
+            payload.yaxis = []
+            var yaxis = {}
+            yaxis.min = null
+            yaxis.max = null
+            yaxis.step = null
+            yaxis.title = {}
+            yaxis.title.text = data[0][3];
+            payload.yaxis.push(yaxis)
 
             FENIXCharts.plot(payload);
         },
