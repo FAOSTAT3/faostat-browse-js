@@ -146,9 +146,14 @@ if (!window.UIBuilderChart) {
             payload.type = {};
             payload.yaxis = []
             var yaxis = {}
-            yaxis.min = null
-            yaxis.max = null
-            yaxis.step = null
+            yaxis.min = null;
+            yaxis.max = null;
+            if (chart.object_parameters.yaxis != null) {
+                yaxis.min = chart.object_parameters.yaxis.min != null ? chart.object_parameters.yaxis.min: null;
+                yaxis.max = chart.object_parameters.yaxis.max != null ? chart.object_parameters.yaxis.max: null;
+                yaxis.tickInterval = chart.object_parameters.yaxis.tickInterval != null ? chart.object_parameters.yaxis.tickInterval: null;
+            }
+            yaxis.step = null;
             yaxis.title = {}
             yaxis.title.text = data[0][3];
             payload.yaxis.push(yaxis)

@@ -18,24 +18,10 @@ if (!window.UIBuilderSelectors) {
             s += '</tr>';
             s += '</table>';
 
-            /** var s = '<div style="display:inline; position:relative;">'
-             for (var i = 0 ; i < selectors.length ; i++) {
-
-                s += '<div style="width:100px">';
-                    s += '<div class="visualize_filters_combo">' + $.i18n.prop('_' + selectors[i].keyword); + '</div>';
-                    s += '<div id="selector_' + selectors[i].keyword + '></div>';
-                s += '</div>';
-
-            }
-             s += '</div>';  **/
-
-
             $('#selectors').append(s);
             for (var i = 0 ; i < selectors.length ; i++) {
                 UIBuilderSelectors.populateSelector(selectors[i]);
             }
-
-
 
             $("#selectorsHead").unstick();
             $("#selectorsHead").sticky({topSpacing:33});

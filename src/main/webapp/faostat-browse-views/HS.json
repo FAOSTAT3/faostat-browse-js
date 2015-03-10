@@ -5,26 +5,23 @@
   "date_last_update":"2013-03-13",
   "user":"Murzilli",
   "abstract":{
-    "E_title":null,
-    "E_subtitle": "<a href='$_NOTES_URL/EN/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Emissions of methane and nitrous oxide produced from agricultural activities</div></a>",
-    "S_subtitle": "<a href='$_NOTES_URL/ES/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Emisiones de metano y óxido nitroso producido por las actividades agrícolas</div></a>",
-    "F_subtitle": "<a href='$_NOTES_URL/FR/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Émissions de méthane et d'oxyde nitreux provenant des activités agricoles</div></a>"
+    "E_title":null
   },
   "objects":[
-  {
+    {
       "type": "chart",
       "datasource": "faostat",
       "css": "faostat",
-      "height": "310px",
+      "height": "550px",
       "width": "$_WIDTH_100",
       "item_onchange": false,
       "element_onchange": true,
       "area_onchange": true,
       "year_onchange": true,
       "aggregation_onchange": false,
-      "E_title": "Dietary consumption (kcal/person/day) - Country-level",
-      "F_title": "title",
-      "S_title": "title",
+      "E_title": "Dietary consumption/acquisition (kcal/person/day) - All Household",
+      "F_title": "Dietary consumption/acquisition (kcal/person/day) - All Household",
+      "S_title": "Dietary consumption/acquisition (kcal/person/day) - All Household",
       "E_subtitle": "",
       "S_subtitle": "",
       "F_subtitle": "",
@@ -42,9 +39,9 @@
         "credits":"",
         "showcredits":false,
         "yaxis": {
-          "min": null,
+          "min": 750,
           "max": null,
-          "tickInterval": null,
+          "tickInterval": 250,
           "title": null
         },
         "xaxis": {
@@ -110,17 +107,24 @@
             "operator": "IN",
             "value": null,
             "ins": [
-
-              13020042005,
-              15820072008,
-              2172006,
-              892006,
-              1662008,
-              522006,
-              1202008,
-              2082007,
+              32005,
+              1462006,
+              1032007,
               1152004,
-              32005
+              2082007,
+              1202008,
+              162005,
+              522006,
+              23620042005,
+              1662008,
+              1382008,
+              892006,
+              2172006,
+              2062009,
+              15820072008,
+              11420052006,
+              13020042005,
+              392009
             ]
           },
           {
@@ -254,16 +258,16 @@
       "type": "chart",
       "datasource": "faostat",
       "css": "faostat",
-      "height": "510px",
+      "height": "525px",
       "width": "$_WIDTH_100",
       "item_onchange": false,
       "element_onchange": true,
       "area_onchange": true,
       "year_onchange": true,
       "aggregation_onchange": false,
-      "E_title": "Dietary consumption (kcal/person/day) - Household with children <5 (20030)",
-      "F_title": "title",
-      "S_title": "title",
+      "E_title": "Dietary consumption/acquisition (kcal/person/day) - Household with children < 5",
+      "F_title": "Dietary consumption/acquisition (kcal/person/day) - Household with children < 5",
+      "S_title": "Dietary consumption/acquisition (kcal/person/day) - Household with children < 5",
       "E_subtitle": "",
       "S_subtitle": "",
       "F_subtitle": "",
@@ -281,9 +285,9 @@
         "credits":"",
         "showcredits":false,
         "yaxis": {
-          "min": null,
+          "min": 750,
           "max": null,
-          "tickInterval": null,
+          "tickInterval": 250,
           "title": null
         },
         "xaxis": {
@@ -349,21 +353,23 @@
             "operator": "IN",
             "value": null,
             "ins": [
-              392009,
-              11420052006,
-              2062009,
-              22620022003,
-              1382004,
-              1382006,
-              1382008,
-              23620042005,
-              1620002001,
+              1462006,
+              1032007,
+              1152004,
+              2082007,
+              1202008,
               162005,
-              16520052006,
-              23719921993,
-              2372006,
-              1032007
-
+              522006,
+              23620042005,
+              1662008,
+              1382008,
+              892006,
+              2172006,
+              2062009,
+              15820072008,
+              11420052006,
+              13020042005,
+              392009
             ]
           },
           {
@@ -497,16 +503,16 @@
       "type": "chart",
       "datasource": "faostat",
       "css": "faostat",
-      "height": "310px",
+      "height": "350px",
       "width": "$_WIDTH_100",
       "item_onchange": false,
       "element_onchange": true,
       "area_onchange": true,
       "year_onchange": true,
       "aggregation_onchange": false,
-      "E_title": "Dietary consumption (kcal/person/day) - Household size: 2 to 4 people",
-      "F_title": "title",
-      "S_title": "title",
+      "E_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: One person",
+      "F_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: One person",
+      "S_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: One person",
       "E_subtitle": "",
       "S_subtitle": "",
       "F_subtitle": "",
@@ -524,9 +530,9 @@
         "credits":"",
         "showcredits":false,
         "yaxis": {
-          "min": null,
+          "min": 750,
           "max": null,
-          "tickInterval": null,
+          "tickInterval": 750,
           "title": null
         },
         "xaxis": {
@@ -592,17 +598,261 @@
             "operator": "IN",
             "value": null,
             "ins": [
-
-              13020042005,
-              15820072008,
-              2172006,
-              892006,
-              1662008,
+              1462006,
               522006,
-              1202008,
-              2082007,
+              23620042005,
+              1662008,
+              1382008,
+              892006,
+              2172006,
+              11420052006,
+              13020042005
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var2code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20026
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var3code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              20001,
+              20002
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var4code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6063
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var5code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              6076
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.var1code",
+            "operator": "=",
+            "value": "dv1.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv1.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv1.vartype",
+            "operator": "=",
+            "value": "'survey'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var3code",
+            "operator": "=",
+            "value": "dv3.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv3.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv3.vartype",
+            "operator": "=",
+            "value": "'breakdownsex'",
+            "ins": [
+            ]
+          },
+
+          {
+            "datatype": "DATE",
+            "column": "d.var5code",
+            "operator": "=",
+            "value": "dv5.varcode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "d.domaincode",
+            "operator": "=",
+            "value": "dv5.domaincode",
+            "ins": [
+            ]
+          },
+          {
+            "datatype": "DATE",
+            "column": "dv5.vartype",
+            "operator": "=",
+            "value": "'measure'",
+            "ins": [
+            ]
+          }
+        ],
+        "orderBys":[
+          {
+            "column": "dv1.varname_$LANG",
+            "direction":"ASC"
+          },
+          {
+            "column": "dv3.varname_$LANG",
+            "direction":"ASC"
+          }
+        ],
+        "limit": null,
+        "query": null,
+        "frequency": null
+      }
+    },
+    {
+      "type": "chart",
+      "datasource": "faostat",
+      "css": "faostat",
+      "height": "550px",
+      "width": "$_WIDTH_100",
+      "item_onchange": false,
+      "element_onchange": true,
+      "area_onchange": true,
+      "year_onchange": true,
+      "aggregation_onchange": false,
+      "E_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: 2 to 4 people",
+      "F_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: 2 to 4 people",
+      "S_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: 2 to 4 people",
+      "E_subtitle": "",
+      "S_subtitle": "",
+      "F_subtitle": "",
+      "date_default_label": "",
+      "E_footnote": null,
+      "object_parameters": {
+        "series_name": null,
+        "engine": "highcharts",
+        "keyword": "FAOSTAT_DEFAULT_BAR",
+        "renderTo": "chart_0",
+        "chart": {
+          "type": "bar"
+        },
+        "title": "",
+        "credits":"",
+        "showcredits":false,
+        "yaxis": {
+          "min": 750,
+          "max": null,
+          "tickInterval": 250,
+          "title": null
+        },
+        "xaxis": {
+          "rotation": -45,
+          "fontSize": "9px"
+        }
+      },
+      "export_parameters": {
+      },
+      "sql": {
+
+        "selects": [
+          {
+            "aggregation": "NONE",
+            "column": "dv1.varname_$LANG",
+            "alias": "Surey"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv3.varname_$LANG",
+            "alias": "Indicator"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "D.Value",
+            "alias": "Value"
+          },
+          {
+            "aggregation": "NONE",
+            "column": "dv5.varname_$LANG",
+            "alias": "Unit"
+          }
+        ],
+        "froms": [
+          {
+            "column": "Data7",
+            "alias": "D"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv1"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv3"
+          },
+          {
+            "column": "DomainVar",
+            "alias": "dv5"
+          }
+        ],
+        "wheres": [
+          {
+            "datatype": "TEXT",
+            "column": "D.DomainCode",
+            "operator": "=",
+            "value": "HS",
+            "ins": []
+          },
+          {
+            "datatype": "DATE",
+            "column": "D.var1code",
+            "operator": "IN",
+            "value": null,
+            "ins": [
+              32005,
+              1462006,
+              1032007,
               1152004,
-              32005
+              2082007,
+              1202008,
+              162005,
+              522006,
+              23620042005,
+              1662008,
+              1382008,
+              892006,
+              2172006,
+              2062009,
+              15820072008,
+              11420052006,
+              13020042005,
+              392009
             ]
           },
           {
@@ -736,16 +986,16 @@
       "type": "chart",
       "datasource": "faostat",
       "css": "faostat",
-      "height": "310px",
+      "height": "550px",
       "width": "$_WIDTH_100",
       "item_onchange": false,
       "element_onchange": true,
       "area_onchange": true,
       "year_onchange": true,
       "aggregation_onchange": false,
-      "E_title": "Dietary consumption (kcal/person/day) - Household size: 5 or more",
-      "F_title": "title",
-      "S_title": "title",
+      "E_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: 5 or more",
+      "F_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: 5 or more",
+      "S_title": "Dietary consumption/acquisition (kcal/person/day) - Household size: 5 or more",
       "E_subtitle": "",
       "S_subtitle": "",
       "F_subtitle": "",
@@ -763,9 +1013,9 @@
         "credits":"",
         "showcredits":false,
         "yaxis": {
-          "min": null,
+          "min": 750,
           "max": null,
-          "tickInterval": null,
+          "tickInterval": 250,
           "title": null
         },
         "xaxis": {
@@ -831,17 +1081,24 @@
             "operator": "IN",
             "value": null,
             "ins": [
-
-              13020042005,
-              15820072008,
-              2172006,
-              892006,
-              1662008,
-              522006,
-              1202008,
-              2082007,
+              32005,
+              1462006,
+              1032007,
               1152004,
-              32005
+              2082007,
+              1202008,
+              162005,
+              522006,
+              23620042005,
+              1662008,
+              1382008,
+              892006,
+              2172006,
+              2062009,
+              15820072008,
+              11420052006,
+              13020042005,
+              392009
             ]
           },
           {
