@@ -147,7 +147,7 @@ if (!window.FAOSTATBrowseTree) {
                 domaincode == 'GL' ||
                 domaincode == 'CP' ||
 
-                //domaincode == 'HS' ||
+                domaincode == 'HS' ||
 
                 // prices
                 domaincode == 'PA' ||
