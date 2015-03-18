@@ -79,9 +79,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1710,
-              6824,
-              6822
+              1710
             ]
           }
         ],
@@ -240,7 +238,7 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Selected Item share by country",
+      "E_title": "Agriculture share by country",
       "S_title": "",
       "F_title": "",
       "subtitle":"",
@@ -1319,7 +1317,7 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Selected Item Top 10 share",
+      "E_title": "Top 10 agrirculture share",
       "F_title": "",
       "S_title": "",
       "E_subtitle":"$_AGG $_DATE",
