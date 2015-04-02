@@ -136,6 +136,17 @@
             "ins":[
 
             ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"E.ElementCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              6110,
+              6112,
+              6113
+            ]
           }
         ],
         "orderBys":[
@@ -453,7 +464,7 @@
       "type":"chart",
       "datasource":"faostat",
       "css":"faostat",
-      "height":"210px",
+      "height":"235px",
       "width":"$_WIDTH_100",
       "item_onchange":true,
       "element_onchange":true,
