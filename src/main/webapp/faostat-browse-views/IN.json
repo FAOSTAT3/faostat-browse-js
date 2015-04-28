@@ -4,26 +4,20 @@
   },
   "version":"1.0",
   "css":"faostat",
-  "view_id":"GE",
-  "date_last_update":"2013-03-13",
-  "user":"Guido",
+  "view_id":"IN",
   "abstract":{
-    "E_title":null,
-    "E_subtitle": "<a href='$_NOTES_URL/EN/GE.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Emissions of methane produced in digestive systems of livestock</div></a>",
-    "F_subtitle": "<a href='$_NOTES_URL/FR/GE.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Émissions de méthane produites dans les systèmes digestifs des animaux d'élevage</div></a>",
-    "S_subtitle": "<a href='$_NOTES_URL/ES/GE.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Emisiones de metano producidas en los sistemas digestivos de los animales</div></a>"
   },
   "selectors":[
     {
       "type":"dropdown",
       "E_label":"Items",
       "F_label":"Articles",
-      "S_label":"tems",
+      "S_label":"Items",
       "E_help":"Items are...",
       "F_help":"Items are...",
       "S_help":"Items are...",
       "keyword":"item",
-      "default_code":"6798",
+      "default_code":"22008",
       "blacklist":[
 
       ],
@@ -59,7 +53,7 @@
             "datatype":"TEXT",
             "column":"DI.DomainCode",
             "operator":"=",
-            "value":"GE",
+            "value":"IN",
             "ins":[
 
             ]
@@ -91,14 +85,112 @@
     },
     {
       "type":"dropdown",
+      "E_label":"Element",
+      "F_label":"Articles",
+      "S_label":"element",
+      "E_help":"element are...",
+      "F_help":"element are...",
+      "S_help":"element are...",
+      "keyword":"element",
+      "default_code":"6110",
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null,
+      "width":"$_WIDTH_25",
+      "sql":{
+        "selects":[
+          {
+            "aggregation":"NONE",
+            "column":"E.ElementListCode",
+            "alias":"Code"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"E.ElementListName_$LANG",
+            "alias":"Name"
+          }
+        ],
+        "froms":[
+          {
+            "column":"Element",
+            "alias":"E"
+          },
+          {
+            "column":"DomainElement",
+            "alias":"DE"
+          }
+        ],
+        "wheres":[
+          {
+            "datatype":"TEXT",
+            "column":"DE.DomainCode",
+            "operator":"=",
+            "value":"IN",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"DE.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"E.ElementListCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              6110,
+              6108,
+              6103,
+              6117
+            ]
+          }
+        ],
+        "groupBys":[
+          {
+            "column":"E.ElementListCode"
+          },
+          {
+            "column":"E.ElementListName_$LANG"
+          },
+          {
+            "column":"DE.ord"
+          }
+        ],
+        "orderBys":[
+          {
+            "column":"DE.ord",
+            "direction":"ASC"
+          },
+          {
+            "column":"E.ElementListName_$LANG",
+            "direction":"ASC"
+          }
+        ],
+        "limit":null,
+        "query":null,
+        "frequency":null
+      }
+    },
+    {
+      "type":"dropdown",
       "E_label":"Areas",
       "E_help":"n.a.",
       "keyword":"area",
       "width":"$_WIDTH_25",
       "sql":{
-        "query":"SELECT DISTINCT A.AreaCode AS Code, A.AreaName_$LANG AS Name FROM DomainAreaList AS DA, Area AS A  WHERE DA.DomainCode = 'GE' AND (A.AreaCode = DA.AreaCode ) ORDER BY A.AreaName_$LANG ASC"
+        "query":"SELECT DISTINCT A.AreaCode AS Code, A.AreaName_$LANG AS Name FROM DomainAreaList AS DA, Area AS A  WHERE DA.DomainCode = 'IN' AND (A.AreaCode = DA.AreaCode ) AND A.AreaLevel = '5' ORDER BY A.AreaName_$LANG ASC"
       },
-      "default_code":"5000",
+      "default_code":"2",
       "blacklist":[
 
       ],
@@ -113,7 +205,7 @@
       "S_label":"Desde el Ao",
       "E_help":"n.a.",
       "keyword":"fromyear",
-      "default_code":1990,
+      "default_code":1970,
       "blacklist":[
 
       ],
@@ -145,7 +237,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"GE",
+            "value":"IN",
             "ins":[
 
             ]
@@ -163,7 +255,7 @@
       "S_label":"Hasta el ao",
       "E_help":"n.a.",
       "keyword":"toyear",
-      "default_code":2012,
+      "default_code":2013,
       "blacklist":[
 
       ],
@@ -195,7 +287,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"GE",
+            "value":"IN",
             "ins":[
 
             ]
@@ -205,16 +297,6 @@
         "query":null,
         "frequency":null
       }
-    },
-    {
-      "type":"dropdown_aggregation",
-      "E_label":"Aggregation",
-      "E_help":"n.a.",
-      "rest":"/faostat-browse-dbms/rest/nosql/get/aggregation",
-      "keyword":"aggregation",
-      "default_code":"AVG",
-      "E_default_label":"Average",
-      "width":"$_WIDTH_20"
     }
   ],
   "objects":[
@@ -229,14 +311,14 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title": "Emissions by country (CO2 equivalent)",
-      "S_title": "Emisiones por país (CO2 equivalente)",
-      "F_title": "Émissions par pays (CO2 équivalent)",
+      "E_title": "Map",
+      "S_title": "",
+      "F_title": "",
       "subtitle":"",
-      "E_subtitle":"$_AGG $_DATE",
-      "S_subtitle":"$_AGG $_DATE",
-      "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
+      "E_subtitle":"$_DATE",
+      "S_subtitle":"$_DATE",
+      "F_subtitle":"$_DATE",
+      "date_default_label":"1970 - 2013",
       "E_footnote": "<div style='color:#666'><i>The designations employed and the presentation of material in the maps do not imply the expression of any opinion whatsoever on the part of FAO concerning the legal or constitutional status of any country, territory or sea area, or concerning the delimitation of frontiers.<br>South Sudan declared its independence on July 9, 2011. Due to data availability, the assessment presented in the map for Sudan and South Sudan reflects the situation up to 2011 for the former Sudan.</i></div>",
       "F_footnote": "<div style='color:#666'><i>Les appellations employées et la présentation des données sur la carte n'impliquent de la part de la FAO aucune prise de position quant au statut juridique ou constitutionnel des pays, territoires ou zones maritimes, ni quant au tracé de leurs frontières ou limites.<br>Le Soudan du Sud a déclaré son indépendance le 9 Juillet 2011. Pour des raisons de disponibilité des données, l’évaluation montrée sur  la carte à la fois pour le Soudan et le Soudan du Sud, refléte la situation comme elle l’etait jusqu’en 2011 pour l’ex Soudan.</i></div>",
       "S_footnote": "<div style='color:#666'><i>Las denominaciones empleadas en los mapas y la forma en que aparecen presentados los datos no implican, por parte de la FAO, juicio alguno sobre la condición jurídica de países, territorios o zonas marítimas, ni respecto de la delimitación de sus fronteras.<br>Sudán del Sur declaró su independencia el 9 de julio de 2011. Debido a la disponibilidad de datos, la evaluación presentada en el mapa para Sudán y Sudán del Sur refleja la situación hasta el año 2011 para la antigua Sudán.</i></div",
@@ -284,7 +366,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7231
+              6110
             ]
           },
           {
@@ -293,7 +375,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1755
+              22008
             ]
           },
           {
@@ -302,7 +384,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              "'GE'"
+              "'IN'"
             ]
           },
           {
@@ -311,29 +393,50 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2012,
-              2011,
-              2010,
-              2009,
-              2008,
-              2007,
-              2006,
-              2005,
-              2004,
-              2003,
-              2002,
-              2001,
-              2000,
-              1999,
-              1998,
-              1997,
-              1996,
-              1995,
-              1994,
-              1993,
-              1992,
+              1970,
+              1971,
+              1972,
+              1973,
+              1974,
+              1975,
+              1976,
+              1977,
+              1978,
+              1979,
+              1980,
+              1981,
+              1982,
+              1983,
+              1984,
+              1985,
+              1986,
+              1987,
+              1988,
+              1989,
+              1990,
               1991,
-              1990
+              1992,
+              1993,
+              1994,
+              1995,
+              1996,
+              1997,
+              1998,
+              1999,
+              2000,
+              2001,
+              2002,
+              2003,
+              2004,
+              2005,
+              2006,
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013
             ]
           },
           {
@@ -408,7 +511,7 @@
       },
       "object_parameters":{
         "renderTo":"map_0",
-        "colorramp":"YlOrRd"
+        "decimalValues":2
       },
       "export_parameters":{
 
@@ -419,19 +522,19 @@
       "datasource":"faostat",
       "css":"faostat",
       "height":"210px",
-      "width":"$_WIDTH_66",
+      "width":"$_WIDTH_100",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title": "Emissions (CO2 equivalent)",
-      "F_title": "Émission (CO2 équivalent)",
-      "S_title": "Emisiones (CO2 equivalente)",
+      "E_title": "Timeserie",
+      "F_title": "",
+      "S_title": "",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1970 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -498,7 +601,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7231
+              6110
             ]
           },
           {
@@ -507,7 +610,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1755
+              22008
             ]
           },
           {
@@ -516,9 +619,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              5000,
-              5848,
-              5849
+              2
             ]
           },
           {
@@ -527,6 +628,26 @@
             "operator":"IN",
             "value":null,
             "ins":[
+              1970,
+              1971,
+              1972,
+              1973,
+              1974,
+              1975,
+              1976,
+              1977,
+              1978,
+              1979,
+              1980,
+              1981,
+              1982,
+              1983,
+              1984,
+              1985,
+              1986,
+              1987,
+              1988,
+              1989,
               1990,
               1991,
               1992,
@@ -549,14 +670,15 @@
               2009,
               2010,
               2011,
-              2012
+              2012,
+              2013
             ]
           },
           {
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"GE",
+            "value":"IN",
             "ins":[
 
             ]
@@ -607,499 +729,23 @@
       }
     },
     {
-      "type":"growthrate",
+      "type":"chart",
       "datasource":"faostat",
       "css":"faostat",
-      "height":"200px",
-      "width":"$_WIDTH_33",
+      "height":"265px",
+      "width":"$_WIDTH_100",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":false,
       "year_onchange":true,
-      "E_title":"Average annual growth rate by continent",
-      "S_title":"Tasa anual de crecimiento medio por continente",
-      "F_title":"Taux de croissance annuel moyen par continente",
-      "subtitle":"",
+      "aggregation_onchange":true,
+      "E_title": "Top 10",
+      "F_title": "Principaux 10",
+      "S_title": "Principales 10",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"1990 - 2012",
-      "E_footnote": "<div style='color:#666'><i>Growth rate calculated based on the Least-Squares method</i></div>",
-      "F_footnote": "<div style='color:#666'><i>Taux de croissance calculé avec  la méthode des moindres carrés</i></div>",
-      "S_footnote": "<div style='color:#666'><i>Tasa de crecimiento calculada basándose en el método de mínimos cuadrados</i></div>",
-      "object_parameters":{
-        "renderTo":"gr_1"
-      },
-      "sql":{
-        "selects":[
-          {
-            "aggregation":null,
-            "column":"A.AreaName_$LANG",
-            "alias":"Area"
-          },
-          {
-            "aggregation":null,
-            "column":"D.Year",
-            "alias":"Year"
-          },
-          {
-            "aggregation":"AVG",
-            "column":"D.Value",
-            "alias":"Value"
-          }
-        ],
-        "froms":[
-          {
-            "column":"Data",
-            "alias":"D"
-          },
-          {
-            "column":"Area",
-            "alias":"A"
-          }
-        ],
-        "wheres":[
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5100,
-              5200,
-              5300,
-              5400,
-              5500,
-              5000
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ElementListCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              7231
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ItemCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              1755
-            ]
-          },
-          {
-            "datatype":"TEXT",
-            "column":"D.DomainCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              "'GE'"
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.Year",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              1990,
-              1991,
-              1992,
-              1993,
-              1994,
-              1995,
-              1996,
-              1997,
-              1998,
-              1999,
-              2000,
-              2001,
-              2002,
-              2003,
-              2004,
-              2005,
-              2006,
-              2007,
-              2008,
-              2009,
-              2010,
-              2011,
-              2012
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"=",
-            "value":"A.AreaCode",
-            "ins":[
-
-            ]
-          }
-        ],
-        "groupBys":[
-          {
-            "column":"A.AreaName_$LANG"
-          },
-          {
-            "column":"D.Year"
-          }
-        ],
-        "orderBys":[
-          {
-            "column":"A.AreaName_$LANG",
-            "direction":"ASC"
-          },
-          {
-            "column":"D.Year",
-            "direction":"ASC"
-          }
-        ],
-        "limit":null,
-        "query":null,
-        "frequency":null
-      },
-      "export_parameters":{
-
-      }
-    },
-    {
-      "type":"chart",
-      "datasource":"faostat",
-      "css":"faostat",
-      "height":"265px",
-      "width":"$_WIDTH_100",
-      "item_onchange":false,
-      "element_onchange":true,
-      "area_onchange":true,
-      "year_onchange":true,
-      "aggregation_onchange":true,
-      "E_title": "Emissions by animal type",
-      "F_title": "Émissions par type d'animal",
-      "S_title": "Emisiones por tipo de animal",
-      "E_subtitle":"$_AGG $_DATE",
-      "S_subtitle":"$_AGG $_DATE",
-      "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
-      "E_footnote":null,
-      "object_parameters":{
-        "series_name":null,
-        "engine":"highcharts",
-        "keyword":"FAOSTAT_DEFAULT_PIE",
-        "renderTo":"chart_1",
-        "title":null,
-        "credits":""
-      },
-      "export_parameters":{
-
-      },
-      "sql":{
-        "selects":[
-          {
-            "aggregation":"AVG",
-            "column":"D.Value",
-            "alias":"Value"
-          },
-          {
-            "aggregation":"NONE",
-            "column":"I.ItemName_$LANG",
-            "alias":"Area"
-          }
-        ],
-        "froms":[
-          {
-            "column":"Data",
-            "alias":"D"
-          },
-          {
-            "column":"Area",
-            "alias":"A"
-          },
-          {
-            "column":"Item",
-            "alias":"I"
-          }
-        ],
-        "wheres":[
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5000
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ElementListCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              7231
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"I.ItemLevel",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5
-            ]
-          },
-          {
-            "datatype":"TEXT",
-            "column":"D.DomainCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              "'GE'"
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.Year",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              1990,
-              1991,
-              1992,
-              1993,
-              1994,
-              1995,
-              1996,
-              1997,
-              1998,
-              1999,
-              2000,
-              2001,
-              2002,
-              2003,
-              2004,
-              2005,
-              2006,
-              2007,
-              2008,
-              2009,
-              2010,
-              2011,
-              2012
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"=",
-            "value":"A.AreaCode",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ItemCode",
-            "operator":"=",
-            "value":"I.ItemCode",
-            "ins":[
-
-            ]
-          }
-        ],
-        "groupBys":[
-          {
-            "column":"I.ItemName_$LANG"
-          }
-        ],
-        "orderBys":[
-          {
-            "column":"I.ItemName_$LANG",
-            "direction":"ASC"
-          }
-        ],
-        "limit":null,
-        "query":null,
-        "frequency":null
-      }
-    },
-    {
-      "type":"chart",
-      "datasource":"faostat",
-      "css":"faostat",
-      "height":"265px",
-      "width":"$_WIDTH_100",
-      "item_onchange":true,
-      "element_onchange":true,
-      "area_onchange":false,
-      "year_onchange":true,
-      "aggregation_onchange":true,
-      "E_title": "Emissions by continent",
-      "F_title": "Émissions par continent",
-      "S_title": "Emisiones por continente",
-      "E_subtitle":"$_AGG $_DATE",
-      "S_subtitle":"$_AGG $_DATE",
-      "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
-      "E_footnote":null,
-      "object_parameters":{
-        "series_name":null,
-        "engine":"highcharts",
-        "keyword":"FAOSTAT_DEFAULT_PIE",
-        "renderTo":"chart_1",
-        "title":null,
-        "credits":""
-      },
-      "export_parameters":{
-
-      },
-      "sql":{
-        "selects":[
-          {
-            "aggregation":"AVG",
-            "column":"D.Value",
-            "alias":"Value"
-          },
-          {
-            "aggregation":"NONE",
-            "column":"A.AreaName_$LANG",
-            "alias":"Area"
-          }
-        ],
-        "froms":[
-          {
-            "column":"Data",
-            "alias":"D"
-          },
-          {
-            "column":"Area",
-            "alias":"A"
-          },
-          {
-            "column":"Item",
-            "alias":"I"
-          }
-        ],
-        "wheres":[
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5100,
-              5200,
-              5300,
-              5400,
-              5500
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ElementListCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              7231
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ItemCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              1755
-            ]
-          },
-          {
-            "datatype":"TEXT",
-            "column":"D.DomainCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              "'GE'"
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.Year",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              1990,
-              1991,
-              1992,
-              1993,
-              1994,
-              1995,
-              1996,
-              1997,
-              1998,
-              1999,
-              2000,
-              2001,
-              2002,
-              2003,
-              2004,
-              2005,
-              2006,
-              2007,
-              2008,
-              2009,
-              2010,
-              2011,
-              2012
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"=",
-            "value":"A.AreaCode",
-            "ins":[
-
-            ]
-          }
-        ],
-        "groupBys":[
-          {
-            "column":"A.AreaName_$LANG"
-          }
-        ],
-        "orderBys":[
-          {
-            "column":"A.AreaName_$LANG",
-            "direction":"ASC"
-          }
-        ],
-        "limit":null,
-        "query":null,
-        "frequency":null
-      }
-    },
-    {
-      "type":"chart",
-      "datasource":"faostat",
-      "css":"faostat",
-      "height":"265px",
-      "width":"$_WIDTH_100",
-      "item_onchange":true,
-      "element_onchange":true,
-      "area_onchange":false,
-      "year_onchange":true,
-      "aggregation_onchange":true,
-      "E_title": "Top 10 emitters (CO2 equivalent)",
-      "F_title": "Principaux 10 émetteurs (CO2 équivalent)",
-      "S_title": "Principales 10 emisores (CO2 equivalente)",
-      "E_subtitle":"$_AGG $_DATE",
-      "S_subtitle":"$_AGG $_DATE",
-      "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1970 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -1162,7 +808,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7231
+              6110
             ]
           },
           {
@@ -1171,7 +817,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1755
+              22008
             ]
           },
           {
@@ -1187,7 +833,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"GE",
+            "value":"IN",
             "ins":[
 
             ]
@@ -1226,6 +872,26 @@
             "operator":"IN",
             "value":null,
             "ins":[
+              1970,
+              1971,
+              1972,
+              1973,
+              1974,
+              1975,
+              1976,
+              1977,
+              1978,
+              1979,
+              1980,
+              1981,
+              1982,
+              1983,
+              1984,
+              1985,
+              1986,
+              1987,
+              1988,
+              1989,
               1990,
               1991,
               1992,
@@ -1248,7 +914,8 @@
               2009,
               2010,
               2011,
-              2012
+              2012,
+              2013
             ]
           }
         ],
