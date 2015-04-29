@@ -17,7 +17,7 @@
       "F_help":"Items are...",
       "S_help":"Items are...",
       "keyword":"item",
-      "default_code":"22008",
+      "default_code":"22015",
       "blacklist":[
 
       ],
@@ -66,6 +66,16 @@
             "ins":[
 
             ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"I.ItemCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              22015,
+              22016
+            ]
           }
         ],
         "orderBys":[
@@ -92,7 +102,7 @@
       "F_help":"element are...",
       "S_help":"element are...",
       "keyword":"element",
-      "default_code":"6110",
+      "default_code":"6103",
       "blacklist":[
 
       ],
@@ -148,8 +158,8 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              6110,
-              6108
+              6103,
+              6117
             ]
           }
         ],
@@ -320,7 +330,7 @@
       "E_footnote": "<div style='color:#666'><i>The designations employed and the presentation of material in the maps do not imply the expression of any opinion whatsoever on the part of FAO concerning the legal or constitutional status of any country, territory or sea area, or concerning the delimitation of frontiers.<br>South Sudan declared its independence on July 9, 2011. Due to data availability, the assessment presented in the map for Sudan and South Sudan reflects the situation up to 2011 for the former Sudan.</i></div>",
       "F_footnote": "<div style='color:#666'><i>Les appellations employées et la présentation des données sur la carte n'impliquent de la part de la FAO aucune prise de position quant au statut juridique ou constitutionnel des pays, territoires ou zones maritimes, ni quant au tracé de leurs frontières ou limites.<br>Le Soudan du Sud a déclaré son indépendance le 9 Juillet 2011. Pour des raisons de disponibilité des données, l’évaluation montrée sur  la carte à la fois pour le Soudan et le Soudan du Sud, refléte la situation comme elle l’etait jusqu’en 2011 pour l’ex Soudan.</i></div>",
       "S_footnote": "<div style='color:#666'><i>Las denominaciones empleadas en los mapas y la forma en que aparecen presentados los datos no implican, por parte de la FAO, juicio alguno sobre la condición jurídica de países, territorios o zonas marítimas, ni respecto de la delimitación de sus fronteras.<br>Sudán del Sur declaró su independencia el 9 de julio de 2011. Debido a la disponibilidad de datos, la evaluación presentada en el mapa para Sudán y Sudán del Sur refleja la situación hasta el año 2011 para la antigua Sudán.</i></div",
-      "sql":{
+     "sql":{
         "selects":[
           {
             "aggregation":null,
@@ -364,7 +374,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              6110
+              6103
             ]
           },
           {
@@ -373,7 +383,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              22008
+              22015
             ]
           },
           {
@@ -508,7 +518,8 @@
         "frequency":null
       },
       "object_parameters":{
-        "renderTo":"map_0"
+        "renderTo":"map_0",
+        "decimalValues":2
       },
       "export_parameters":{
 
@@ -598,7 +609,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              6110
+              6103
             ]
           },
           {
@@ -607,7 +618,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              22008
+              22015
             ]
           },
           {
@@ -805,7 +816,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              6110
+              6103
             ]
           },
           {
@@ -814,7 +825,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              22008
+              22015
             ]
           },
           {

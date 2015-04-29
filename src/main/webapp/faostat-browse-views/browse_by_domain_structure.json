@@ -187,5 +187,21 @@
       "F_tab_title":"Projections",
       "E_tooltip":""
     }
+  ],
+  "IN":[
+    {
+      "view_id":"IN",
+      "E_tab_title":"GDP",
+      "S_tab_title":"GDP",
+      "F_tab_title":"GDP",
+      "E_tooltip":""
+    },
+    {
+      "view_id":"IN-SHARE",
+      "E_tab_title":"Share",
+      "S_tab_title":"Share",
+      "F_tab_title":"Share",
+      "E_tooltip":""
+    }
   ]
 }
