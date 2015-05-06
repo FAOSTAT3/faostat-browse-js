@@ -4,14 +4,11 @@
   },
   "version":"1.0",
   "css":"faostat",
-  "view_id":"G1",
+  "view_id":"EM",
   "date_last_update":"2013-03-13",
   "user":"Murzilli",
   "abstract":{
-    "E_title":null,
-    "E_subtitle": "<a href='$_NOTES_URL/EN/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Emissions of methane and nitrous oxide produced from agricultural activities</div></a>",
-    "S_subtitle": "<a href='$_NOTES_URL/ES/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Emisiones de metano y óxido nitroso producido por las actividades agrícolas</div></a>",
-    "F_subtitle": "<a href='$_NOTES_URL/FR/GT.pdf' target='_black'><div class='title-note-icon icon-info'></div><div class='title-note'>Émissions de méthane et d'oxyde nitreux provenant des activités agricoles</div></a>"
+    "E_title":null
   },
   "selectors":[
     {
@@ -240,9 +237,9 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Selected Item share by country",
-      "S_title": "",
-      "F_title": "",
+      "E_title": "Selected item % emissions share by country (CO2eq)",
+      "F_title": "Pourcentage des émissions de l'élément sélectionné par pays (CO2eq)",
+      "S_title": "Porcentaje de emisiones de la opción seleccionada por país (CO2eq)",
       "subtitle":"",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
@@ -424,88 +421,83 @@
       }
     },
     {
-      "type": "chart",
-      "datasource": "faostat",
-      "css": "faostat",
-      "height": "210px",
-      "width": "$_WIDTH_100",
-      "item_onchange": false,
-      "element_onchange": true,
-      "area_onchange": true,
-      "year_onchange": true,
-      "aggregation_onchange": false,
-      "E_title": "Emissions (CO2 equivalent)",
-      "F_title": "Émission (CO2 équivalent)",
-      "S_title": "Emisiones (CO2 equivalente)",
-      "E_subtitle": "$_DATE",
-      "S_subtitle": "$_DATE",
-      "F_subtitle": "$_DATE",
-      "date_default_label": "1990 - 2010",
-      "E_footnote": null,
-      "object_parameters": {
-        "series_name": null,
-        "engine": "highcharts",
-        "keyword": "FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_LINE",
-        "renderTo": "chart_0",
-        "title": "",
-        "credits":"",
-        "showcredits":false,
-        "yaxis": {
-          "min": null,
-          "max": null,
-          "tickInterval": null,
-          "title": null
+      "type":"chart",
+      "datasource":"faostat",
+      "css":"faostat",
+      "height":"235px",
+      "width":"$_WIDTH_100",
+      "item_onchange":true,
+      "element_onchange":true,
+      "area_onchange":true,
+      "year_onchange":true,
+      "aggregation_onchange":true,
+      "E_title": "Selected item % emissions share (CO2eq)",
+      "F_title": "Pourcentage des émissions de l'élément sélectionné (CO2eq)",
+      "S_title": "Porcentaje de emisiones de la opción seleccionada (CO2eq)",
+      "E_subtitle":"$_DATE",
+      "S_subtitle":"$_DATE",
+      "F_subtitle":"$_DATE",
+      "date_default_label":"1990 - 2012",
+      "E_footnote":null,
+      "object_parameters":{
+        "series_name":null,
+        "engine":"highcharts",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_LINE",
+        "renderTo":"chart_0",
+        "title":"",
+        "credits":"M = Million, k = Thousand",
+        "yaxis":{
+          "min":null,
+          "max":null,
+          "tickInterval":null,
+          "title":null
         },
-        "xaxis": {
-          "rotation": -45,
-          "fontSize": "9px"
+        "xaxis":{
+          "rotation":-45,
+          "fontSize":"9px"
         }
       },
-      "export_parameters": {
+      "export_parameters":{
+
       },
-      "sql": {
-        "selects": [
+      "sql":{
+        "selects":[
           {
-            "aggregation": "NONE",
-            "column": "D.Year",
-            "alias": "Year"
+            "aggregation":"NONE",
+            "column":"D.Year",
+            "alias":"Year"
           },
           {
-            "aggregation": "NONE",
-            "column": "I.ItemName_$LANG",
-            "alias": "Item"
+            "aggregation":"NONE",
+            "column":"A.AreaName_$LANG",
+            "alias":"Area"
           },
           {
-            "aggregation": "AVG",
-            "column": "D.Value",
-            "alias": "Value"
+            "aggregation":"AVG",
+            "column":"D.Value",
+            "alias":"Value"
           },
           {
-            "aggregation": "NONE",
-            "column": "E.UnitName_$LANG",
-            "alias": "Unit"
-          },
-          {
-            "aggregation": "NONE",
-            "column": "D.ItemCode",
-            "alias": "Itemcode"
+            "aggregation":"NONE",
+            "column":"E.UnitName_$LANG",
+            "alias":"Unit"
           }
         ],
-        "froms": [
+        "froms":[
           {
-            "column": "Data",
-            "alias": "D"
+            "column":"Data",
+            "alias":"D"
           },
           {
-            "column": "Item",
-            "alias": "I"
+            "column":"Area",
+            "alias":"A"
           },
           {
-            "column": "Element",
-            "alias": "E"
+            "column":"Element",
+            "alias":"E"
           }
         ],
-        "wheres": [
+        "wheres":[
           {
             "datatype": "DATE",
             "column": "D.ElementCode",
@@ -521,9 +513,7 @@
             "operator": "IN",
             "value": null,
             "ins": [
-              1710,
-              6822,
-              6824
+              1710
             ]
           },
           {
@@ -532,7 +522,9 @@
             "operator": "IN",
             "value": null,
             "ins": [
-              5000
+              5000,
+              5848,
+              5849
             ]
           },
           {
@@ -565,57 +557,57 @@
             ]
           },
           {
-            "datatype": "TEXT",
-            "column": "D.DomainCode",
-            "operator": "=",
-            "value": "EM",
-            "ins": [
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
+            "operator":"=",
+            "value":"EM",
+            "ins":[
+
             ]
           },
           {
-            "datatype": "DATE",
-            "column": "D.ItemCode",
-            "operator": "=",
-            "value": "I.ItemCode",
-            "ins": [
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"=",
+            "value":"A.AreaCode",
+            "ins":[
+
             ]
           },
           {
-            "datatype": "DATE",
-            "column": "D.ElementCode",
-            "operator": "=",
-            "value": "E.ElementCode",
-            "ins": [
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
+            "ins":[
+
             ]
           }
         ],
-        "groupBys": [
+        "groupBys":[
           {
-            "column": "D.Year"
+            "column":"D.Year"
           },
           {
-            "column": "I.ItemName_$LANG"
+            "column":"A.AreaName_$LANG"
           },
           {
-            "column": "E.UnitName_$LANG"
-          },
-          {
-            "column": "D.ItemCode"
+            "column":"E.UnitName_$LANG"
           }
         ],
-        "orderBys": [
+        "orderBys":[
           {
-            "column": "D.ItemCode",
-            "direction": "ASC"
+            "column":"A.AreaName_$LANG",
+            "direction":"ASC"
           },
           {
-            "column": "D.Year",
-            "direction": "ASC"
+            "column":"D.Year",
+            "direction":"ASC"
           }
         ],
-        "limit": null,
-        "query": null,
-        "frequency": null
+        "limit":null,
+        "query":null,
+        "frequency":null
       }
     },
     {
@@ -629,9 +621,9 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title": "Sector share by gas (CO2eq)",
-      "F_title": "",
-      "S_title": "",
+      "E_title": "% emissions share of sector by gas (CO2eq)",
+      "F_title": "Pourcentage des émissions du secteur par gaz  (CO2eq)",
+      "S_title": "Porcentaje de emisiones de sector por gas  (CO2eq)",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
@@ -830,9 +822,9 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Sector share by gas (CO2)",
-      "F_title": "",
-      "S_title": "",
+      "E_title": "% emissions share of sector by gas (CO2)",
+      "F_title": "Pourcentage des émissions du secteur par gaz  (CO2)",
+      "S_title": "Porcentaje de emisiones de sector por gas  (CO2)",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
@@ -1030,9 +1022,9 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Sector share by gas (CH4)",
-      "F_title": "",
-      "S_title": "",
+      "E_title": "% emissions share of sector by gas (CH4)",
+      "F_title": "Pourcentage des émissions du secteur par gaz  (CH4)",
+      "S_title": "Porcentaje de emisiones de sector por gas  (CH4)",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
@@ -1230,9 +1222,9 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Sector share by gas (N2O)",
-      "F_title": "",
-      "S_title": "",
+      "E_title": "% emissions share of sector by gas (N2O)",
+      "F_title": "Pourcentage des émissions du secteur par gaz  (N2O)",
+      "S_title": "Porcentaje de emisiones de sector por gas  (N2O)",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
@@ -1430,9 +1422,9 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "% of gas of the selected item",
-      "F_title": "",
-      "S_title": "",
+      "E_title": "% of gas share of the selected item",
+      "F_title": "Pourcentage des gaz de l’article sélectionné",
+      "S_title": "Porcentaje  de gas del elemento seleccionado",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
@@ -1587,9 +1579,9 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title": "Selected Item Top 10 share",
-      "F_title": "",
-      "S_title": "",
+      "E_title":"Selected item % emissions share of top 10 countries (CO2eq)",
+      "F_title":"Pourcentage des émissions de l'élément sélectionné pour le principaux 10 pays",
+      "S_title":"Porcentaje de emisiones de la opción seleccionada para los 10 países principales",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
