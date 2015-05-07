@@ -191,9 +191,9 @@
   "IN":[
     {
       "view_id":"IN",
-      "E_tab_title":"GDP",
-      "S_tab_title":"GDP",
-      "F_tab_title":"GDP",
+      "E_tab_title":"Value",
+      "S_tab_title":"Value",
+      "F_tab_title":"Value",
       "E_tooltip":""
     },
     {
