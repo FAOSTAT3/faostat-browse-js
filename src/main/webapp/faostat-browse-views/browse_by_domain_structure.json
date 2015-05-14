@@ -188,16 +188,16 @@
       "E_tooltip":""
     }
   ],
-  "IN":[
+  "MK":[
     {
-      "view_id":"IN",
+      "view_id":"MK",
       "E_tab_title":"Value",
       "S_tab_title":"Value",
       "F_tab_title":"Value",
       "E_tooltip":""
     },
     {
-      "view_id":"IN-SHARE",
+      "view_id":"MK-SHARE",
       "E_tab_title":"Share",
       "S_tab_title":"Share",
       "F_tab_title":"Share",

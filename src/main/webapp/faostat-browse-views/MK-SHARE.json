@@ -53,7 +53,7 @@
             "datatype":"TEXT",
             "column":"DI.DomainCode",
             "operator":"=",
-            "value":"IN",
+            "value":"MK",
             "ins":[
 
             ]
@@ -138,7 +138,7 @@
             "datatype":"TEXT",
             "column":"DE.DomainCode",
             "operator":"=",
-            "value":"IN",
+            "value":"MK",
             "ins":[
 
             ]
@@ -196,7 +196,7 @@
       "keyword":"area",
       "width":"$_WIDTH_25",
       "sql":{
-        "query":"SELECT DISTINCT A.AreaCode AS Code, A.AreaName_$LANG AS Name, DA.Order_$LANG FROM DomainAreaList AS DA, Area AS A  WHERE DA.DomainCode = 'IN' AND (A.AreaCode = DA.AreaCode ) ORDER BY DA.Order_$LANG ASC, A.AreaName_$LANG ASC"
+        "query":"SELECT DISTINCT A.AreaCode AS Code, A.AreaName_$LANG AS Name, DA.Order_$LANG FROM DomainAreaList AS DA, Area AS A  WHERE DA.DomainCode = 'MK' AND (A.AreaCode = DA.AreaCode ) ORDER BY DA.Order_$LANG ASC, A.AreaName_$LANG ASC"
       },
       "default_code":"5000",
       "blacklist":[
@@ -245,7 +245,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"IN",
+            "value":"MK",
             "ins":[
 
             ]
@@ -295,7 +295,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"IN",
+            "value":"MK",
             "ins":[
 
             ]
@@ -392,7 +392,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              "'IN'"
+              "'MK'"
             ]
           },
           {
@@ -686,7 +686,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"IN",
+            "value":"MK",
             "ins":[
 
             ]
@@ -841,7 +841,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"IN",
+            "value":"MK",
             "ins":[
 
             ]
