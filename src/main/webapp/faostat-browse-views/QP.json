@@ -1055,6 +1055,23 @@
               1994,
               1993
             ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"NOTIN",
+            "value":null,
+            "ins":[
+              96,
+              128,
+              214,
+              357,
+              351,
+              265,
+              261,
+              266,
+              268
+            ]
           }
         ],
         "groupBys":[

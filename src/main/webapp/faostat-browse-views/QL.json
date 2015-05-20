@@ -1092,6 +1092,23 @@
               2012,
               2013
             ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"NOTIN",
+            "value":null,
+            "ins":[
+              96,
+              128,
+              214,
+              357,
+              351,
+              265,
+              261,
+              266,
+              268
+            ]
           }
         ],
         "groupBys":[
@@ -1375,6 +1392,23 @@
                     2011,
                     2012,
                     2013
+                  ]
+                },
+                {
+                  "datatype":"DATE",
+                  "column":"D2.AreaCode",
+                  "operator":"NOTIN",
+                  "value":null,
+                  "ins":[
+                    96,
+                    128,
+                    214,
+                    357,
+                    351,
+                    265,
+                    261,
+                    266,
+                    268
                   ]
                 }
               ],
