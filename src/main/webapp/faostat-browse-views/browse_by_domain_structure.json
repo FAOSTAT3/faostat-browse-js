@@ -188,6 +188,22 @@
       "E_tooltip":""
     }
   ],
+  "M":[
+    {
+      "view_id":"M",
+      "E_tab_title":"Value",
+      "S_tab_title":"Value",
+      "F_tab_title":"Value",
+      "E_tooltip":""
+    },
+    {
+      "view_id":"MK-SHARE",
+      "E_tab_title":"Share",
+      "S_tab_title":"Share",
+      "F_tab_title":"Share",
+      "E_tooltip":""
+    }
+  ],
   "MK":[
     {
       "view_id":"MK",
