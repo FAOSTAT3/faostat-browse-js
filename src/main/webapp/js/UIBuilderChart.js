@@ -708,7 +708,7 @@ if (!window.UIBuilderChart) {
                 /** Collect all the years */
                 var y = new Hashtable();
                 var yearsList = [];
-                for(key in vectors) {
+                for(var key in vectors) {
                     // console.log(key);
                     for (var i = 0 ; i < vectors[key].dates.length ; i++) {
                         //console.log(vectors[key]);
