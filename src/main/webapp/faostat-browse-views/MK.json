@@ -541,7 +541,7 @@
         "title":"",
         "credits":"M = Million, k = Thousand",
         "yaxis":{
-          "min":null,
+          "min":0,
           "max":null,
           "tickInterval":null,
           "title":null

@@ -519,7 +519,7 @@
       },
       "object_parameters":{
         "renderTo":"map_0",
-        "decimalValues":2
+        "decimalValues":3
       },
       "export_parameters":{
 
@@ -560,6 +560,9 @@
         "xaxis":{
           "rotation":-45,
           "fontSize":"9px"
+        },
+        "tooltip": {
+          "valueDecimals": 3
         }
       },
       "export_parameters":{
@@ -767,6 +770,9 @@
           "max":null,
           "tickInterval":null,
           "title":null
+        },
+        "tooltip": {
+          "valueDecimals": 3
         }
       },
       "export_parameters":{

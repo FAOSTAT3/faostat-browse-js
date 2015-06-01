@@ -153,6 +153,10 @@ if (!window.UIBuilderChart) {
                 yaxis.max = chart.object_parameters.yaxis.max != null ? chart.object_parameters.yaxis.max: null;
                 yaxis.tickInterval = chart.object_parameters.yaxis.tickInterval != null ? chart.object_parameters.yaxis.tickInterval: null;
             }
+            payload.tooltip = {};
+            if (chart.object_parameters.tooltip != null) {
+                payload.tooltip.valueDecimals = chart.object_parameters.tooltip.valueDecimals;
+            }
             yaxis.step = null;
             yaxis.title = {}
             yaxis.title.text = data[0][3];
@@ -209,6 +213,12 @@ if (!window.UIBuilderChart) {
                 payload.credits ="";
             else
                 payload.credits = $.i18n.prop('_millionthousand');
+
+            payload.tooltip = {};
+            if (chart.object_parameters.tooltip != null) {
+                payload.tooltip.valueDecimals = chart.object_parameters.tooltip.valueDecimals;
+            }
+
             payload.series = series;
             payload.yaxis = {};
             payload.yaxis.min = null;
@@ -262,6 +272,10 @@ if (!window.UIBuilderChart) {
                     payload.credits ="";
                 else
                     payload.credits = $.i18n.prop('_millionthousand');
+                payload.tooltip = {};
+                if (chart.object_parameters.tooltip != null) {
+                    payload.tooltip.valueDecimals = chart.object_parameters.tooltip.valueDecimals;
+                }
                 payload.series = series;
                 payload.yaxis = {};
                 payload.yaxis.min = null;
@@ -376,6 +390,11 @@ if (!window.UIBuilderChart) {
                     chart_payload.credits ="";
                 else
                     chart_payload.credits = $.i18n.prop('_millionthousand');
+
+                chart_payload.tooltip = {};
+                if (chart.object_parameters.tooltip != null) {
+                    chart_payload.tooltip.valueDecimals = chart.object_parameters.tooltip.valueDecimals;
+                }
                 chart_payload.yaxis = {};
                 chart_payload.yaxis = yAxis;
                 chart_payload.series = series;
@@ -504,6 +523,13 @@ if (!window.UIBuilderChart) {
                     a.labels = {};
                     a.labels.style = {};
                     a.labels.style.color = FENIXCharts.COLORS[i];
+
+                    // TODO: dirty fix to min value to yaxis
+                    if (chart.object_parameters.yaxis != null) {
+                        if (chart.object_parameters.yaxis.min != null) {
+                            a.min = chart.object_parameters.yaxis.min;
+                        }
+                    }
                     yAxis.push(a);
                 }
 
@@ -537,6 +563,14 @@ if (!window.UIBuilderChart) {
                     // chart_payload.xaxis.style.fontSize = '5px';
                     chart_payload.xaxis.tickinterval = 2;
                 }
+                chart_payload.tooltip = {};
+
+                if (chart.object_parameters.tooltip != null) {
+                    chart_payload.tooltip.valueDecimals = chart.object_parameters.tooltip.valueDecimals;
+                }
+
+                console.log(chart);
+                console.log(chart_payload);
 
                 FENIXCharts.plot(chart_payload);
             }
@@ -630,6 +664,11 @@ if (!window.UIBuilderChart) {
                         chart_payload.yaxis.tickInterval = chart.object_parameters.yaxis.tickInterval;
                         chart_payload.yaxis.title = chart.object_parameters.yaxis.title;
                         chart_payload.series = series;
+
+                        chart_payload.tooltip = {};
+                        if (chart.object_parameters.tooltip != null) {
+                            chart_payload.tooltip.valueDecimals = chart.object_parameters.tooltip.valueDecimals;
+                        }
 
                         FENIXCharts.plot(chart_payload);
 
@@ -794,6 +833,11 @@ if (!window.UIBuilderChart) {
                 }
                 // this is to avoid the empty point if the serie have scattered data
                 chart_payload.plotOptionsMarkerEnabled = true;
+
+                chart_payload.tooltip = {};
+                if (chart.object_parameters.tooltip != null) {
+                    chart_payload.tooltip.valueDecimals = chart.object_parameters.tooltip.valueDecimals;
+                }
 
                 chart_payload.series = series;
                 FENIXCharts.plot(chart_payload);
