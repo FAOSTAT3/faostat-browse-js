@@ -569,9 +569,6 @@ if (!window.UIBuilderChart) {
                     chart_payload.tooltip.valueDecimals = chart.object_parameters.tooltip.valueDecimals;
                 }
 
-                console.log(chart);
-                console.log(chart_payload);
-
                 FENIXCharts.plot(chart_payload);
             }
         },
