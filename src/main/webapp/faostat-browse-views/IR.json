@@ -17,7 +17,7 @@
       "F_help":"Items are...",
       "S_help":"Items are...",
       "keyword":"item",
-      "default_code":"22008",
+      "default_code":"22022",
       "blacklist":[
 
       ],
@@ -53,7 +53,7 @@
             "datatype":"TEXT",
             "column":"DI.DomainCode",
             "operator":"=",
-            "value":"MK",
+            "value":"IR",
             "ins":[
 
             ]
@@ -85,110 +85,14 @@
     },
     {
       "type":"dropdown",
-      "E_label":"Element",
-      "F_label":"Articles",
-      "S_label":"element",
-      "E_help":"element are...",
-      "F_help":"element are...",
-      "S_help":"element are...",
-      "keyword":"element",
-      "default_code":"6110",
-      "blacklist":[
-
-      ],
-      "start_date":null,
-      "end_date":null,
-      "default_date":null,
-      "width":"$_WIDTH_25",
-      "sql":{
-        "selects":[
-          {
-            "aggregation":"NONE",
-            "column":"E.ElementListCode",
-            "alias":"Code"
-          },
-          {
-            "aggregation":"NONE",
-            "column":"E.ElementListName_$LANG",
-            "alias":"Name"
-          }
-        ],
-        "froms":[
-          {
-            "column":"Element",
-            "alias":"E"
-          },
-          {
-            "column":"DomainElement",
-            "alias":"DE"
-          }
-        ],
-        "wheres":[
-          {
-            "datatype":"TEXT",
-            "column":"DE.DomainCode",
-            "operator":"=",
-            "value":"MK",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"DE.ElementCode",
-            "operator":"=",
-            "value":"E.ElementCode",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"E.ElementListCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              6110,
-              6108
-            ]
-          }
-        ],
-        "groupBys":[
-          {
-            "column":"E.ElementListCode"
-          },
-          {
-            "column":"E.ElementListName_$LANG"
-          },
-          {
-            "column":"DE.ord"
-          }
-        ],
-        "orderBys":[
-          {
-            "column":"DE.ord",
-            "direction":"ASC"
-          },
-          {
-            "column":"E.ElementListName_$LANG",
-            "direction":"ASC"
-          }
-        ],
-        "limit":null,
-        "query":null,
-        "frequency":null
-      }
-    },
-    {
-      "type":"dropdown",
       "E_label":"Areas",
       "E_help":"n.a.",
       "keyword":"area",
       "width":"$_WIDTH_25",
       "sql":{
-        "query":"SELECT DISTINCT A.AreaCode AS Code, A.AreaName_$LANG AS Name, DA.Order_$LANG FROM DomainAreaList AS DA, Area AS A  WHERE DA.DomainCode = 'MK' AND (A.AreaCode = DA.AreaCode ) ORDER BY DA.Order_$LANG ASC, A.AreaName_$LANG ASC"
+        "query":"SELECT DISTINCT A.AreaCode AS Code, A.AreaName_$LANG AS Name, DA.Order_$LANG FROM DomainAreaList AS DA, Area AS A  WHERE DA.DomainCode = 'IR' AND (A.AreaCode = DA.AreaCode ) AND A.AreaLevel = '5' ORDER BY DA.Order_$LANG ASC, A.AreaName_$LANG ASC"
       },
-      "default_code":"5000",
+      "default_code":"2",
       "blacklist":[
 
       ],
@@ -235,7 +139,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"MK",
+            "value":"IR",
             "ins":[
 
             ]
@@ -285,7 +189,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"MK",
+            "value":"IR",
             "ins":[
 
             ]
@@ -309,9 +213,9 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title": "Selected item",
-      "S_title": "Selected item",
-      "F_title": "Selected item",
+      "E_title": "Selected item (US$)",
+      "S_title": "Selected item (US$)",
+      "F_title": "Selected item (US$)",
       "subtitle":"",
       "E_subtitle":"Average $_DATE",
       "S_subtitle":"Moyenne $_DATE",
@@ -373,7 +277,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              22008
+              22022
             ]
           },
           {
@@ -382,7 +286,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              "'MK'"
+              "'IR'"
             ]
           },
           {
@@ -525,9 +429,9 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title": "Time series for selected item and country or region",
-      "F_title": "Time series for selected item and country or region",
-      "S_title": "Time series for selected item and country or region",
+      "E_title": "Time series for selected item and country (US$)",
+      "F_title": "Time series for selected item and country (US$)",
+      "S_title": "Time series for selected item and country (US$)",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
@@ -541,7 +445,7 @@
         "title":"",
         "credits":"M = Million, k = Thousand",
         "yaxis":{
-          "min":0,
+          "min":null,
           "max":null,
           "tickInterval":null,
           "title":null
@@ -607,7 +511,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              22008
+              22022
             ]
           },
           {
@@ -616,7 +520,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              5000
+              2
             ]
           },
           {
@@ -675,7 +579,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"MK",
+            "value":"IR",
             "ins":[
 
             ]
@@ -736,9 +640,9 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title": "Top 10 countries for selected item",
-      "F_title": "Top 10 countries for selected item",
-      "S_title": "Top 10 countries for selected item",
+      "E_title": "Top 10 countries for selected item (US$)",
+      "F_title": "Top 10 countries for selected item (US$)",
+      "S_title": "Top 10 countries for selected item (US$)",
       "E_subtitle":"Average $_DATE",
       "S_subtitle":"Moyenne $_DATE",
       "F_subtitle":"Promedio $_DATE",
@@ -814,7 +718,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              22008
+              22022
             ]
           },
           {
@@ -830,7 +734,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"MK",
+            "value":"IR",
             "ins":[
 
             ]
