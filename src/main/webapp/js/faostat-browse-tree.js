@@ -152,7 +152,8 @@ if (!window.FAOSTATBrowseTree) {
                 // prices
                 domaincode == 'PA' ||
                 domaincode == 'PM' ||
-                domaincode == 'PP' ||
+                domaincode == 'PX' ||
+               // domaincode == 'PP' ||
 
                 // fertilizers
                 domaincode == 'RA' ||

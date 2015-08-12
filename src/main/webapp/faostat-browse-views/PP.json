@@ -209,9 +209,9 @@
       "area_onchange": false,
       "year_onchange": true,
       "aggregation_onchange": false,
-      "E_title": "Producer prices - Top 5 producers for the selected commodity",
-      "S_title": "Producer prices - Top 5 producers for the selected commodity",
-      "F_title": "Producer prices - Top 5 producers for the selected commodity",
+      "E_title": "Producer prices - Top 5 producers of the selected commodity",
+      "S_title": "Precios al productor - 5 principales productores del producto seleccionado",
+      "F_title": "Prix à la production - 5 producteurs principaux du produit choisi",
       "E_subtitle":"$_DATE (Average Production)",
       "S_subtitle":"$_DATE (Promedio Producción)",
       "F_subtitle":"$_DATE (Moyenne Production)",
@@ -483,5 +483,49 @@
     }
   ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
