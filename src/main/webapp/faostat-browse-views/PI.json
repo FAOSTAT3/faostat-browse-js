@@ -145,7 +145,7 @@
       "year_onchange":true,
       "aggregation_onchange":true,
       "E_title":"Producer price indices in the selected country (2004-2006=100)",
-      "F_title":"Indices de Prix à la Production dans le pays choisi (2004-2006=100)",
+      "F_title":"Indices des prix à la production dans le pays sélectionné (2004-2006=100)",
       "S_title":"Índices de precios al productor en el país seleccionado (2004-2006=100)",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
