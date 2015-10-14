@@ -14,86 +14,20 @@
   "selectors":[
     {
       "type":"dropdown",
-      "E_label":"Items",
-      "F_label":"Articles",
-      "S_label":"tems",
-      "E_help":"Items are...",
-      "F_help":"Items are...",
-      "S_help":"Items are...",
-      "keyword":"item",
-      "default_code":"3023",
+      "E_label":"Areas",
+      "E_help":"n.a.",
+      "keyword":"area",
+      "width":"$_WIDTH_25",
+      "sql":{
+        "query":"SELECT DISTINCT A.AreaCode AS Code, A.AreaName_$LANG AS Name FROM DomainAreaList AS DA, Area AS A  WHERE DA.DomainCode = 'OE' AND (A.AreaCode = DA.AreaCode ) AND A.AreaLevel = 5 ORDER BY A.AreaName_$LANG ASC"
+      },
+      "default_code":"10",
       "blacklist":[
 
       ],
       "start_date":null,
       "end_date":null,
-      "default_date":null,
-      "sql":{
-        "selects":[
-          {
-            "aggregation":"NONE",
-            "column":"I.ItemCode",
-            "alias":"Code"
-          },
-          {
-            "aggregation":"NONE",
-            "column":"I.ItemName_$LANG",
-            "alias":"Name"
-          }
-        ],
-        "froms":[
-          {
-            "column":"Item",
-            "alias":"I"
-          },
-          {
-            "column":"DomainItem",
-            "alias":"DI"
-          }
-        ],
-        "wheres":[
-          {
-            "datatype":"TEXT",
-            "column":"DI.DomainCode",
-            "operator":"=",
-            "value":"OE",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"DI.ItemCode",
-            "operator":"=",
-            "value":"I.ItemCode",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"I.ItemCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              3023
-            ]
-          }
-        ],
-        "orderBys":[
-          {
-            "column":"DI.ord",
-            "direction":"ASC"
-          },
-          {
-            "column":"I.ItemName_$LANG",
-            "direction":"ASC"
-          }
-        ],
-        "limit":null,
-        "query":null,
-        "frequency":null
-      }
+      "default_date":null
     },
     {
       "type":"dropdown_year",
@@ -373,6 +307,215 @@
       },
       "export_parameters":{
 
+      }
+    },
+    {
+      "type":"chart",
+      "datasource":"faostatproddiss",
+      "css":"faostat",
+      "height":"300px",
+      "width":"$_WIDTH_100",
+      "item_onchange":true,
+      "element_onchange":false,
+      "area_onchange":true,
+      "year_onchange":true,
+      "aggregation_onchange":true,
+      "E_title":"Employment distribution, agriculture (all sources)",
+      "F_title":"Employment distribution, agriculture (all sources)",
+      "S_title":"Employment distribution, agriculture (all sources)",
+      "E_subtitle":"$_AGG $_DATE",
+      "S_subtitle":"$_AGG $_DATE",
+      "F_subtitle":"$_AGG $_DATE",
+      "date_default_label":"1994 - 2014",
+      "E_footnote":null,
+      "object_parameters":{
+        "series_name":null,
+        "engine":"highcharts",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_ALL",
+        "renderTo":"chart_0",
+        "title":"",
+        "credits":"M = Million, k = Thousand",
+        "yaxis":{
+          "min":null,
+          "max":null,
+          "tickInterval":null,
+          "title":null
+        },
+        "xaxis":{
+          "rotation":-45,
+          "fontSize":"9px"
+        }
+      },
+      "export_parameters":{
+
+      },
+      "sql":{
+        "selects":[
+          {
+            "aggregation":"NONE",
+            "column":"D.Year",
+            "alias":"Year"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"A.AreaName_$LANG",
+            "alias":"Area"
+          },
+          {
+            "aggregation":"AVG",
+            "column":"D.Value",
+            "alias":"Value"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"E.UnitName_$LANG",
+            "alias":"Unit"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"F.FlagDescription_$LANG",
+            "alias":"Flag"
+          }
+        ],
+        "froms":[
+          {
+            "column":"Data",
+            "alias":"D"
+          },
+          {
+            "column":"Area",
+            "alias":"A"
+          },
+          {
+            "column":"Element",
+            "alias":"E"
+          },
+          {
+            "column":"Flag",
+            "alias":"F"
+          }
+        ],
+        "wheres":[
+          {
+            "datatype":"DATE",
+            "column":"D.YEAR",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              2014,
+              2013,
+              2012,
+              2011,
+              2010,
+              2009,
+              2008,
+              2007,
+              2006,
+              2005,
+              2004,
+              2003,
+              2002,
+              2001,
+              2000,
+              1999,
+              1998,
+              1997,
+              1996,
+              1995,
+              1994
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              21063
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'OE'"
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              10
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"=",
+            "value":"A.AreaCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.Flag",
+            "operator":"=",
+            "value":"F.Flag",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.Value",
+            "operator":"IS NOT NULL",
+            "value":" ",
+            "ins":[
+
+            ]
+          }
+        ],
+        "groupBys":[
+          {
+            "column":"D.Year"
+          },
+          {
+            "column":"A.AreaName_$LANG"
+          },
+          {
+            "column":"E.UnitName_$LANG"
+          },
+          {
+            "column":"F.FlagDescription_$LANG"
+          }
+        ],
+        "orderBys":[
+          {
+            "column":"A.AreaName_$LANG",
+            "direction":"ASC"
+          },
+          {
+            "column":"D.Year",
+            "direction":"ASC"
+          }
+        ],
+        "limit":null,
+        "query":null,
+        "frequency":null
       }
     }
   ]
