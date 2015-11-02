@@ -73,9 +73,6 @@ if (!window.I18NInjector) {
         },
 
         injectLanguage_Subtitles_cachedObjects: function (object, aggregation_code, date) {
-            // object.subtitle = builds the actual subtitle
-
-            console.log(object, aggregation_code, date);
 
             if (object) {
                 object.subtitle = object[FAOSTATBrowse.lang + '_subtitle'];
@@ -100,7 +97,6 @@ if (!window.I18NInjector) {
                     object.date_default_label = date;
                 }
                 if (object.subtitle.indexOf('$_DATE') != -1) {
-                    console.log("!!!!!!!!!!!!!!!!1");
                     object.subtitle = object.subtitle.replace('$_DATE', object.date_default_label);
                 }
 

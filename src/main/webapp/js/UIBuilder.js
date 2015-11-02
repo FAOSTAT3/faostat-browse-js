@@ -43,8 +43,6 @@ if (!window.UIBuilder) {
 
             /** Append Footnote*/
             if ( payload.footnote != null ) {
-                console.log(FAOSTATBrowse.lang + '_footnote');
-                console.log(payload['footnote'][FAOSTATBrowse.lang + '_footnote'])
                 $('#footnote').html(payload['footnote'][FAOSTATBrowse.lang + '_footnote']).show();
             }
 
@@ -102,7 +100,6 @@ if (!window.UIBuilder) {
                 UIBuilder.substitution(filter, selectedCode)
             }
             else {
-                console.log("NO");
 
                 /** Edit SQL's INS */
                 for (var i = 0; i < UIBuilder.objects.length; i++) {
@@ -279,8 +276,6 @@ if (!window.UIBuilder) {
         },
 
         substitution: function(filter, selectedCodes) {
-            console.log(filter);
-            console.log(selectedCodes);
 
             // change subtitle labels
             if (filter) {
@@ -326,7 +321,6 @@ if (!window.UIBuilder) {
                 // lang
                 query = UIBuilder.replaceAll(query, '_$LANG', FAOSTATBrowse.lang);
 
-                console.log(query);
                 UIBuilder.objects[i].sql.query = query;
             }
 
@@ -334,7 +328,6 @@ if (!window.UIBuilder) {
         },
 
         substitutionFilter: function(query, key, values) {
-            console.log(values.join(','));
             return query.replace(key, values.join(','));
         },
 

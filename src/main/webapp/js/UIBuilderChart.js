@@ -72,12 +72,9 @@ if (!window.UIBuilderChart) {
 
                 success : function(response) {
 
-                    console.log(chart);
-
                     $('#' + chart.object_parameters.renderTo).empty();
 
                     try {
-                        console.log(chart.object_parameters.keyword);
                         switch (chart.object_parameters.keyword) {
                             case 'FAOSTAT_DEFAULT_LINE':
                                 UIBuilderChart.queryDBAndCreateChart_Line(chart, response);
