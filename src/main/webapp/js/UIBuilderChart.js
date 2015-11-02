@@ -72,20 +72,49 @@ if (!window.UIBuilderChart) {
 
                 success : function(response) {
 
+                    console.log(chart);
+
                     $('#' + chart.object_parameters.renderTo).empty();
 
-                    switch(chart.object_parameters.keyword) {
-                        case 'FAOSTAT_DEFAULT_LINE': UIBuilderChart.queryDBAndCreateChart_Line(chart, response); break;
-                        case 'FAOSTAT_DEFAULT_BAR': UIBuilderChart.queryDBAndCreateChart_Bar(chart, response); break;
-                        case 'FAOSTAT_DEFAULT_BAR_PESTICIDES_TRADE': UIBuilderChart.queryDBAndCreateChart_Bar_pesticides(chart, response); break;
-                        case 'FAOSTAT_DEFAULT_BAR_STACKED': UIBuilderChart.queryDBAndCreateChart_Bar_Stacked(chart, response); break;
-                        case 'FAOSTAT_DEFAULT_DOUBLE_AXES_BAR': UIBuilderChart.queryDBAndCreateChart_MultipleAxes(chart, 'column', response); break;
-                        case 'FAOSTAT_DEFAULT_DOUBLE_AXES_LINE': UIBuilderChart.queryDBAndCreateChart_MultipleAxes(chart, 'line', response); break;
-                        case 'FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_BAR': UIBuilderChart.queryDBAndCreateChart_MultipleAxes_Timeseries(chart, 'column', response); break;
-                        case 'FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_LINE': UIBuilderChart.queryDBAndCreateChart_MultipleAxes_Timeseries(chart, 'line', response); break;
-                        case 'FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_ALL': UIBuilderChart.createChartTimeserie(chart, 'line', response); break;
-                        case 'FAOSTAT_DEFAULT_PIE': UIBuilderChart.queryDBAndCreateChart_Pie(chart, response); break;
-                        case 'FAOSTAT_DEFAULT_GROWTHRATE': UIBuilderChart.queryDBAndCreateChart_GrowthRate(chart, response); break;
+                    try {
+                        console.log(chart.object_parameters.keyword);
+                        switch (chart.object_parameters.keyword) {
+                            case 'FAOSTAT_DEFAULT_LINE':
+                                UIBuilderChart.queryDBAndCreateChart_Line(chart, response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_BAR':
+                                UIBuilderChart.queryDBAndCreateChart_Bar(chart, response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_BAR_PESTICIDES_TRADE':
+                                UIBuilderChart.queryDBAndCreateChart_Bar_pesticides(chart, response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_BAR_STACKED':
+                                UIBuilderChart.queryDBAndCreateChart_Bar_Stacked(chart, response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_DOUBLE_AXES_BAR':
+                                UIBuilderChart.queryDBAndCreateChart_MultipleAxes(chart, 'column', response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_DOUBLE_AXES_LINE':
+                                UIBuilderChart.queryDBAndCreateChart_MultipleAxes(chart, 'line', response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_BAR':
+                                UIBuilderChart.queryDBAndCreateChart_MultipleAxes_Timeseries(chart, 'column', response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_LINE':
+                                UIBuilderChart.queryDBAndCreateChart_MultipleAxes_Timeseries(chart, 'line', response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_ALL':
+                                UIBuilderChart.createChartTimeserie(chart, 'line', response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_PIE':
+                                UIBuilderChart.queryDBAndCreateChart_Pie(chart, response);
+                                break;
+                            case 'FAOSTAT_DEFAULT_GROWTHRATE':
+                                UIBuilderChart.queryDBAndCreateChart_GrowthRate(chart, response);
+                                break;
+                        }
+                    }catch(e) {
+                        console.error(e);
                     }
 
                 },

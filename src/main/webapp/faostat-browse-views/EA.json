@@ -1,0 +1,491 @@
+{
+  "version":"1.0",
+  "css":"faostat",
+  "view_id":"G1",
+  "date_last_update":"2013-03-13",
+  "user":"Murzilli",
+  "abstract":{
+    "E_title":null
+  },
+  "selectors":[
+    {
+      "type":"dropdown",
+      "E_label":"Areas",
+      "E_help":"n.a.",
+      "keyword":"donor",
+      "substitution":"{{d.var1code}}",
+      "width":"$_WIDTH_25",
+      "sql":{
+        "query":"SELECT DV.VarCode, DV.VarName_$LANG FROM DomainVar DV WHERE DV.VarType = 'donor'       AND DV.DomainCode = 'EA' AND DV.level = 5 ORDER BY DV.Var1Order_$LANG ASC"
+      },
+      "default_code":"10",
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null
+    },
+    {
+      "type":"dropdown",
+      "E_label":"Areas",
+      "E_help":"n.a.",
+      "keyword":"recipient",
+      "substitution":"{{d.var2code}}",
+      "width":"$_WIDTH_25",
+      "sql":{
+        "query":"SELECT DV.VarCode, DV.VarName_$LANG FROM DomainVar DV WHERE DV.VarType = 'recipientarea'       AND DV.DomainCode = 'EA' AND DV.level = 5 ORDER BY DV.VarName_$LANG ASC"
+      },
+      "default_code":"2",
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null
+    },
+    {
+      "type":"dropdown",
+      "E_label":"Areas",
+      "E_help":"n.a.",
+      "keyword":"item",
+      "substitution":"{{d.var3code}}",
+      "width":"$_WIDTH_25",
+      "sql":{
+        "query":"SELECT DV.VarCode, DV.VarName_$LANG FROM DomainVar DV WHERE DV.VarType = 'item'       AND DV.DomainCode = 'EA' AND DV.VarCode IN ('22040', '22050')"
+      },
+      "default_code":"22040",
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null
+    },
+    {
+      "type":"dropdown",
+      "E_label":"Areas",
+      "E_help":"n.a.",
+      "keyword":"element",
+      "substitution":"{{d.var4code}}",
+      "width":"$_WIDTH_25",
+      "sql":{
+        "query":"SELECT DV.VarCode, DV.VarName_$LANG FROM DomainVar DV WHERE DV.VarType = 'element'       AND DV.DomainCode = 'EA' AND DV.VarCode IN ('6110', '6137')"
+      },
+      "default_code":"6110",
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null
+    },
+    {
+      "type":"dropdown",
+      "E_label":"Areas",
+      "E_help":"n.a.",
+      "keyword":"aid_aggregates",
+      "substitution":"{{d.var5code}}",
+      "width":"$_WIDTH_25",
+      "sql":{
+        "query": "SELECT DISTINCT dvt.VarListCode AS Code, VarListName_$LANG AS Label      , dvt.OrderVar AS [Order]  , v.AggregateType  , CASE WHEN CAST(dvt.VarGroupListCode AS varchar(15)) NOT IN (SELECT DISTINCT VarListCode FROM Warehouse.dbo.DomainVarTree WHERE DomainCode  = 'EA' AND VarType = 'purpose' AND ((LevelVarGroup = 10 AND LevelVar = 10)                                                                                                                                                                           OR (LevelVarGroup = 19 AND LevelVar = 20))) THEN 0 ELSE dvt.VarGroupListCode END AS Parent    FROM Warehouse.dbo.DomainVarTree dvt    INNER JOIN Warehouse.dbo.DomainVarList v    ON dvt.VarListCode = v.VarListCode    AND dvt.VarType = v.VarType    WHERE dvt.DomainCode = 'EA'    AND dvt.VarType = 'purpose'    AND ((dvt.LevelVarGroup = 10 AND dvt.LevelVar = 10)    OR (dvt.LevelVarGroup = 19 AND dvt.LevelVar = 19)    OR (dvt.LevelVarGroup = 20 AND dvt.LevelVar = 19)    OR (dvt.LevelVarGroup = 19 AND dvt.LevelVar = 20))    AND v.AggregateType = '+'    ORDER BY [Order] ASC, [Label]"
+      },
+      "default_code":"310",
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null
+    },
+    {
+      "type":"dropdown_year",
+      "substitution":"{{d.var6code}}",
+      "substitution_type":"date",
+      "E_label":"From Year",
+      "F_label":"Depuis l'anne",
+      "S_label":"Desde el Ao",
+      "E_help":"n.a.",
+      "keyword":"fromyear",
+      "default_code":1973,
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null,
+      "sql":{
+        "query": "SELECT MIN(VarListCode), MAX(VarListCode)  FROM Warehouse.dbo.DomainVarList    WHERE DomainCode = 'EA'    AND SingleFlag = 1    AND VarType = 'year'"
+      }
+    },
+    {
+      "type":"dropdown_year",
+      "substitution":"{{d.var6code}}",
+      "substitution_type":"date",
+      "E_label":"To Year",
+      "F_label":"A lanne",
+      "S_label":"Hasta el ao",
+      "E_help":"n.a.",
+      "keyword":"toyear",
+      "default_code":2013,
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null,
+      "sql": {
+        "query": "SELECT MIN(VarListCode), MAX(VarListCode)  FROM Warehouse.dbo.DomainVarList    WHERE DomainCode = 'EA'    AND SingleFlag = 1    AND VarType = 'year'"
+      }
+    },
+    {
+      "type":"dropdown_aggregation",
+      "substitution":"{{aggregation}}",
+      "substitution_type":"aggregation",
+      "E_label":"Aggregation",
+      "F_label":"Agrgation",
+      "S_label":"Agregacin",
+      "E_help":"n.a.",
+      "rest":"/faostat-browse-dbms/rest/nosql/get/aggregation",
+      "keyword":"aggregation",
+      "default_code":"AVG",
+      "E_default_label":"Average"
+    }
+  ],
+  "objects":[
+    {
+      "type":"map",
+      "datasource":"faostat",
+      "css":"faostat",
+      "height":"290px",
+      "width":"$_WIDTH_100",
+      "item_onchange":true,
+      "element_onchange":true,
+      "area_onchange":true,
+      "year_onchange":true,
+      "aggregation_onchange\"":true,
+      "E_title": "title",
+      "S_title": "title",
+      "F_title": "title",
+      "subtitle":"$_DATE",
+      "E_subtitle":"$_AGG $_DATE",
+      "S_subtitle":"$_AGG $_DATE",
+      "F_subtitle":"$_AGG $_DATE",
+      "date_default_label":"1973 - 2013",
+      "E_footnote": "<div style='color:#666'><i>The designations employed and the presentation of material in the maps do not imply the expression of any opinion whatsoever on the part of FAO concerning the legal or constitutional status of any country, territory or sea area, or concerning the delimitation of frontiers.<br>South Sudan declared its independence on July 9, 2011. Due to data availability, the assessment presented in the map for Sudan and South Sudan reflects the situation up to 2011 for the former Sudan.</i></div>",
+      "F_footnote": "<div style='color:#666'><i>Les appellations employées et la présentation des données sur la carte n'impliquent de la part de la FAO aucune prise de position quant au statut juridique ou constitutionnel des pays, territoires ou zones maritimes, ni quant au tracé de leurs frontières ou limites. Le Soudan du Sud a déclaré son indépendance le 9 Juillet 2011. Pour des raisons de disponibilité des données, l’évaluation montrée sur la carte à la fois pour le Soudan et le Soudan du Sud, refléte la situation comme elle l’etait jusqu’en 2011 pour l’ex Soudan.</i></div>",
+      "S_footnote": "<div style='color:#666'><i>Las denominaciones empleadas en los mapas y la forma en que aparecen presentados los datos no implican, por parte de la FAO, juicio alguno sobre la condición jurídica de países, territorios o zonas marítimas, ni respecto de la delimitación de sus fronteras. Sudán del Sur declaró su independencia el 9 de julio de 2011. Debido a la disponibilidad de datos, la evaluación presentada en el mapa para Sudán y Sudán del Sur refleja la situación hasta el año 2011 para la antigua Sudán.</i></div>",
+      "sql":{
+      },
+      "defaults":{
+        "{{aggregation}}": ["avg"],
+        "{{d.var1code}}": [10],
+        "{{d.var3code}}": [22040],
+        "{{d.var4code}}": [6110],
+        "{{d.var5code}}": [310],
+        "{{d.var6code}}": [
+          1973,
+          1974,
+          1975,
+          1976,
+          1977,
+          1978,
+          1979,
+          1980,
+          1981,
+          1982,
+          1983,
+          1984,
+          1985,
+          1986,
+          1987,
+          1988,
+          1989,
+          1990,
+          1991,
+          1992,
+          1993,
+          1994,
+          1995,
+          1996,
+          1997,
+          1998,
+          1999,
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014
+        ]
+      },
+      "#in_theory_should_be_that":{},
+      "filters":[
+        {
+          "{{d.var1code}}": [
+            10
+          ],
+          "{{d.var3code}}": [
+            22040
+          ],
+          "{{d.var4code}}": [
+            6110
+          ],
+          "{{d.var5code}}": [
+            20
+          ],
+          "{{d.var6code}}": [
+            1973,
+            1974,
+            1975,
+            1976,
+            1977,
+            1978,
+            1979,
+            1980,
+            1981,
+            1982,
+            1983,
+            1984,
+            1985,
+            1986,
+            1987,
+            1988,
+            1989,
+            1990,
+            1991,
+            1992,
+            1993,
+            1994,
+            1995,
+            1996,
+            1997,
+            1998,
+            1999,
+            2000,
+            2001,
+            2002,
+            2003,
+            2004,
+            2005,
+            2006,
+            2007,
+            2008,
+            2009,
+            2010,
+            2011,
+            2012,
+            2013,
+            2014
+          ]
+        }
+      ],
+      "_query":"select D.Var2Code, DV.VarName_$LANG, {{aggregation}}(D.value), DVU.UnitName_$LANG   from Data6 D, DomainVar DV, DomainVarUnit DVU      where D.DomainCode = 'EA'      AND D.Var1Code IN ({{d.var1code}})    AND D.Var3Code IN ({{d.var3code}})    AND D.Var4Code IN ({{d.var4code}})    AND D.Var5Code IN ({{d.var5code}})    AND D.Var6Code IN ({{d.var6code}})    AND DV.level = 5 AND DV.VarCode = D.Var2Code    AND DV.VarTypeGroup = 'area'  AND DV.VarType = 'recipientarea'  AND DV.DomainCode = 'EA' AND DVU.VarCode = D.Var4Code AND DVU.Vartype = 'element' AND DVU.DomainCode = 'EA' AND  DV.level = 5 GROUP BY  D.Var2Code, DV.VarName_$LANG, DVU.UnitName_$LANG",
+      "object_parameters":{
+        "renderTo":"map_0",
+        "decimalValues":5
+      },
+      "export_parameters":{
+
+      }
+    },
+    {
+      "type":"chart",
+      "datasource":"faostat",
+      "css":"faostat",
+      "height":"230px",
+      "width":"$_WIDTH_100",
+      "E_title":"title",
+      "S_title":"title",
+      "F_title":"title",
+      "E_subtitle":"$_DATE",
+      "E_subtitle":"$_DATE",
+      "S_subtitle":"$_DATE",
+      "F_subtitle":"$_DATE",
+      "date_default_label":"1973 - 2013",
+      "item_onchange":false,
+      "element_onchange":false,
+      "area_onchange":true,
+      "year_onchange":false,
+      "aggregation_onchange":false,
+      "E_footnote":null,
+      "object_parameters":{
+        "series_name":null,
+        "engine":"highcharts",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_ALL",
+        "renderTo":"chart_5",
+        "title":"",
+        "credits":"M = Million, k = Thousand",
+        "yaxis":{
+          "min":null,
+          "max":null,
+          "tickInterval":null,
+          "title":null,
+          "axes":[
+          ]
+        },
+        "xaxis":{
+          "rotation":-45,
+          "fontSize":"9px"
+        }
+      },
+      "export_parameters":{
+
+      },
+      "sql":{
+      },
+      "defaults":{
+        "{{d.var1code}}": [10],
+        "{{d.var2code}}": [2],
+        "{{d.var3code}}": [22040],
+        "{{d.var4code}}": [6110],
+        "{{d.var5code}}": [310],
+        "{{d.var6code}}": [
+          1973,
+          1974,
+          1975,
+          1976,
+          1977,
+          1978,
+          1979,
+          1980,
+          1981,
+          1982,
+          1983,
+          1984,
+          1985,
+          1986,
+          1987,
+          1988,
+          1989,
+          1990,
+          1991,
+          1992,
+          1993,
+          1994,
+          1995,
+          1996,
+          1997,
+          1998,
+          1999,
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014
+        ]
+      },
+      "_query":"select D.Var6Code, DV.VarName_$LANG, D.value, DVU.UnitName_$LANG   from Data6 D, DomainVar DV, DomainVarUnit DVU      where D.DomainCode = 'EA'      AND D.Var1Code IN ({{d.var1code}})  AND D.Var2Code IN ({{d.var2code}})  AND D.Var3Code IN ({{d.var3code}})    AND D.Var4Code IN ({{d.var4code}})    AND D.Var5Code IN ({{d.var5code}})    AND D.Var6Code IN ({{d.var6code}})    AND DV.level = 5 AND DV.VarCode = D.Var2Code    AND DV.VarTypeGroup = 'area'  AND DV.VarType = 'recipientarea'  AND DV.DomainCode = 'EA' AND DVU.VarCode = D.Var4Code AND DVU.Vartype = 'element' AND DVU.DomainCode = 'EA' AND  DV.level = 5"
+    },
+    {
+      "type":"chart",
+      "datasource":"faostat",
+      "css":"faostat",
+      "height":"265px",
+      "width":"$_WIDTH_100",
+      "item_onchange":true,
+      "element_onchange":true,
+      "area_onchange":false,
+      "year_onchange":true,
+      "aggregation_onchange":true,
+      "E_title": "title",
+      "F_title": "title",
+      "S_title": "title",
+      "E_subtitle":"$_AGG $_DATE",
+      "S_subtitle":"$_AGG $_DATE",
+      "F_subtitle":"$_AGG $_DATE",
+      "date_default_label":"1993 - 2013",
+      "E_footnote":null,
+      "object_parameters":{
+        "series_name":null,
+        "engine":"highcharts",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_BAR",
+        "renderTo":"chart_3",
+        "title":"",
+        "credits":"M = Million, k = Thousand",
+        "yaxis":{
+          "min":null,
+          "max":null,
+          "tickInterval":null,
+          "title":null
+        }
+      },
+      "export_parameters":{
+
+      },
+      "sql":{
+      },
+      "defaults":{
+        "{{d.var1code}}": [10],
+        "{{d.var3code}}": [22040],
+        "{{d.var4code}}": [6110],
+        "{{d.var5code}}": [310],
+        "{{aggregation}}": ["avg"],
+        "{{d.var6code}}": [
+          1973,
+          1974,
+          1975,
+          1976,
+          1977,
+          1978,
+          1979,
+          1980,
+          1981,
+          1982,
+          1983,
+          1984,
+          1985,
+          1986,
+          1987,
+          1988,
+          1989,
+          1990,
+          1991,
+          1992,
+          1993,
+          1994,
+          1995,
+          1996,
+          1997,
+          1998,
+          1999,
+          2000,
+          2001,
+          2002,
+          2003,
+          2004,
+          2005,
+          2006,
+          2007,
+          2008,
+          2009,
+          2010,
+          2011,
+          2012,
+          2013,
+          2014
+        ]
+      },
+      "_query":"select TOP 10  DV2.VarName_$LANG, DV1.VarName_$LANG,  {{aggregation}}(D.value) as Value, DVU.UnitName_$LANG   from Data6 D, DomainVar DV2, DomainVar DV1, DomainVarUnit DVU      where D.DomainCode = 'EA'      AND D.Var1Code IN ({{d.var1code}})    AND D.Var3Code IN ({{d.var3code}})    AND D.Var4Code IN ({{d.var4code}})    AND D.Var5Code IN ({{d.var5code}})    AND D.Var6Code IN ({{d.var6code}})    AND DV2.level = 5 AND DV2.VarCode = D.Var2Code  AND DV1.VarCode = D.Var1Code  AND DV1.VarType = 'donor'  AND DV2.VarType = 'recipientarea'  AND DV1.DomainCode = 'EA' AND DV2.DomainCode = 'EA' AND DVU.VarCode = D.Var4Code AND DVU.Vartype = 'element' AND DVU.DomainCode = 'EA' AND  DV2.level = 5 GROUP BY DV1.VarName_$LANG, DV2.VarName_$LANG, DVU.UnitName_$LANG  ORDER BY Value DESC "
+    }
+  ]
+}

@@ -14,7 +14,7 @@ if (!window.UIBuilderSelectors) {
             s += '</tr>';
             s += '<tr>';
             for (var i = 0 ; i < selectors.length ; i++)
-                s += '<td><div id="selector_' + selectors[i].keyword + '"></td>';
+                s += '<td><div class="selector_browse" id="selector_' + selectors[i].keyword + '"></td>';
             s += '</tr>';
             s += '</table>';
 
@@ -71,7 +71,7 @@ if (!window.UIBuilderSelectors) {
                             var args = event.args;
                             if (args) {
                                 var item = args.item;
-                                UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain);
+                                UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain, selector);
                             }
                         });
 
@@ -117,7 +117,7 @@ if (!window.UIBuilderSelectors) {
                         var args = event.args;
                         if (args) {
                             var item = args.item;
-                            UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain);
+                            UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain, selector);
                         }
                     });
 
@@ -152,7 +152,7 @@ if (!window.UIBuilderSelectors) {
                 var args = event.args;
                 if (args) {
                     var item = args.item;
-                    UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain);
+                    UIBuilder.onchange(selector.keyword, item.originalItem.code, FAOSTATBrowse.width_browse_by_domain, selector);
                 }
             });
         },
@@ -212,14 +212,14 @@ if (!window.UIBuilderSelectors) {
                         case 'fromyear':
                             //TODO: get from year and toyear
                             $('#selector_fromyear').on('change', function (event)  {
-                                UIBuilderSelectors.onChangeTimeriod();
+                                UIBuilderSelectors.onChangeTimeriod(selector);
                                 // make a list fromyear toyear
                                 // send to the method
                             });
                             break;
                         case 'toyear':
                             $('#selector_toyear').on('change', function (event)  {
-                                UIBuilderSelectors.onChangeTimeriod();
+                                UIBuilderSelectors.onChangeTimeriod(selector);
                             });
                             // TODO: get from year and toyear
                             break;
@@ -230,7 +230,7 @@ if (!window.UIBuilderSelectors) {
                                     var item = args.item;
                                     var values = [];
                                     values.push(item.originalItem.code);
-                                    UIBuilder.onchange(selector.keyword, values, FAOSTATBrowse.width_browse_by_domain);
+                                    UIBuilder.onchange(selector.keyword, values, FAOSTATBrowse.width_browse_by_domain, selector);
                                 }
                             });
                             break;
@@ -241,7 +241,7 @@ if (!window.UIBuilderSelectors) {
                 }
             });
         },
-        onChangeTimeriod: function() {
+        onChangeTimeriod: function(selector) {
 
             switch (FAOSTATBrowse.section) {
                 case 'DOMAIN'   : BROWSE_STATS.updateBrowseByDomain();          break;
@@ -260,7 +260,7 @@ if (!window.UIBuilderSelectors) {
                 for (var i = fromyear.originalItem.code ; i <= toyear.originalItem.code; i++ ) {
                     values.push(i);
                 }
-                UIBuilder.onchange("year", values, FAOSTATBrowse.width_browse_by_domain);
+                UIBuilder.onchange("year", values, FAOSTATBrowse.width_browse_by_domain, selector);
 
             }
         }
