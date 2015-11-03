@@ -1,10 +1,10 @@
 {
   "_id":{
-    "$oid":"52aed54cb55d5880de72f75f"
+    "$oid":"53396bb6b55d5880de72f968"
   },
   "version":"1.0",
   "css":"faostat",
-  "view_id":"AE",
+  "view_id":"AA",
   "date_last_update":"16-07-2013",
   "user":"Simone Murzilli",
   "abstract":{
@@ -16,23 +16,23 @@
     "S_subtitle":null
   },
   "selectors":[
-      {
-        "type":"dropdown",
-        "E_label":"Areas",
-        "E_help":"n.a.",
-        "keyword":"area",
-        "width":"$_WIDTH_25",
-        "sql":{
-          "query":"SELECT A.AreaCode AS Code , A.AreaName_$LANG AS Name  FROM DomainAreaGroupArea AS DA , Area AS A  WHERE DA.DomainCode = 'AE' AND (A.AreaCode = DA.AreaCode OR DA.AreaGroupCode = A.AreaCode) AND A.AreaLevel = 5 GROUP BY A.AreaCode, A.AreaName_$LANG ORDER BY A.AreaName_$LANG ASC"
-        },
-        "default_code":"4",
-        "blacklist":[
-
-        ],
-        "start_date":null,
-        "end_date":null,
-        "default_date":null
+    {
+      "type":"dropdown",
+      "E_label":"Areas",
+      "E_help":"n.a.",
+      "keyword":"area",
+      "width":"$_WIDTH_25",
+      "sql":{
+        "query":"SELECT A.AreaCode AS Code, A.AreaName_$LANG AS Name  FROM DomainAreaGroupArea AS DA , Area AS A  WHERE DA.DomainCode = 'AF' AND (A.AreaCode = DA.AreaCode OR DA.AreaGroupCode = A.AreaCode) AND A.AreaLevel = 5 GROUP BY A.AreaCode, A.AreaName_$LANG ORDER BY A.AreaName_$LANG ASC"
       },
+      "default_code":"4",
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null
+    },
     {
       "type":"dropdown_year",
       "E_label":"From Year",
@@ -72,7 +72,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"AE",
+            "value":"AF",
             "ins":[
 
             ]
@@ -122,7 +122,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"AE",
+            "value":"AF",
             "ins":[
 
             ]
@@ -156,9 +156,9 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title":"Agriculture research spending 2011 PPP$ by country",
-      "S_title":"Agriculture research spending 2011 PPP$ by country",
-      "F_title":"Agriculture research spending 2011 PPP$ by country",
+      "E_title":"Number of Agricultural researchers (FTE) researchers by country",
+      "S_title":"Number of Agricultural researchers (FTE) researchers by country",
+      "F_title":"Number of Agricultural researchers (FTE) researchers by country",
       "subtitle":"",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
@@ -211,7 +211,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              6084
+              6085
             ]
           },
           {
@@ -220,7 +220,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              23045
+              23046
             ]
           },
           {
@@ -229,7 +229,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              "'AE'"
+              "'AF'"
             ]
           },
           {
@@ -324,16 +324,17 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Agriculture research spending 2011 PPP$ by country",
-      "S_title":"Agriculture research spending 2011 PPP$ by country",
-      "F_title":"Agriculture research spending 2011 PPP$ by country",
-      "E_footnote":"<div style='color:#666'><i>ASTI (Agricultural Science and Technology Indicators). 2015. ASTI database. International Food Policy Research Institute, Washington, DC. (see <a href='http://www.asti.cgiar.org' target='_blank'>asti.cgiar.org</a>).</i></div>",
-      "F_footnote":"<div style='color:#666'><i>ASTI (Agricultural Science and Technology Indicators). 2015. ASTI database. International Food Policy Research Institute, Washington, DC. (see <a href='http://www.asti.cgiar.org' target='_blank'>asti.cgiar.org</a>).</i></div>",
-      "S_footnote":"<div style='color:#666'><i>ASTI (Agricultural Science and Technology Indicators). 2015. ASTI database. International Food Policy Research Institute, Washington, DC. (see <a href='http://www.asti.cgiar.org' target='_blank'>asti.cgiar.org</a>).</i></div>",
+      "E_title":"Number of Agricultural researchers (FTE) researchers by country",
+      "F_title":"Number of Agricultural researchers (FTE) researchers by country",
+      "S_title":"Number of Agricultural researchers (FTE) researchers by country",
+      "subtitle":"",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
       "date_default_label":"2000 - 2012",
+      "E_footnote":"<div style='color:#666'><i>ASTI (Agricultural Science and Technology Indicators). 2015. ASTI database. International Food Policy Research Institute, Washington, DC. (see <a href='http://www.asti.cgiar.org' target='_blank'>asti.cgiar.org</a>).</i></div>",
+      "F_footnote":"<div style='color:#666'><i>ASTI (Agricultural Science and Technology Indicators). 2015. ASTI database. International Food Policy Research Institute, Washington, DC. (see <a href='http://www.asti.cgiar.org' target='_blank'>asti.cgiar.org</a>).</i></div>",
+      "S_footnote":"<div style='color:#666'><i>ASTI (Agricultural Science and Technology Indicators). 2015. ASTI database. International Food Policy Research Institute, Washington, DC. (see <a href='http://www.asti.cgiar.org' target='_blank'>asti.cgiar.org</a>).</i></div>",
       "object_parameters":{
         "series_name":null,
         "engine":"highcharts",
@@ -399,7 +400,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              6084
+              6085
             ]
           },
           {
@@ -408,7 +409,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              23045
+              23046
             ]
           },
           {
@@ -417,7 +418,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              "'AE'"
+              "'AF'"
             ]
           },
           {
@@ -466,6 +467,15 @@
             "value":null,
             "ins":[
               4
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
+            "operator":"=",
+            "value":"AF",
+            "ins":[
+
             ]
           },
           {
