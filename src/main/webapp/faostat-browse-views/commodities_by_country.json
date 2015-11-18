@@ -19,61 +19,9 @@
       "E_label":"Areas",
       "E_help":"n.a.",
       "keyword":"area",
-      "sql":{
-        "selects":[
-          {
-            "aggregation":null,
-            "column":"A.AreaCode",
-            "alias":"Code"
-          },
-          {
-            "aggregation":null,
-            "column":"A.AreaName_$LANG",
-            "alias":"Name"
-          }
-        ],
-        "froms":[
-          {
-            "column":"DomainAreaGroupArea",
-            "alias":"A"
-          }
-        ],
-        "wheres":[
-          {
-            "datatype":"TEXT",
-            "column":"A.DomainCode",
-            "operator":"=",
-            "value":"QC",
-            "ins":[
-
-            ]
-          }
-        ],
-        "groupBys":[
-          {
-            "column":"A.AreaCode"
-          },
-          {
-            "column":"A.AreaName_$LANG"
-          }
-        ],
-        "orderBys":[
-          {
-            "column":"A.AreaName_$LANG",
-            "direction":"ASC"
-          }
-        ],
-        "limit":null,
-        "query":null,
-        "frequency":null
-      },
-      "default_code":"2",
-      "blacklist":[
-
-      ],
-      "start_date":null,
-      "end_date":null,
-      "default_date":null
+      "sql": {
+        "query":"EXEC Warehouse.dbo.usp_GetListBox @DomainCode = N'QC', @Lang = N'E', @ListBoxNO = 1, @TabOrder = 1"
+      }
     },
     {
       "type":"dropdown_year",
