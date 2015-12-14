@@ -163,7 +163,7 @@
       "S_label":"Hasta el año",
       "E_help":"n.a.",
       "keyword":"toyear",
-      "default_code":2012,
+      "default_code":2013,
       "blacklist":[
 
       ],
@@ -235,7 +235,7 @@
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1990 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -351,7 +351,8 @@
               2009,
               2010,
               2011,
-              2012
+              2012,
+	      2013
             ]
           },
           {
@@ -425,7 +426,7 @@
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"1990 - 2012",
+      "date_default_label":"1990 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -541,7 +542,8 @@
               2009,
               2010,
               2011,
-              2012
+              2012,
+	      2013
             ]
           },
           {
@@ -615,7 +617,7 @@
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"2012",
+      "date_default_label":"2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -745,7 +747,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2012
+              2013
             ]
           },
           {
@@ -805,7 +807,7 @@
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"2012",
+      "date_default_label":"2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -935,7 +937,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2012
+              2013
             ]
           },
           {
