@@ -105,7 +105,7 @@
       "S_label":"Desde el Año",
       "E_help":"n.a.",
       "keyword":"fromyear",
-      "default_code":2003,
+      "default_code":2004,
       "blacklist":[
 
       ],
@@ -154,7 +154,7 @@
       "S_label":"Hasta el año",
       "E_help":"n.a.",
       "keyword":"toyear",
-      "default_code":2013,
+      "default_code":2014,
       "blacklist":[
 
       ],
@@ -185,7 +185,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"PI",
+            "value":"PP",
             "ins":[
 
             ]
@@ -199,31 +199,31 @@
   ],
   "objects":[
     {
-      "type":"chart",
-      "datasource":"faostat",
-      "css":"faostat",
-      "height":"265px",
-      "width":"$_WIDTH_100",
-      "item_onchange":true,
-      "element_onchange":true,
-      "area_onchange":false,
-      "year_onchange":true,
-      "aggregation_onchange":true,
-      "E_title": "Producer prices - Top 5 producers of the selected commodity",
-      "S_title": "Precios al productor - 5 principales productores del producto seleccionado ",
-      "F_title": "Prix à la production - 5 producteurs principaux pour le produit sélectionné",
+      "type": "chart",
+      "datasource": "faostat",
+      "css": "faostat",
+      "height": "325px",
+      "width": "$_WIDTH_100",
+      "item_onchange": true,
+      "element_onchange": true,
+      "area_onchange": false,
+      "year_onchange": true,
+      "aggregation_onchange": false,
+      "E_title": "Producer prices of top 5 producers of the selected commodity (USD/tonne)",
+      "S_title": "Producer prices of top 5 producers of the selected commodity (USD/tonne)",
+      "F_title": "Producer prices of top 5 producers of the selected commodity (USD/tonne)",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"2003 - 2013",
-      "E_footnote":null,
+      "date_default_label":"2004 - 2014",
+      "E_footnote": null,
       "object_parameters":{
         "series_name":null,
         "engine":"highcharts",
-        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_LINE",
-        "renderTo":"chart_4",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_ALL",
+        "renderTo":"chart_5",
         "title":"",
-        "credits":"M = Million, k = Thousand",
+        "showcredits":true,
         "yaxis":{
           "min":null,
           "max":null,
@@ -238,72 +238,70 @@
           "fontSize":"9px"
         }
       },
-      "export_parameters":{
-
+      "export_parameters": {
       },
-      "sql":{
-        "selects":[
+      "sql": {
+        "selects": [
           {
-            "aggregation":"NONE",
-            "column":"D.Year",
-            "alias":"Year"
+            "aggregation": "NONE",
+            "column": "D.Year",
+            "alias": "Year"
           },
           {
-            "aggregation":"NONE",
-            "column":"A.AreaName_$LANG",
-            "alias":"Area"
+            "aggregation": "NONE",
+            "column": "A.AreaName_$LANG",
+            "alias": "Area"
           },
           {
-            "aggregation":"AVG",
-            "column":"D.Value",
-            "alias":"Value"
+            "aggregation": "NONE",
+            "column": "D.Value",
+            "alias": "Value"
           },
           {
-            "aggregation":"NONE",
-            "column":"E.UnitName_$LANG",
-            "alias":"Unit"
+            "aggregation": "NONE",
+            "column": "E.UnitName_$LANG",
+            "alias": "Unit"
           }
         ],
-        "froms":[
+        "froms": [
           {
-            "column":"Data",
-            "alias":"D"
+            "column": "Data",
+            "alias": "D"
           },
           {
-            "column":"Area",
-            "alias":"A"
+            "column": "Area",
+            "alias": "A"
           },
           {
-            "column":"Element",
-            "alias":"E"
+            "column": "Element",
+            "alias": "E"
           }
         ],
-        "wheres":[
+        "wheres": [
           {
-            "datatype":"DATE",
-            "column":"D.ElementCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
+            "datatype": "DATE",
+            "column": "D.ElementCode",
+            "operator": "IN",
+            "value": null,
+            "ins": [
               5532
             ]
           },
           {
-            "datatype":"DATE",
-            "column":"D.ItemCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
+            "datatype": "DATE",
+            "column": "D.ItemCode",
+            "operator": "IN",
+            "value": null,
+            "ins": [
               27
             ]
           },
           {
-            "datatype":"DATE",
-            "column":"D.Year",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              2003,
+            "datatype": "DATE",
+            "column": "D.Year",
+            "operator": "IN",
+            "value": null,
+            "ins": [
               2004,
               2005,
               2006,
@@ -313,120 +311,114 @@
               2010,
               2011,
               2012,
-              2013
+              2013,
+              2014
             ]
           },
           {
-            "datatype":"TEXT",
-            "column":"D.DomainCode",
-            "operator":"=",
-            "value":"PP",
-            "ins":[
-
+            "datatype": "TEXT",
+            "column": "D.DomainCode",
+            "operator": "=",
+            "value": "PP",
+            "ins": [
             ]
           },
           {
-            "datatype":"TEXT",
-            "column":"A.AreaLevel",
-            "operator":"=",
-            "value":"5",
-            "ins":[
-
+            "datatype": "TEXT",
+            "column": "A.AreaLevel",
+            "operator": "=",
+            "value": "5",
+            "ins": [
             ]
           },
           {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"=",
-            "value":"A.AreaCode",
-            "ins":[
-
+            "datatype": "DATE",
+            "column": "D.AreaCode",
+            "operator": "=",
+            "value": "A.AreaCode",
+            "ins": [
             ]
           },
           {
-            "datatype":"DATE",
-            "column":"D.ElementCode",
-            "operator":"=",
-            "value":"E.ElementCode",
-            "ins":[
-
+            "datatype": "DATE",
+            "column": "D.ElementCode",
+            "operator": "=",
+            "value": "E.ElementCode",
+            "ins": [
             ]
           }
         ],
-        "nestedWheres":[
+        "nestedWheres": [
           {
-            "column":"D.AreaCode",
-            "nestedCondition":{
-              "selects":[
+            "column": "D.AreaCode",
+            "nestedCondition": {
+              "selects": [
                 {
-                  "aggregation":null,
-                  "column":"D2.AreaCode",
-                  "alias":"Code"
+                  "aggregation": null,
+                  "column": "D2.AreaCode",
+                  "alias": "Code"
                 }
               ],
-              "froms":[
+              "froms": [
                 {
-                  "column":"Data",
-                  "alias":"D2"
+                  "column": "Data",
+                  "alias": "D2"
                 },
                 {
-                  "column":"Area",
-                  "alias":"A2"
+                  "column": "Area",
+                  "alias": "A2"
                 }
               ],
-              "wheres":[
+              "wheres": [
                 {
-                  "datatype":"TEXT",
-                  "column":"D2.DomainCode",
-                  "operator":"=",
-                  "value":"PP",
-                  "ins":[
-
+                  "datatype": "TEXT",
+                  "column": "D2.DomainCode",
+                  "operator": "=",
+                  "value": "QC",
+                  "ins": [
                   ]
                 },
                 {
-                  "datatype":"DATE",
-                  "column":"D2.AreaCode",
-                  "operator":"=",
-                  "value":"A2.AreaCode",
-                  "ins":[
-
+                  "datatype": "DATE",
+                  "column": "D2.AreaCode",
+                  "operator": "=",
+                  "value": "A2.AreaCode",
+                  "ins": [
                   ]
                 },
                 {
-                  "datatype":"DATE",
-                  "column":"D2.ElementCode",
-                  "operator":"IN",
-                  "value":null,
-                  "ins":[
-                    5532
+                  "datatype": "DATE",
+                  "column": "D2.ElementCode",
+                  "operator": "IN",
+                  "value": null,
+                  "ins": [
+                    5510
                   ]
                 },
                 {
-                  "datatype":"DATE",
-                  "column":"D2.ItemCode",
-                  "operator":"IN",
-                  "value":null,
-                  "ins":[
+                  "datatype": "DATE",
+                  "column": "D2.ItemCode",
+                  "operator": "IN",
+                  "value": null,
+                  "ins": [
                     27
                   ]
                 },
                 {
-                  "datatype":"DATE",
-                  "column":"A2.AreaLevel",
-                  "operator":"IN",
-                  "value":null,
-                  "ins":[
+                  "datatype": "DATE",
+                  "column": "A2.AreaLevel",
+                  "operator": "IN",
+                  "value": null,
+                  "ins": [
                     5
                   ]
                 },
                 {
-                  "datatype":"DATE",
-                  "column":"D2.Year",
-                  "operator":"IN",
-                  "value":null,
-                  "ins":[
-                    2003,
+                  "datatype": "DATE",
+                  "column": "D2.Year",
+                  "operator": "IN",
+                  "value": null,
+                  "ins": [
                     2004,
                     2005,
                     2006,
@@ -436,15 +428,16 @@
                     2010,
                     2011,
                     2012,
-                    2013
+                    2013,
+                    2014
                   ]
                 },
                 {
-                  "datatype":"DATE",
-                  "column":"D2.AreaCode",
-                  "operator":"NOTIN",
-                  "value":null,
-                  "ins":[
+                  "datatype": "DATE",
+                  "column": "D2.AreaCode",
+                  "operator": "NOTIN",
+                  "value": null,
+                  "ins": [
                     96,
                     128,
                     214,
@@ -457,52 +450,83 @@
                   ]
                 }
               ],
-              "groupBys":[
+              "groupBys": [
                 {
-                  "column":"D2.AreaCode"
+                  "column": "D2.AreaCode"
                 }
               ],
-              "orderBys":[
+              "orderBys": [
                 {
-                  "column":"AVG(D2.Value)",
-                  "direction":"DESC"
+                  "column": "AVG(D2.Value)",
+                  "direction": "DESC"
                 }
               ],
-              "query":null,
-              "frequency":null,
-              "limit":5
+              "query": null,
+              "frequency": null,
+              "limit": 5
             }
           }
         ],
-        "groupBys":[
+        "orderBys": [
           {
-            "column":"D.Year"
+            "column": "A.AreaName_$LANG",
+            "direction": "ASC"
           },
           {
-            "column":"A.AreaName_$LANG"
-          },
-          {
-            "column":"E.UnitName_$LANG"
+            "column": "D.Year",
+            "direction": "ASC"
           }
         ],
-        "orderBys":[
-          {
-            "column":"A.AreaName_$LANG",
-            "direction":"ASC"
-          },
-          {
-            "column":"D.Year",
-            "direction":"ASC"
-          },
-          {
-            "column":"AVG(D.Value)",
-            "direction":"DESC"
-          }
-        ],
-        "limit":null,
-        "query":null,
-        "frequency":null
+        "limit": null,
+        "query": null,
+        "frequency": null
       }
     }
   ]
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
