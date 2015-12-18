@@ -62,8 +62,9 @@ if (!window.FAOSTATBrowseTree) {
                         // Expand Domain
                         else {
                             var domaincode =  FAOSTATBrowse.domainCode;
-                            if ( domaincode.indexOf('-') != -1)
+                            if ( domaincode.indexOf('-') != -1) {
                                 domaincode = domaincode.substring(0, domaincode.indexOf('-'));
+                            }
                             $("#metadata_tree").jqxTree('expandItem', $('#' + domaincode)[0]);
                             $("#metadata_tree").jqxTree('selectItem', $('#' + domaincode)[0]);
                         }
@@ -72,7 +73,7 @@ if (!window.FAOSTATBrowseTree) {
                         $('#metadata_tree').on('select',function (event) {
                             var args = event.args;
                             var item = $('#metadata_tree').jqxTree('getItem', args.element);
-                            var label = ""
+                            var label = "";
                             if (item.parentId == 0) {
                                 FAOSTATBrowse.groupCode = item.id;
                                 FAOSTATBrowse.domainCode = 'null';
@@ -98,7 +99,7 @@ if (!window.FAOSTATBrowseTree) {
                         } else {
                             FAOSTATBrowse.groupCode = item.parentId;
                         }**/
-                        FAOSTATBrowse.loadView(FAOSTATBrowse.groupCode, FAOSTATBrowse.domainCode, item.label);
+                        FAOSTATBrowse.loadView(FAOSTATBrowse.groupCode, FAOSTATBrowse.domainCode, (item)? item.label: '');
 
                     },
 
