@@ -20,7 +20,7 @@
       "F_help":"Items are...",
       "S_help":"Items are...",
       "keyword":"item",
-      "default_code":"23101",
+      "default_code":"23161",
       "blacklist":[
 
       ],
@@ -76,7 +76,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              23101
+              23161
             ]
           }
         ],
@@ -96,19 +96,45 @@
       }
     },
     {
-      "type":"dropdown_year",
-      "E_label":"Year",
+      "type":"dropdown",
+      "E_label":"Areas",
       "E_help":"n.a.",
-      "keyword":"year",
+      "keyword":"area",
+      "sql":{
+        "query":"SELECT A.AreaCode AS Code , A.AreaName_$LANG AS Name  FROM DomainAreaGroupArea AS DA , Area AS A  WHERE DA.DomainCode = 'IG' AND (A.AreaCode = DA.AreaCode OR DA.AreaGroupCode = A.AreaCode) AND A.AreaLevel = 5 GROUP BY A.AreaCode, A.AreaName_$LANG ORDER BY A.AreaName_$LANG ASC",
+        "limit":null
+      },
+      "default_code":"2",
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null
+    },
+    {
+      "type":"dropdown_year",
+      "E_label":"From Year",
+      "F_label":"Depuis l'anne",
+      "S_label":"Desde el Ao",
+      "E_help":"n.a.",
+      "keyword":"fromyear",
+      "default_code":2001,
+      "blacklist":[
+
+      ],
+      "start_date":null,
+      "end_date":null,
+      "default_date":null,
       "sql":{
         "selects":[
           {
-            "aggregation":null,
+            "aggregation":"NONE",
             "column":"D.StartYear",
             "alias":"StartYear"
           },
           {
-            "aggregation":null,
+            "aggregation":"NONE",
             "column":"D.EndYear",
             "alias":"EndYear"
           }
@@ -125,38 +151,63 @@
             "column":"D.DomainCode",
             "operator":"=",
             "value":"IG",
-            "ins":[]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.StartYear",
-            "operator":"IN",
-            "value":null,
             "ins":[
-              2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.EndYear",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013
+
             ]
           }
         ],
         "limit":null,
         "query":null,
         "frequency":null
-      },
-      "default_code":2013,
+      }
+    },
+    {
+      "type":"dropdown_year",
+      "E_label":"To Year",
+      "F_label":"A lanne",
+      "S_label":"Hasta el ao",
+      "E_help":"n.a.",
+      "keyword":"toyear",
+      "default_code":2014,
       "blacklist":[
 
       ],
       "start_date":null,
       "end_date":null,
-      "default_date":null
+      "default_date":null,
+      "sql":{
+        "selects":[
+          {
+            "aggregation":"NONE",
+            "column":"D.StartYear",
+            "alias":"StartYear"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"D.EndYear",
+            "alias":"EndYear"
+          }
+        ],
+        "froms":[
+          {
+            "column":"Domain",
+            "alias":"D"
+          }
+        ],
+        "wheres":[
+          {
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
+            "operator":"=",
+            "value":"IG",
+            "ins":[
+            ]
+          }
+        ],
+        "limit":null,
+        "query":null,
+        "frequency":null
+      }
     }
   ],
   "objects":[
@@ -167,18 +218,18 @@
       "height":"290px",
       "width":"$_WIDTH_100",
       "item_onchange":true,
-      "element_onchange":true,
+      "element_onchange":false,
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Share of Government Expenditures on Agriculture (% of Total Outlays)",
-      "S_title":"Share of Government Expenditures on Agriculture (% of Total Outlays)",
-      "F_title":"Share of Government Expenditures on Agriculture (% of Total Outlays)",
+      "E_title":"Share of Central Government Expenditures on Agriculture (% of Total Outlays)",
+      "S_title":"Share of Central Government Expenditures on Agriculture (% of Total Outlays)",
+      "F_title":"Share of Central Government Expenditures on Agriculture (% of Total Outlays)",
       "subtitle":"",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"2013",
+      "date_default_label":"2001 - 2014",
       "E_footnote":"<div style='color:#666'><i>The designations employed and the presentation of material in the maps do not imply the expression of any opinion whatsoever on the part of FAO concerning the legal or constitutional status of any country, territory or sea area, or concerning the delimitation of frontiers.<br>South Sudan declared its independence on July 9, 2011. Due to data availability, the assessment presented in the map for Sudan and South Sudan reflects the situation up to 2011 for the former Sudan.</i></div>",
       "F_footnote":"<div style='color:#666'><i>Les appellations employées et la présentation des données sur la carte n'impliquent de la part de la FAO aucune prise de position quant au statut juridique ou constitutionnel des pays, territoires ou zones maritimes, ni quant au tracé de leurs frontières ou limites.<br>Le Soudan du Sud a déclaré son indépendance le 9 Juillet 2011. Pour des raisons de disponibilité des données, l’évaluation montrée sur  la carte à la fois pour le Soudan et le Soudan du Sud, refléte la situation comme elle l’etait jusqu’en 2011 pour l’ex Soudan.</i></div>",
       "S_footnote":"<div style='color:#666'><i>Las denominaciones empleadas en los mapas y la forma en que aparecen presentados los datos no implican, por parte de la FAO, juicio alguno sobre la condición jurídica de países, territorios o zonas marítimas, ni respecto de la delimitación de sus fronteras.<br>Sudán del Sur declaró su independencia el 9 de julio de 2011. Debido a la disponibilidad de datos, la evaluación presentada en el mapa para Sudán y Sudán del Sur refleja la situación hasta el año 2011 para la antigua Sudán.</i></div",
@@ -235,7 +286,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              23101
+              23161
             ]
           },
           {
@@ -253,7 +304,20 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2013
+              2014,
+              2013,
+              2012,
+              2011,
+              2010,
+              2009,
+              2008,
+              2007,
+              2006,
+              2005,
+              2004,
+              2003,
+              2002,
+              2001
             ]
           },
           {
@@ -327,9 +391,7 @@
         "frequency":null
       },
       "object_parameters":{
-        "classification":"custom",
-        "ranges":"2.5,5,10",
-        "colors":"E31A1C,FD8D3C,FECC5C,FFFFB2"
+        "decimalValues":3
       },
       "export_parameters":{
 
@@ -339,34 +401,40 @@
       "type":"chart",
       "datasource":"faostat",
       "css":"faostat",
-      "height":"345px",
+      "height":"230px",
       "width":"$_WIDTH_100",
-      "item_onchange":true,
-      "element_onchange":true,
-      "area_onchange":false,
-      "year_onchange":true,
-      "aggregation_onchange":true,
-      "E_title": "Government Expenditures on Agriculture in Africa (% of Total Outlays)",
-      "F_title": "Government Expenditures on Agriculture in Africa (% of Total Outlays)",
-      "S_title": "Government Expenditures on Agriculture in Africa (% of Total Outlays)",
+      "E_title":"Agriculture orientation index (AOI) of selected country",
+      "S_title":"Agriculture orientation index (AOI) of selected country",
+      "F_title":"Agriculture orientation index (AOI) of selected country",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"2013",
+      "date_default_label":"2001 - 2014",
+      "item_onchange":true,
+      "element_onchange":true,
+      "area_onchange":true,
+      "year_onchange":true,
+      "aggregation_onchange":true,
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
         "engine":"highcharts",
-        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_BAR",
-        "renderTo":"chart_3",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_LINE",
+        "renderTo":"chart_5",
         "title":"",
-        "credits":"",
-        "showcredits":false,
+        "credits":"M = Million, k = Thousand",
         "yaxis":{
           "min":null,
           "max":null,
           "tickInterval":null,
-          "title":null
+          "title":null,
+          "axes":[
+
+          ]
+        },
+        "xaxis":{
+          "rotation":-45,
+          "fontSize":"9px"
         }
       },
       "export_parameters":{
@@ -375,17 +443,17 @@
       "sql":{
         "selects":[
           {
-            "aggregation":null,
-            "column":"E.ElementName_$LANG",
-            "alias":"ItemName"
+            "aggregation":"NONE",
+            "column":"D.Year",
+            "alias":"Year"
           },
           {
             "aggregation":"NONE",
-            "column":"A.AreaName_$LANG",
+            "column":"E.ElementName_$LANG",
             "alias":"Area"
           },
           {
-            "aggregation":"AVG",
+            "aggregation":"NONE",
             "column":"D.Value",
             "alias":"Value"
           },
@@ -401,12 +469,164 @@
             "alias":"D"
           },
           {
-            "column":"Area",
-            "alias":"A"
+            "column":"Element",
+            "alias":"E"
+          }
+        ],
+        "wheres":[
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              6112
+            ]
           },
           {
-            "column":"AreaGroupArea",
-            "alias":"AGA"
+            "datatype":"DATE",
+            "column":"D.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'IG'"
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              23161
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              2
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.Year",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              2014,
+              2013,
+              2012,
+              2011,
+              2010,
+              2009,
+              2008,
+              2007,
+              2006,
+              2005,
+              2004,
+              2003,
+              2002,
+              2001
+            ]
+          }
+        ],
+        "orderBys":[
+          {
+            "column":"E.ElementName_$LANG",
+            "direction":"ASC"
+          },
+          {
+            "column":"D.Year",
+            "direction":"ASC"
+          }
+        ],
+        "limit":null,
+        "query":null,
+        "frequency":null
+      }
+    },
+    {
+      "type":"chart",
+      "datasource":"faostat",
+      "css":"faostat",
+      "height":"230px",
+      "width":"$_WIDTH_100",
+      "E_title": "Share of Central Government Expenditures of selected country",
+      "F_title": "Share of Central Government Expenditures of selected country",
+      "S_title": "Share of Central Government Expenditures of selected country",
+      "E_subtitle":"$_DATE",
+      "S_subtitle":"$_DATE",
+      "F_subtitle":"$_DATE",
+      "date_default_label":"2001 - 2014",
+      "item_onchange":true,
+      "element_onchange":true,
+      "area_onchange":true,
+      "year_onchange":true,
+      "aggregation_onchange":true,
+      "E_footnote":null,
+      "object_parameters":{
+        "series_name":null,
+        "engine":"highcharts",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_BAR",
+        "renderTo":"chart_5",
+        "title":"",
+        "credits":"M = Million, k = Thousand",
+        "yaxis":{
+          "min":null,
+          "max":null,
+          "tickInterval":null,
+          "title":null,
+          "axes":[
+
+          ]
+        },
+        "xaxis":{
+          "rotation":-45,
+          "fontSize":"9px"
+        }
+      },
+      "export_parameters":{
+
+      },
+      "sql":{
+        "selects":[
+          {
+            "aggregation":"NONE",
+            "column":"D.Year",
+            "alias":"Year"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"E.ElementName_$LANG",
+            "alias":"Area"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"D.Value",
+            "alias":"Value"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"E.UnitName_$LANG",
+            "alias":"Unit"
+          }
+        ],
+        "froms":[
+          {
+            "column":"Data",
+            "alias":"D"
           },
           {
             "column":"Element",
@@ -425,60 +645,29 @@
           },
           {
             "datatype":"DATE",
+            "column":"D.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'IG'"
+            ]
+          },
+          {
+            "datatype":"DATE",
             "column":"D.ItemCode",
             "operator":"IN",
             "value":null,
             "ins":[
-              23101
+              23161
             ]
           },
           {
             "datatype":"DATE",
-            "column":"A.AreaLevel",
+            "column":"D.AreaCode",
             "operator":"IN",
             "value":null,
             "ins":[
-              5
-            ]
-          },
-          {
-            "datatype":"TEXT",
-            "column":"D.DomainCode",
-            "operator":"=",
-            "value":"IG",
-            "ins":[]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"=",
-            "value":"A.AreaCode",
-            "ins":[]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"=",
-            "value":"AGA.AreaCode",
-            "ins":[]
-          },
-          {
-            "datatype":"DATE",
-            "column":"AGA.AreaGroupCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5100
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"NOTIN",
-            "value":null,
-            "ins":[
-              351,
-              228
+              2
             ]
           },
           {
@@ -486,7 +675,9 @@
             "column":"D.ElementCode",
             "operator":"=",
             "value":"E.ElementCode",
-            "ins":[]
+            "ins":[
+
+            ]
           },
           {
             "datatype":"DATE",
@@ -494,37 +685,34 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2013
+              2014,
+              2013,
+              2012,
+              2011,
+              2010,
+              2009,
+              2008,
+              2007,
+              2006,
+              2005,
+              2004,
+              2003,
+              2002,
+              2001
             ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.Value",
-            "operator":"!=",
-            "value":"0",
-            "ins":[
-
-            ]
-          }
-        ],
-        "groupBys":[
-          {
-            "column":"E.ElementName_$LANG"
-          },
-          {
-            "column":"A.AreaName_$LANG"
-          },
-          {
-            "column":"E.UnitName_$LANG"
           }
         ],
         "orderBys":[
           {
-            "column":"AVG(D.Value)",
+            "column":"E.ElementName_$LANG",
+            "direction":"ASC"
+          },
+          {
+            "column":"D.Year",
             "direction":"ASC"
           }
         ],
-        "limit":"1000",
+        "limit":null,
         "query":null,
         "frequency":null
       }
