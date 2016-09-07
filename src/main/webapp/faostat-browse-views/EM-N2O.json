@@ -225,7 +225,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7263
+              7266
             ]
           },
           {
@@ -410,7 +410,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7263
+              7266
             ]
           },
           {
@@ -587,7 +587,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7263
+              7266
             ]
           },
           {
@@ -632,6 +632,7 @@
             "operator":"=",
             "value":"I.ItemCode",
             "ins":[
+
             ]
           },
           {
@@ -653,6 +654,7 @@
             ]
           }
         ],
+
         "groupBys":[
           {
             "column":"I.ItemName_$LANG"
@@ -662,6 +664,125 @@
           {
             "column":"I.ItemName_$LANG",
             "direction":"ASC"
+          }
+        ],
+        "limit":null,
+        "query":null,
+        "frequency":null
+      }
+    },
+    {
+      "type":"chart",
+      "datasource":"faostat",
+      "css":"faostat",
+      "height":"265px",
+      "width":"$_WIDTH_100",
+      "item_onchange":false,
+      "element_onchange":true,
+      "area_onchange":true,
+      "year_onchange":true,
+      "aggregation_onchange":true,
+      "E_title": "Share (%) of each gas in the sector emissions",
+      "F_title": "Part (en %) de chaque gaz dans les émissions du secteur",
+      "S_title": "Cuota (%) de cada gas en las emisiones del sector",
+      "E_subtitle":"$_DATE",
+      "S_subtitle":"$_DATE",
+      "F_subtitle":"$_DATE",
+      "date_default_label":"2010",
+      "E_footnote":null,
+      "object_parameters":{
+        "series_name":null,
+        "engine":"highcharts",
+        "keyword":"FAOSTAT_DEFAULT_PIE",
+        "renderTo":"chart_1",
+        "title":null,
+        "credits":""
+      },
+      "export_parameters":{
+
+      },
+      "sql":{
+        "selects":[
+          {
+            "aggregation":"AVG",
+            "column":"D.Value",
+            "alias":"Value"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"E.ElementName_$LANG",
+            "alias":"Area"
+          }
+        ],
+        "froms":[
+          {
+            "column":"Data",
+            "alias":"D"
+          },
+          {
+            "column":"Element",
+            "alias":"E"
+          }
+        ],
+        "wheres":[
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              5000
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              7267, 7268, 7269
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              1711
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'EM'"
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.Year",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              2010
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
+            "ins":[
+
+            ]
+          }
+        ],
+        "groupBys":[
+          {
+            "column":"E.ElementName_$LANG"
           }
         ],
         "limit":null,
@@ -753,7 +874,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              7263
+              7266
             ]
           },
           {

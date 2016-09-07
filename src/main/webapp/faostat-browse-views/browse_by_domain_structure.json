@@ -219,5 +219,31 @@
       "F_tab_title":"Share",
       "E_tooltip":""
     }
+  ],
+  "EM":[
+    {
+      "view_id":"EM",
+      "E_tab_title":"Total GHG",
+      "S_tab_title":"Total GHG",
+      "F_tab_title":"Total GHG"
+    },
+    {
+      "view_id":"EM-CO2",
+      "E_tab_title":"CO<sub>2</sub>",
+      "S_tab_title":"CO<sub>2</sub>",
+      "F_tab_title":"CO<sub>2</sub>"
+    },
+    {
+      "view_id":"EM-N2O",
+      "E_tab_title":"N<sub>2</sub>O",
+      "S_tab_title":"N<sub>2</sub>O",
+      "F_tab_title":"N<sub>2</sub>O"
+    },
+    {
+      "view_id":"EM-CH4",
+      "E_tab_title":"CH<sub>4</sub>",
+      "S_tab_title":"CH<sub>4</sub>",
+      "F_tab_title":"CH<sub>4</sub>"
+    }
   ]
 }
