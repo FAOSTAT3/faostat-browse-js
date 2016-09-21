@@ -26,32 +26,34 @@ if (!window.UIBuilderChart) {
             structure = CORE.replaceAll(structure, '$_WIDTH',  chart.width );
             structure = CORE.replaceAll(structure, '$_HEIGHT',  chart.height );
 
-            $('#content_' + chart.object_parameters.renderTo).append(structure);
+            if (chart.object_parameters.keyword !== 'FAOSTAT_DEFAULT_GROWTHRATE') {
+                $('#content_' + chart.object_parameters.renderTo).append(structure);
 
-            // Loading image
-            document.getElementById(chart.object_parameters.renderTo).innerHTML = "<div style='height:"+ this.height+"'><img src='"+ FAOSTATBrowse.prefix +'images/loading.gif' +"'></div>";
+                // Loading image
+                document.getElementById(chart.object_parameters.renderTo).innerHTML = "<div style='height:" + this.height + "'><img src='" + FAOSTATBrowse.prefix + 'images/loading.gif' + "'></div>";
 
-            $('#obj_title_' + chart.object_parameters.renderTo).append(chart[FAOSTATBrowse.lang + '_title']);
-           // $('#obj_title_' + chart.object_parameters.renderTo).append(chart.title);
-            $('#obj_subtitle_' + chart.object_parameters.renderTo).append(chart.subtitle);
+                $('#obj_title_' + chart.object_parameters.renderTo).append(chart[FAOSTATBrowse.lang + '_title']);
+                // $('#obj_title_' + chart.object_parameters.renderTo).append(chart.title);
+                $('#obj_subtitle_' + chart.object_parameters.renderTo).append(chart.subtitle);
 
-            if (chart[FAOSTATBrowse.lang + '_footnote'] != null && chart[FAOSTATBrowse.lang + '_footnote'] != '' ) {
-                $('#obj_footer_' + chart.object_parameters.renderTo).css('display', 'inline-block');
-                $('#obj_footer_' + chart.object_parameters.renderTo).append(chart[FAOSTATBrowse.lang + '_footnote']);
+                if (chart[FAOSTATBrowse.lang + '_footnote'] != null && chart[FAOSTATBrowse.lang + '_footnote'] != '') {
+                    $('#obj_footer_' + chart.object_parameters.renderTo).css('display', 'inline-block');
+                    $('#obj_footer_' + chart.object_parameters.renderTo).append(chart[FAOSTATBrowse.lang + '_footnote']);
+                }
+
+                var suffix = chart.object_parameters.renderTo;
+                // tooltip
+                document.getElementById('obj_export_' + suffix).title = $.i18n.prop('_export');
+                $('#obj_export_' + suffix).powerTip({placement: 's'});
+
+
+                $("#obj_export_" + chart.object_parameters.renderTo).bind('click', function () {
+                    Export.exportPlainData(chart);
+                });
+
+                /** Test WDS */
+                UIBuilderChart.queryDBAndCreateChart(chart);
             }
-
-            var suffix =  chart.object_parameters.renderTo;
-            // tooltip
-            document.getElementById('obj_export_' + suffix).title = $.i18n.prop('_export');
-            $('#obj_export_' + suffix).powerTip({placement: 's'});
-
-
-            $("#obj_export_" + chart.object_parameters.renderTo).bind('click', function() {
-                Export.exportPlainData(chart);
-            });
-
-            /** Test WDS */
-            UIBuilderChart.queryDBAndCreateChart(chart);
 
         },
 

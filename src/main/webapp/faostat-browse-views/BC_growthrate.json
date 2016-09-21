@@ -1,16 +1,16 @@
 {
   "_id":{
-    "$oid":"53995684b55d5880de72fa15"
+    "$oid":"539955b8b55d5880de72fa14"
   },
   "version":"1.0",
   "css":"faostat",
-  "view_id":"BL",
+  "view_id":"BC",
   "date_last_update":null,
   "user":null,
   "abstract":{
-    "E_title":"Commodity Balances > Livestock and Fish Primary Equivalent",
-    "F_title":"Équilibres des produits > Elevage et pêche Equivalent primaire",
-    "S_title":"Equilibrios de los productos > Ganadería y pesca Equivalente primario",
+    "E_title":"Commodity Balances > Crops Primary Equivalent",
+    "F_title":"Équilibres des produits > Cultures Equivalent Primaire",
+    "S_title":"Equilibrios de los productos > Cultivos Equivalente primario",
     "E_subtitle":null,
     "F_subtitle":null,
     "S_subtitle":null
@@ -25,7 +25,7 @@
       "F_help":"Items are...",
       "S_help":"Items are...",
       "keyword":"item",
-      "default_code":"2949",
+      "default_code":"2905",
       "blacklist":[
 
       ],
@@ -60,7 +60,7 @@
             "datatype":"TEXT",
             "column":"DI.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"BC",
             "ins":[
 
             ]
@@ -96,7 +96,7 @@
       "E_help":"n.a.",
       "keyword":"area",
       "sql":{
-        "query":"SELECT A.AreaCode AS Code , A.AreaNameE AS Name  FROM DomainAreaGroupArea AS DA , Area AS A  WHERE DA.DomainCode = 'BL' AND (A.AreaCode = DA.AreaCode OR DA.AreaGroupCode = A.AreaCode) GROUP BY A.AreaCode, A.AreaNameE ORDER BY A.AreaNameE ASC",
+        "query":"SELECT A.AreaCode AS Code , A.AreaName_$LANG AS Name  FROM DomainAreaGroupArea AS DA , Area AS A  WHERE DA.DomainCode = 'BC' AND (A.AreaCode = DA.AreaCode OR DA.AreaGroupCode = A.AreaCode) GROUP BY A.AreaCode, A.AreaName_$LANG ORDER BY A.AreaName_$LANG ASC",
         "limit":null
       },
       "default_code":"3",
@@ -145,7 +145,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"BC",
             "ins":[
 
             ]
@@ -194,7 +194,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"BC",
             "ins":[
 
             ]
@@ -229,9 +229,9 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Import - export trends in selected country",
-      "F_title":"Importation - Les tendances des exportations dans les pays sélectionn",
-      "S_title":"Tendencias de importacin - exportación en el país seleccionado",
+      "E_title":"Import - export trends in slected country",
+      "F_title":"Tendences de l import-export dans le pays selectionné",
+      "S_title":"Importación - exportación, tendencias en el país seleccionado",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
@@ -312,7 +312,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              2905
             ]
           },
           {
@@ -360,7 +360,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              "'BL'"
+              "'BC'"
             ]
           },
           {
@@ -504,7 +504,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              2905
             ]
           },
           {
@@ -522,7 +522,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              "'BL'"
+              "'BC'"
             ]
           },
           {
@@ -742,14 +742,14 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              2905
             ]
           },
           {
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"BC",
             "ins":[
 
             ]
@@ -898,14 +898,14 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              2905
             ]
           },
           {
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"BC",
             "ins":[
 
             ]
@@ -1061,14 +1061,14 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              2905
             ]
           },
           {
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"BC",
             "ins":[
 
             ]
@@ -1224,7 +1224,8 @@
             "ins":[
               5120,
               5141,
-              5153
+              5153,
+              5520
             ]
           },
           {
@@ -1233,7 +1234,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              2905
             ]
           },
           {
@@ -1255,7 +1256,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              "'BL'"
+              "'BC'"
             ]
           },
           {
@@ -1351,7 +1352,7 @@
       "datasource":"faostat",
       "css":"faostat",
       "height":"265px",
-      "width":"$_WIDTH_100",
+      "width":"$_WIDTH_50",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":true,
@@ -1439,7 +1440,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              2905
             ]
           },
           {
@@ -1455,7 +1456,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"BC",
             "ins":[
 
             ]
@@ -1512,7 +1513,7 @@
               2008,
               2009,
               2010,
-              2011,
+              2013,
               2012,
               2013
             ]
@@ -1650,7 +1651,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              2905
             ]
           },
           {
@@ -1666,7 +1667,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"BC",
             "ins":[
 
             ]

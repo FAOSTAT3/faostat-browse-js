@@ -71,7 +71,7 @@ if (!window.UIBuilder) {
             for (var i = 0 ; i < objects.length ; i++) {
                 switch (objects[i].type) {
                     case 'chart' : UIBuilderChart.appendChart(objects[i]); break;
-                    case 'growthrate' : UIBuilderGrowthRate.appendGrowthRateUI(objects[i]); break;
+                    //case 'growthrate' : UIBuilderGrowthRate.appendGrowthRateUI(objects[i]); break;
                     case 'map' :  new UIBuilderMap().createMap(objects[i]); break;
                     case 'table' :  new UIBuilderTable().createTable(objects[i]); break;
                 }

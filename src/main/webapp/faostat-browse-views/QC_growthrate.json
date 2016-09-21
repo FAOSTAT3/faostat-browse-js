@@ -1,16 +1,16 @@
 {
   "_id":{
-    "$oid":"53995684b55d5880de72fa15"
+    "$oid":"546de292b55d5880de72fa83"
   },
   "version":"1.0",
   "css":"faostat",
-  "view_id":"BL",
+  "view_id":"QC",
   "date_last_update":null,
   "user":null,
   "abstract":{
-    "E_title":"Commodity Balances > Livestock and Fish Primary Equivalent",
-    "F_title":"Équilibres des produits > Elevage et pêche Equivalent primaire",
-    "S_title":"Equilibrios de los productos > Ganadería y pesca Equivalente primario",
+    "E_title":"Production > Crops",
+    "F_title":"Production > Cultures",
+    "S_title":"Production > Cultivos",
     "E_subtitle":null,
     "F_subtitle":null,
     "S_subtitle":null
@@ -20,12 +20,12 @@
       "type":"dropdown",
       "E_label":"Items",
       "F_label":"Articles",
-      "S_label":"Ítems",
+      "S_label":"tems",
       "E_help":"Items are...",
       "F_help":"Items are...",
       "S_help":"Items are...",
       "keyword":"item",
-      "default_code":"2949",
+      "default_code":"27",
       "blacklist":[
 
       ],
@@ -60,7 +60,7 @@
             "datatype":"TEXT",
             "column":"DI.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"QC",
             "ins":[
 
             ]
@@ -96,10 +96,10 @@
       "E_help":"n.a.",
       "keyword":"area",
       "sql":{
-        "query":"SELECT A.AreaCode AS Code , A.AreaNameE AS Name  FROM DomainAreaGroupArea AS DA , Area AS A  WHERE DA.DomainCode = 'BL' AND (A.AreaCode = DA.AreaCode OR DA.AreaGroupCode = A.AreaCode) GROUP BY A.AreaCode, A.AreaNameE ORDER BY A.AreaNameE ASC",
+        "query":"SELECT A.AreaCode AS Code , A.AreaName_$LANG AS Name  FROM DomainAreaGroupArea AS DA , Area AS A  WHERE DA.DomainCode = 'QC' AND (A.AreaCode = DA.AreaCode OR DA.AreaGroupCode = A.AreaCode) GROUP BY A.AreaCode, A.AreaName_$LANG ORDER BY A.AreaName_$LANG ASC",
         "limit":null
       },
-      "default_code":"3",
+      "default_code":"2",
       "blacklist":[
 
       ],
@@ -110,11 +110,11 @@
     {
       "type":"dropdown_year",
       "E_label":"From Year",
-      "F_label":"Depuis l'année",
-      "S_label":"Desde el Año",
+      "F_label":"Depuis l'anne",
+      "S_label":"Desde el Ao",
       "E_help":"n.a.",
       "keyword":"fromyear",
-      "default_code":1992,
+      "default_code":1993,
       "blacklist":[
 
       ],
@@ -145,7 +145,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"QC",
             "ins":[
 
             ]
@@ -159,8 +159,8 @@
     {
       "type":"dropdown_year",
       "E_label":"To Year",
-      "F_label":"A l’année",
-      "S_label":"Hasta el año",
+      "F_label":"A lanne",
+      "S_label":"Hasta el ao",
       "E_help":"n.a.",
       "keyword":"toyear",
       "default_code":2013,
@@ -194,7 +194,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"QC",
             "ins":[
 
             ]
@@ -208,8 +208,8 @@
     {
       "type":"dropdown_aggregation",
       "E_label":"Aggregation",
-      "F_label":"Agrégation",
-      "S_label":"Agregación",
+      "F_label":"Agrgation",
+      "S_label":"Agregacin",
       "E_help":"n.a.",
       "rest":"/faostat-browse-dbms/rest/nosql/get/aggregation",
       "keyword":"aggregation",
@@ -218,6 +218,181 @@
     }
   ],
   "objects":[
+    {
+      "type":"map",
+      "datasource":"faostat",
+      "css":"faostat",
+      "height":"290px",
+      "width":"$_WIDTH_100",
+      "item_onchange":true,
+      "element_onchange":true,
+      "area_onchange":true,
+      "year_onchange":true,
+      "aggregation_onchange\"":true,
+      "E_title": "Production quantities by country",
+      "S_title": "Cantidades de producción por país",
+      "F_title": "Quantités de Production par pays",
+      "subtitle":"",
+      "E_subtitle":"$_AGG $_DATE",
+      "S_subtitle":"$_AGG $_DATE",
+      "F_subtitle":"$_AGG $_DATE",
+      "date_default_label":"1993 - 2013",
+      "E_footnote": "<div style='color:#666'><i>The designations employed and the presentation of material in the maps do not imply the expression of any opinion whatsoever on the part of FAO concerning the legal or constitutional status of any country, territory or sea area, or concerning the delimitation of frontiers.<br>South Sudan declared its independence on July 9, 2011. Due to data availability, the assessment presented in the map for Sudan and South Sudan reflects the situation up to 2011 for the former Sudan.</i></div>",
+      "F_footnote": "<div style='color:#666'><i>Les appellations employées et la présentation des données sur la carte n'impliquent de la part de la FAO aucune prise de position quant au statut juridique ou constitutionnel des pays, territoires ou zones maritimes, ni quant au tracé de leurs frontières ou limites. Le Soudan du Sud a déclaré son indépendance le 9 Juillet 2011. Pour des raisons de disponibilité des données, l’évaluation montrée sur la carte à la fois pour le Soudan et le Soudan du Sud, refléte la situation comme elle l’etait jusqu’en 2011 pour l’ex Soudan.</i></div>",
+      "S_footnote": "<div style='color:#666'><i>Las denominaciones empleadas en los mapas y la forma en que aparecen presentados los datos no implican, por parte de la FAO, juicio alguno sobre la condición jurídica de países, territorios o zonas marítimas, ni respecto de la delimitación de sus fronteras. Sudán del Sur declaró su independencia el 9 de julio de 2011. Debido a la disponibilidad de datos, la evaluación presentada en el mapa para Sudán y Sudán del Sur refleja la situación hasta el año 2011 para la antigua Sudán.</i></div>",
+      "sql":{
+        "selects":[
+          {
+            "aggregation":null,
+            "column":"D.AreaCode",
+            "alias":"AreaCode"
+          },
+          {
+            "aggregation":null,
+            "column":"A.AreaName_$LANG",
+            "alias":"AreaName"
+          },
+          {
+            "aggregation":"AVG",
+            "column":"D.Value",
+            "alias":"Value"
+          },
+          {
+            "aggregation":null,
+            "column":"E.UnitName_$LANG",
+            "alias":"mu"
+          }
+        ],
+        "froms":[
+          {
+            "column":"Data",
+            "alias":"D"
+          },
+          {
+            "column":"Element",
+            "alias":"E"
+          },
+          {
+            "column":"Area",
+            "alias":"A"
+          }
+        ],
+        "wheres":[
+          {
+            "datatype":"DATE",
+            "column":"D.ElementListCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              2510
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              27
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              "'QC'"
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.YEAR",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              2013,
+              2012,
+              2011,
+              2010,
+              2009,
+              2008,
+              2007,
+              2006,
+              2005,
+              2004,
+              2003,
+              2002,
+              2001,
+              2000,
+              1999,
+              1998,
+              1997,
+              1996,
+              1995,
+              1994,
+              1993
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"=",
+            "value":"A.AreaCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"A.AreaLevel",
+            "operator":"=",
+            "value":"5",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.Value",
+            "operator":"!=",
+            "value":"0",
+            "ins":[
+
+            ]
+          }
+        ],
+        "groupBys":[
+          {
+            "column":"D.AreaCode"
+          },
+          {
+            "column":"A.AreaName_$LANG"
+          },
+          {
+            "column":"E.UnitName_$LANG"
+          }
+        ],
+        "limit":null,
+        "query":null,
+        "frequency":null
+      },
+      "object_parameters":{
+        "renderTo":"map_0"
+      },
+      "export_parameters":{
+
+      }
+    },
     {
       "type":"chart",
       "datasource":"faostat",
@@ -229,13 +404,13 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Import - export trends in selected country",
-      "F_title":"Importation - Les tendances des exportations dans les pays sélectionn",
-      "S_title":"Tendencias de importacin - exportación en el país seleccionado",
+      "E_title": "Production of commodity in selected country",
+      "F_title": "Production de produits dans le pays sélectionné",
+      "S_title": "Producción de producto en el país seleccionado",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"1992 - 2013",
+      "date_default_label":"1993 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -267,7 +442,7 @@
           },
           {
             "aggregation":"NONE",
-            "column":"E.ElementName_$LANG",
+            "column":"A.AreaName_$LANG",
             "alias":"Area"
           },
           {
@@ -298,12 +473,11 @@
         "wheres":[
           {
             "datatype":"DATE",
-            "column":"D.ElementCode",
+            "column":"D.ElementListCode",
             "operator":"IN",
             "value":null,
             "ins":[
-              5610,
-              5910
+              2510
             ]
           },
           {
@@ -312,7 +486,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              27
             ]
           },
           {
@@ -321,7 +495,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              3
+              2
             ]
           },
           {
@@ -330,7 +504,6 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1992,
               1993,
               1994,
               1995,
@@ -357,10 +530,10 @@
           {
             "datatype":"TEXT",
             "column":"D.DomainCode",
-            "operator":"IN",
-            "value":null,
+            "operator":"=",
+            "value":"QC",
             "ins":[
-              "'BL'"
+
             ]
           },
           {
@@ -387,7 +560,7 @@
             "column":"D.Year"
           },
           {
-            "column":"E.ElementName_$LANG"
+            "column":"A.AreaName_$LANG"
           },
           {
             "column":"E.UnitName_$LANG"
@@ -395,7 +568,7 @@
         ],
         "orderBys":[
           {
-            "column":"E.ElementName_$LANG",
+            "column":"A.AreaName_$LANG",
             "direction":"ASC"
           },
           {
@@ -413,25 +586,25 @@
       "datasource":"faostat",
       "css":"faostat",
       "height":"265px",
-      "width":"$_WIDTH_50",
+      "width":"$_WIDTH_100",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Feed, food, other util, waste in selected country",
-      "F_title":"Alimentation, aliments pour animaux, autres utilisations, pertes par regions",
-      "S_title":"Pienso, alimentos, otra utilidad, desperdicio en el país seleccionado",
-      "E_subtitle":"$_AGG $_DATE",
-      "S_subtitle":"$_AGG $_DATE",
-      "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1992 - 2013",
+      "E_title": "Yield of commodity in selected country",
+      "F_title": "Rendement de produits dans le pays sélectionné",
+      "S_title": "Rendimiento de producto en el país seleccionado",
+      "E_subtitle":"$_DATE",
+      "S_subtitle":"$_DATE",
+      "F_subtitle":"$_DATE",
+      "date_default_label":"1993 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
         "engine":"highcharts",
-        "keyword":"FAOSTAT_DEFAULT_BAR",
-        "renderTo":"chart_3",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_TIMESERIES_LINE",
+        "renderTo":"chart_0",
         "title":"",
         "credits":"M = Million, k = Thousand",
         "yaxis":{
@@ -439,6 +612,10 @@
           "max":null,
           "tickInterval":null,
           "title":null
+        },
+        "xaxis":{
+          "rotation":-45,
+          "fontSize":"9px"
         }
       },
       "export_parameters":{
@@ -448,13 +625,13 @@
         "selects":[
           {
             "aggregation":"NONE",
-            "column":"A.AreaName_$LANG",
+            "column":"D.Year",
             "alias":"Year"
           },
           {
             "aggregation":"NONE",
-            "column":"E.ElementName_$LANG",
-            "alias":"Item"
+            "column":"A.AreaName_$LANG",
+            "alias":"Area"
           },
           {
             "aggregation":"AVG",
@@ -477,10 +654,6 @@
             "alias":"A"
           },
           {
-            "column":"Item",
-            "alias":"I"
-          },
-          {
             "column":"Element",
             "alias":"E"
           }
@@ -488,14 +661,11 @@
         "wheres":[
           {
             "datatype":"DATE",
-            "column":"D.ElementCode",
+            "column":"D.ElementListCode",
             "operator":"IN",
             "value":null,
             "ins":[
-              5120,
-              5141,
-              5153,
-              5520
+              2413
             ]
           },
           {
@@ -504,52 +674,16 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"A.AreaCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              3
-            ]
-          },
-          {
-            "datatype":"TEXT",
-            "column":"D.DomainCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              "'BL'"
+              27
             ]
           },
           {
             "datatype":"DATE",
             "column":"D.AreaCode",
-            "operator":"=",
-            "value":"A.AreaCode",
+            "operator":"IN",
+            "value":null,
             "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ItemCode",
-            "operator":"=",
-            "value":"I.ItemCode",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ElementCode",
-            "operator":"=",
-            "value":"E.ElementCode",
-            "ins":[
-
+              2
             ]
           },
           {
@@ -558,7 +692,6 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1992,
               1993,
               1994,
               1995,
@@ -581,14 +714,41 @@
               2012,
               2013
             ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
+            "operator":"=",
+            "value":"QC",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"=",
+            "value":"A.AreaCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
+            "ins":[
+
+            ]
           }
         ],
         "groupBys":[
           {
-            "column":"A.AreaName_$LANG"
+            "column":"D.Year"
           },
           {
-            "column":"E.ElementName_$LANG"
+            "column":"A.AreaName_$LANG"
           },
           {
             "column":"E.UnitName_$LANG"
@@ -600,12 +760,8 @@
             "direction":"ASC"
           },
           {
-            "column":"E.ElementName_$LANG",
+            "column":"D.Year",
             "direction":"ASC"
-          },
-          {
-            "column":"AVG(D.Value)",
-            "direction":"DESC"
           }
         ],
         "limit":null,
@@ -617,29 +773,29 @@
       "type":"chart",
       "datasource":"faostat",
       "css":"faostat",
-      "height":"265px",
-      "width":"$_WIDTH_50",
+      "height":"220px",
+      "width":"$_WIDTH_100",
       "item_onchange":true,
       "element_onchange":false,
-      "area_onchange":false,
-      "year_onchange":false,
+      "area_onchange":true,
+      "year_onchange":true,
       "aggregation_onchange":false,
-      "E_title":"Growth rate by region",
-      "S_title":"aux de croissance par région",
-      "F_title":"Tasa de crecimiento por región",
+      "E_title" : "Annual growth rates by selected country",
+      "S_title" : "Tasas anuales de crecimiento en el país seleccionado",
+      "F_title" : "Taux de croissance annuel dans le pays sélectionné",
       "subtitle":"",
       "E_subtitle":"$_DATE",
       "S_subtitle":"$_DATE",
       "F_subtitle":"$_DATE",
-      "date_default_label":"2000 - 2013",
-      "E_footnote":"<div style='color:#666'><i>Growth rate calculated based on the Least-Squares method</i></div>",
-      "F_footnote":"<div style='color:#666'><i>Taux de croissance calculé avec  la méthode des moindres carrés</i></div>",
-      "S_footnote":"<div style='color:#666'><i>Tasa de crecimiento calculada basándose en el método de mínimos cuadrados</i></div>",
+      "date_default_label":"2003 - 2013",
+      "E_footnote": "<div style='color:#666'><i>Growth rate calculated based on the Least-Squares method</i></div>",
+      "F_footnote": "<div style='color:#666'><i>Taux de croissance calculé avec  la méthode des moindres carrés</i></div>",
+      "S_footnote": "<div style='color:#666'><i>Tasa de crecimiento calculada basándose en el método de mínimos cuadrados</i></div>",
       "object_parameters":{
         "series_name":"Production",
         "engine":"highcharts",
         "keyword":"FAOSTAT_DEFAULT_GROWTHRATE",
-        "renderTo":"gr_12",
+        "renderTo":"gr_0",
         "title":"",
         "credits":"",
         "yaxis":{
@@ -696,12 +852,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              5100,
-              5200,
-              5300,
-              5400,
-              5500,
-              5000
+              2
             ]
           },
           {
@@ -710,9 +861,6 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2000,
-              2001,
-              2002,
               2003,
               2004,
               2005,
@@ -728,12 +876,13 @@
           },
           {
             "datatype":"DATE",
-            "column":"D.ElementCode",
+            "column":"D.ElementListCode",
             "operator":"IN",
             "value":null,
             "ins":[
-              5610,
-              5910
+              2510,
+              2312,
+              2413
             ]
           },
           {
@@ -742,16 +891,16 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              1717
             ]
           },
           {
             "datatype":"TEXT",
             "column":"D.DomainCode",
-            "operator":"=",
-            "value":"BL",
+            "operator":"IN",
+            "value":null,
             "ins":[
-
+              "'QC'"
             ]
           },
           {
@@ -768,6 +917,15 @@
             "column":"D.ElementListCode",
             "operator":"=",
             "value":"E.ElementListCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
             "ins":[
 
             ]
@@ -823,13 +981,13 @@
       "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Exports by region",
-      "F_title":"Exportations par régions",
-      "S_title":"Exportaciones por región",
+      "E_title": "Production share by region",
+      "F_title": "Part de la production par région",
+      "S_title": "Proporción de producción por región",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1992 - 2013",
+      "date_default_label":"1993 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -872,11 +1030,11 @@
         "wheres":[
           {
             "datatype":"DATE",
-            "column":"D.ElementCode",
+            "column":"D.ElementListCode",
             "operator":"IN",
             "value":null,
             "ins":[
-              5910
+              2510
             ]
           },
           {
@@ -898,14 +1056,14 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              27
             ]
           },
           {
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"QC",
             "ins":[
 
             ]
@@ -921,20 +1079,10 @@
           },
           {
             "datatype":"DATE",
-            "column":"D.ItemCode",
-            "operator":"=",
-            "value":"I.ItemCode",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
             "column":"D.Year",
             "operator":"IN",
             "value":null,
             "ins":[
-              1992,
               1993,
               1994,
               1995,
@@ -956,6 +1104,15 @@
               2011,
               2012,
               2013
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"=",
+            "value":"I.ItemCode",
+            "ins":[
+
             ]
           }
         ],
@@ -981,187 +1138,24 @@
       "css":"faostat",
       "height":"265px",
       "width":"$_WIDTH_100",
-      "item_onchange":true,
-      "element_onchange":true,
-      "area_onchange":false,
-      "year_onchange":true,
-      "aggregation_onchange":true,
-      "E_title":"Imports by region",
-      "F_title":"Importations par régions",
-      "S_title":"Importaciones por región",
-      "E_subtitle":"$_AGG $_DATE",
-      "S_subtitle":"$_AGG $_DATE",
-      "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1992 - 2013",
-      "E_footnote":null,
-      "object_parameters":{
-        "series_name":null,
-        "engine":"highcharts",
-        "keyword":"FAOSTAT_DEFAULT_PIE",
-        "renderTo":"chart_1",
-        "title":null,
-        "credits":""
-      },
-      "export_parameters":{
-
-      },
-      "sql":{
-        "selects":[
-          {
-            "aggregation":"AVG",
-            "column":"D.Value",
-            "alias":"Value"
-          },
-          {
-            "aggregation":"NONE",
-            "column":"A.AreaName_$LANG",
-            "alias":"Area"
-          }
-        ],
-        "froms":[
-          {
-            "column":"Data",
-            "alias":"D"
-          },
-          {
-            "column":"Area",
-            "alias":"A"
-          },
-          {
-            "column":"Item",
-            "alias":"I"
-          }
-        ],
-        "wheres":[
-          {
-            "datatype":"DATE",
-            "column":"D.ElementCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5610
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5100,
-              5200,
-              5300,
-              5400,
-              5500
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"I.ItemCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              2949
-            ]
-          },
-          {
-            "datatype":"TEXT",
-            "column":"D.DomainCode",
-            "operator":"=",
-            "value":"BL",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.AreaCode",
-            "operator":"=",
-            "value":"A.AreaCode",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ItemCode",
-            "operator":"=",
-            "value":"I.ItemCode",
-            "ins":[
-
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.Year",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              1992,
-              1993,
-              1994,
-              1995,
-              1996,
-              1997,
-              1998,
-              1999,
-              2000,
-              2001,
-              2002,
-              2003,
-              2004,
-              2005,
-              2006,
-              2007,
-              2008,
-              2009,
-              2010,
-              2011,
-              2012,
-              2013
-            ]
-          }
-        ],
-        "groupBys":[
-          {
-            "column":"A.AreaName_$LANG"
-          }
-        ],
-        "orderBys":[
-          {
-            "column":"A.AreaName_$LANG",
-            "direction":"ASC"
-          }
-        ],
-        "limit":null,
-        "query":null,
-        "frequency":null
-      }
-    },
-    {
-      "type":"chart",
-      "datasource":"faostat",
-      "css":"faostat",
-      "height":"265px",
-      "width":"$_WIDTH_100",
-      "item_onchange":true,
+      "item_onchange":false,
       "element_onchange":true,
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Feed, food, other util, waste by region",
-      "F_title":"Alimentation, aliments pour animaux, autres utilisations, pertes par régions",
-      "S_title":"Pienso, alimentos, otra utilidad, desperdicio por región",
+      "E_title": "Most produced commodities in selected country",
+      "F_title": "Produits lrd plud fabriqués dans le pays sélectionné",
+      "S_title": "Productos más producidos en el país seleccionado",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1992 - 2013",
+      "date_default_label":"1993 - 2013",
       "E_footnote":null,
       "object_parameters":{
-        "series_name":null,
+        "series_name":"Production",
         "engine":"highcharts",
-        "keyword":"FAOSTAT_DEFAULT_BAR",
-        "renderTo":"chart_3",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_BAR",
+        "renderTo":"chart_2",
         "title":"",
         "credits":"M = Million, k = Thousand",
         "yaxis":{
@@ -1178,13 +1172,13 @@
         "selects":[
           {
             "aggregation":"NONE",
-            "column":"A.AreaName_$LANG",
-            "alias":"Year"
+            "column":"I.ItemName_$LANG",
+            "alias":"Item"
           },
           {
             "aggregation":"NONE",
             "column":"E.ElementName_$LANG",
-            "alias":"Item"
+            "alias":"Element"
           },
           {
             "aggregation":"AVG",
@@ -1203,10 +1197,6 @@
             "alias":"D"
           },
           {
-            "column":"Area",
-            "alias":"A"
-          },
-          {
             "column":"Item",
             "alias":"I"
           },
@@ -1222,47 +1212,61 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              5120,
-              5141,
-              5153
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.ItemCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              2949
-            ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"A.AreaCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5100,
-              5200,
-              5300,
-              5400,
-              5500
-            ]
-          },
-          {
-            "datatype":"TEXT",
-            "column":"D.DomainCode",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              "'BL'"
+              5510
             ]
           },
           {
             "datatype":"DATE",
             "column":"D.AreaCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              2
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"I.ItemLevel",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              5
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.Year",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              1993,
+              1994,
+              1995,
+              1996,
+              1997,
+              1998,
+              1999,
+              2000,
+              2001,
+              2002,
+              2003,
+              2004,
+              2005,
+              2006,
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
             "operator":"=",
-            "value":"A.AreaCode",
+            "value":"QC",
             "ins":[
 
             ]
@@ -1284,41 +1288,11 @@
             "ins":[
 
             ]
-          },
-          {
-            "datatype":"DATE",
-            "column":"D.Year",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              1992,
-              1993,
-              1994,
-              1995,
-              1996,
-              1997,
-              1998,
-              1999,
-              2000,
-              2001,
-              2002,
-              2003,
-              2004,
-              2005,
-              2006,
-              2007,
-              2008,
-              2009,
-              2010,
-              2011,
-              2012,
-              2013
-            ]
           }
         ],
         "groupBys":[
           {
-            "column":"A.AreaName_$LANG"
+            "column":"I.ItemName_$LANG"
           },
           {
             "column":"E.ElementName_$LANG"
@@ -1329,19 +1303,11 @@
         ],
         "orderBys":[
           {
-            "column":"A.AreaName_$LANG",
-            "direction":"ASC"
-          },
-          {
-            "column":"E.ElementName_$LANG",
-            "direction":"ASC"
-          },
-          {
             "column":"AVG(D.Value)",
             "direction":"DESC"
           }
         ],
-        "limit":null,
+        "limit":5,
         "query":null,
         "frequency":null
       }
@@ -1354,16 +1320,16 @@
       "width":"$_WIDTH_100",
       "item_onchange":true,
       "element_onchange":true,
-      "area_onchange":true,
+      "area_onchange":false,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Exports of top 5 exporters",
-      "F_title":"Les exportations des 5 meilleurs exportateurs",
-      "S_title":"Exportaciones de los 5 principales exportadores",
+      "E_title": "Production of top 5 producers",
+      "F_title": "Production du top 5 des producteurs",
+      "S_title": "Producción de los 5 principales productores",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1992 - 2013",
+      "date_default_label":"1993 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
@@ -1426,11 +1392,11 @@
         "wheres":[
           {
             "datatype":"DATE",
-            "column":"D.ElementCode",
+            "column":"D.ElementListCode",
             "operator":"IN",
             "value":null,
             "ins":[
-              5910
+              2510
             ]
           },
           {
@@ -1439,7 +1405,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              27
             ]
           },
           {
@@ -1455,7 +1421,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"QC",
             "ins":[
 
             ]
@@ -1493,7 +1459,6 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1992,
               1993,
               1994,
               1995,
@@ -1568,19 +1533,19 @@
       "area_onchange":true,
       "year_onchange":true,
       "aggregation_onchange":true,
-      "E_title":"Imports of top 5 exporters",
-      "F_title":"Importations des 5 meilleurs exportateurs",
-      "S_title":"Importaciones de los 5 principales exportadores",
+      "E_title": "Countries delivering the 5 highest yields",
+      "F_title": "Les pays offrant les 5 plus hauts rendements",
+      "S_title": "Países entregando los 5 mayores rendimientos",
       "E_subtitle":"$_AGG $_DATE",
       "S_subtitle":"$_AGG $_DATE",
       "F_subtitle":"$_AGG $_DATE",
-      "date_default_label":"1992 - 2013",
+      "date_default_label":"1993 - 2013",
       "E_footnote":null,
       "object_parameters":{
         "series_name":null,
         "engine":"highcharts",
         "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_BAR",
-        "renderTo":"chart_3",
+        "renderTo":"chart_5",
         "title":"",
         "credits":"M = Million, k = Thousand",
         "yaxis":{
@@ -1641,7 +1606,7 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              5610
+              5419
             ]
           },
           {
@@ -1650,7 +1615,217 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              2949
+              27
+            ]
+          },
+          {
+            "datatype":"TEXT",
+            "column":"D.DomainCode",
+            "operator":"=",
+            "value":"QC",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"=",
+            "value":"A.AreaCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"A.AreaLevel",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              5
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"=",
+            "value":"I.ItemCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"=",
+            "value":"E.ElementCode",
+            "ins":[
+
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.Year",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              1993,
+              1994,
+              1995,
+              1996,
+              1997,
+              1998,
+              1999,
+              2000,
+              2001,
+              2002,
+              2003,
+              2004,
+              2005,
+              2006,
+              2007,
+              2008,
+              2009,
+              2010,
+              2011,
+              2012,
+              2013
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.AreaCode",
+            "operator":"NOTIN",
+            "value":null,
+            "ins":[
+              96,
+              128,
+              214,
+              357,
+              351,
+              265,
+              261,
+              266,
+              268
+            ]
+          }
+        ],
+        "groupBys":[
+          {
+            "column":"A.AreaName_$LANG"
+          },
+          {
+            "column":"I.ItemName_$LANG"
+          },
+          {
+            "column":"E.UnitName_$LANG"
+          }
+        ],
+        "orderBys":[
+          {
+            "column":"AVG(D.Value)",
+            "direction":"DESC"
+          }
+        ],
+        "limit":"5",
+        "query":null,
+        "frequency":null
+      }
+    },
+    {
+      "type":"chart",
+      "datasource":"faostat",
+      "css":"faostat",
+      "height":"265px",
+      "width":"$_WIDTH_50",
+      "item_onchange":true,
+      "element_onchange":true,
+      "area_onchange":true,
+      "year_onchange":true,
+      "aggregation_onchange":true,
+      "E_title":"Top 5 seeds producers",
+      "F_title":"Top 5 des producteurs de semences",
+      "S_title":"5 principales productores de semillas",
+      "E_subtitle":"$_AGG $_DATE",
+      "S_subtitle":"$_AGG $_DATE",
+      "F_subtitle":"$_AGG $_DATE",
+      "date_default_label":"1993 - 2013",
+      "E_footnote":null,
+      "object_parameters":{
+        "series_name":null,
+        "engine":"highcharts",
+        "keyword":"FAOSTAT_DEFAULT_DOUBLE_AXES_BAR",
+        "renderTo":"chart_6",
+        "title":"",
+        "credits":"M = Million, k = Thousand",
+        "yaxis":{
+          "min":null,
+          "max":null,
+          "tickInterval":null,
+          "title":null
+        }
+      },
+      "export_parameters":{
+
+      },
+      "sql":{
+        "selects":[
+          {
+            "aggregation":"NONE",
+            "column":"A.AreaName_$LANG",
+            "alias":"Year"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"I.ItemName_$LANG",
+            "alias":"Item"
+          },
+          {
+            "aggregation":"AVG",
+            "column":"D.Value",
+            "alias":"Value"
+          },
+          {
+            "aggregation":"NONE",
+            "column":"E.UnitName_$LANG",
+            "alias":"Unit"
+          }
+        ],
+        "froms":[
+          {
+            "column":"Data",
+            "alias":"D"
+          },
+          {
+            "column":"Area",
+            "alias":"A"
+          },
+          {
+            "column":"Item",
+            "alias":"I"
+          },
+          {
+            "column":"Element",
+            "alias":"E"
+          }
+        ],
+        "wheres":[
+          {
+            "datatype":"DATE",
+            "column":"D.ElementCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              5525
+            ]
+          },
+          {
+            "datatype":"DATE",
+            "column":"D.ItemCode",
+            "operator":"IN",
+            "value":null,
+            "ins":[
+              27
             ]
           },
           {
@@ -1666,7 +1841,7 @@
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"=",
-            "value":"BL",
+            "value":"QC",
             "ins":[
 
             ]
@@ -1704,7 +1879,6 @@
             "operator":"IN",
             "value":null,
             "ins":[
-              1992,
               1993,
               1994,
               1995,

@@ -1351,7 +1351,7 @@
       "datasource":"faostat",
       "css":"faostat",
       "height":"265px",
-      "width":"$_WIDTH_100",
+      "width":"$_WIDTH_50",
       "item_onchange":true,
       "element_onchange":true,
       "area_onchange":true,
