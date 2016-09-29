@@ -591,15 +591,6 @@
             ]
           },
           {
-            "datatype":"DATE",
-            "column":"I.ItemLevel",
-            "operator":"IN",
-            "value":null,
-            "ins":[
-              5
-            ]
-          },
-          {
             "datatype":"TEXT",
             "column":"D.DomainCode",
             "operator":"IN",
